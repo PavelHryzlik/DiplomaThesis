@@ -1,0 +1,19 @@
+{
+  "@context" : "http://tiny.cc/open-contracting_context",
+  
+  "@id" : "http://rsmluv.cz/contract/42/1",
+  "@type" : "Contract",
+  "title": "Softwarová zakázka",     
+  "party" : {
+
+    "@id" : "http://rsmluv.cz/party/420",
+    "@type" : "Party",
+    "name" : "Magistrát HMP",
+    "address" : {
+        
+        "@id" : "http://rsmluv.cz/party/420/address",
+        "@type" : "Address",
+        "streetAddress" : "Staroměstské nám. 4"      
+    }
+  }     
+}

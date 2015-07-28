@@ -1,0 +1,11 @@
+{
+  "title": "Softwarová zakázka",     
+  "party" : {
+
+    "name" : "Magistrát HMP",
+    "address" : {
+        
+        "streetAddress" : "Staroměstské nám. 4"      
+    }
+  }     
+}

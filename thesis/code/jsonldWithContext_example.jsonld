@@ -1,0 +1,34 @@
+{
+  "@context": {
+  
+    "cn": "http://tiny.cc/open-contracting#",
+    "dc": "http://purl.org/dc/terms/",
+    "gr": "http://purl.org/goodrelations/v1#",
+    "s": "http://schema.org/",
+
+    "Contract" : "cn:Contract",
+    "Party" : "gr:BusinessEntity",
+    "Address" : "s:PostalAddress",
+    "title" : "dc:title",
+    "party" : "cn:party",
+    "name" : "gr:legalName",       
+    "address" : "s:address",
+    "streetAddress" : "s:streetAddres"
+  },
+  
+  "@id" : "http://rsmluv.cz/contract/42/1",
+  "@type" : "Contract",
+  "title": "Softwarová zakázka",     
+  "party" : {
+
+    "@id" : "http://rsmluv.cz/party/420",
+    "@type" : "Party",
+    "name" : "Magistrát HMP",
+    "address" : {
+        
+        "@id" : "http://rsmluv.cz/party/420/address",
+        "@type" : "Address",
+        "streetAddress" : "Staroměstské nám. 4"      
+    }
+  }     
+}

@@ -1,0 +1,364 @@
+%%% Hlavní soubor. Zde se definují základní parametry a odkazuje se na ostatní části. %%%
+
+%% Verze pro jednostranný tisk:
+% Okraje: levý 40mm, pravý 25mm, horní a dolní 25mm
+% (ale pozor, LaTeX si sám přidává 1in)
+\documentclass[12pt,a4paper]{report}
+\setlength\textwidth{145mm}
+\setlength\textheight{247mm}
+\setlength\oddsidemargin{15mm}
+\setlength\evensidemargin{15mm}
+\setlength\topmargin{0mm}
+\setlength\headsep{0mm}
+\setlength\headheight{0mm}
+% \openright zařídí, aby následující text začínal na pravé straně knihy
+\let\openright=\clearpage
+
+%% Pokud tiskneme oboustranně:
+% \documentclass[12pt,a4paper,twoside,openright]{report}
+% \setlength\textwidth{145mm}
+% \setlength\textheight{247mm}
+% \setlength\oddsidemargin{15mm}
+% \setlength\evensidemargin{0mm}
+% \setlength\topmargin{0mm}
+% \setlength\headsep{0mm}
+% \setlength\headheight{0mm}
+% \let\openright=\cleardoublepage
+
+%% Pokud používáte csLaTeX (doporučeno):
+\usepackage{czech}
+%% Pokud nikoliv:
+%\usepackage[czech]{babel}
+%\usepackage[T1]{fontenc}
+
+%% Použité kódování znaků: obvykle latin2, cp1250 nebo utf8:
+\usepackage[utf8]{inputenc}
+
+%% Ostatní balíčky
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+\usepackage{listings}
+\renewcommand\lstlistingname{Výpis kódu} % předefinování nadpisu
+\renewcommand\lstlistlistingname{Výpisy kódu} % předefinování nadpisu v obsahu
+
+\usepackage[table]{xcolor}
+\usepackage{color}
+\usepackage{xcolor,colortbl}
+\usepackage{caption}
+\usepackage{courier}
+
+\usepackage{longtable}
+\setlength{\LTpre}{-10pt}
+\setlength{\LTpost}{-15pt}
+
+\usepackage{floatrow}
+\floatsetup[table]{font=footnotesize}
+\floatsetup[longtable]{font=footnotesize}
+\renewcommand{\arraystretch}{1.5}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\definecolor{oceanboatblue}{rgb}{0.0, 0.47, 0.75}
+
+\definecolor{validateA}{rgb}{0.87, 0.94, 0.84}
+\definecolor{validateB}{rgb}{0.85, 0.92, 0.96}
+\definecolor{validateC}{rgb}{0.94, 0.87, 0.87}
+\definecolor{validateS}{rgb}{0.98, 0.97, 0.89}
+
+\lstset{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codegreen},
+    identifierstyle=\color{oceanboatblue},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    inputencoding=utf8,
+    literate=%
+    {á}{{\'a}}1
+    {č}{{\v{c}}}1
+    {ď}{{\v{d}}}1
+    {é}{{\'e}}1
+    {ě}{{\v{e}}}1
+    {í}{{\'i}}1
+    {ň}{{\v{n}}}1
+    {ó}{{\'o}}1
+    {ř}{{\v{r}}}1
+    {š}{{\v{s}}}1
+    {ť}{{\v{t}}}1
+    {ú}{{\'u}}1
+    {ů}{{\r{u}}}1
+    {ý}{{\'y}}1
+    {ž}{{\v{z}}}1
+    {Á}{{\'A}}1
+    {Č}{{\v{C}}}1
+    {Ď}{{\v{D}}}1
+    {É}{{\'E}}1
+    {Ě}{{\v{E}}}1
+    {Í}{{\'I}}1
+    {Ň}{{\v{N}}}1
+    {Ó}{{\'O}}1
+    {Ř}{{\v{R}}}1
+    {Š}{{\v{S}}}1
+    {Ť}{{\v{T}}}1
+    {Ú}{{\'U}}1
+    {Ů}{{\r{U}}}1
+    {Ý}{{\'Y}}1
+    {Ž}{{\v{Z}}}1
+}
+
+%Pretty listing caption
+%\DeclareCaptionFont{white}{\color{white}}
+%\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+%\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\captionsetup{justification=centering}
+
+%\usepackage[dvipdfmx]{graphicx}
+%\usepackage{epstopdf}
+
+%% Balíček hyperref, kterým jdou vyrábět klikací odkazy v PDF,
+%% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
+%% POZOR, nezapomeňte vyplnit jméno práce a autora.
+\usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
+\hypersetup{pdftitle=Název práce}
+\hypersetup{pdfauthor=Jméno Příjmení}
+
+%%% Drobné úpravy stylu
+
+% Tato makra přesvědčují mírně ošklivým trikem LaTeX, aby hlavičky kapitol
+% sázel příčetněji a nevynechával nad nimi spoustu místa. Směle ignorujte.
+\makeatletter
+\def\@makechapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries \thechapter. #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\def\@makeschapterhead#1{
+  {\parindent \z@ \raggedright \normalfont
+   \Huge\bfseries #1
+   \par\nobreak
+   \vskip 20\p@
+}}
+\makeatother
+
+% Toto makro definuje kapitolu, která není očíslovaná, ale je uvedena v obsahu.
+\def\chapwithtoc#1{
+\chapter*{#1}
+\addcontentsline{toc}{chapter}{#1}
+}
+
+\begin{document}
+
+% Trochu volnější nastavení dělení slov, než je default.
+\lefthyphenmin=2
+\righthyphenmin=2
+
+%%% Titulní strana práce
+
+\pagestyle{empty}
+\begin{center}
+
+\large
+
+Univerzita Karlova v Praze
+
+\medskip
+
+Matematicko-fyzikální fakulta
+
+\vfill
+
+{\bf\Large DIPLOMOVÁ PRÁCE}
+
+\vfill
+
+\centerline{\mbox{\includegraphics[width=60mm]{img/logo.eps}}}
+
+\vfill
+\vspace{5mm}
+
+{\LARGE Bc. Pavel Hryzlík}
+
+\vspace{15mm}
+
+% Název práce přesně podle zadání
+{\LARGE\bfseries Využití Linked Data pro sdílení dat o smlouvách veřejných institucí}
+
+\vfill
+
+% Název katedry nebo ústavu, kde byla práce oficiálně zadána
+% (dle Organizační struktury MFF UK)
+Katedra softwarového inženýrství
+
+\vfill
+
+\begin{tabular}{rl}
+
+Vedoucí diplomové práce: & Doc. Mgr. Martin Nečaský, Ph.D. \\
+\noalign{\vspace{2mm}}
+Studijní program: & Informatika \\
+\noalign{\vspace{2mm}}
+Studijní obor: & I2 Softwarové systémy \\
+\end{tabular}
+
+\vfill
+
+% Zde doplňte rok
+Praha 2015
+
+\end{center}
+
+\newpage
+
+%%% Následuje vevázaný list -- kopie podepsaného "Zadání diplomové práce".
+%%% Toto zadání NENÍ součástí elektronické verze práce, nescanovat.
+
+%%% Na tomto místě mohou být napsána případná poděkování (vedoucímu práce,
+%%% konzultantovi, tomu, kdo zapůjčil software, literaturu apod.)
+
+\openright
+
+\noindent
+Poděkování.
+
+\newpage
+
+%%% Strana s čestným prohlášením k diplomové práci
+
+\vglue 0pt plus 1fill
+
+\noindent
+Prohlašuji, že jsem tuto diplomovou práci vypracoval(a) samostatně a výhradně
+s~použitím citovaných pramenů, literatury a dalších odborných zdrojů.
+
+\medskip\noindent
+Beru na~vědomí, že se na moji práci vztahují práva a povinnosti vyplývající
+ze zákona č. 121/2000 Sb., autorského zákona v~platném znění, zejména skutečnost,
+že Univerzita Karlova v Praze má právo na~uzavření licenční smlouvy o~užití této
+práce jako školního díla podle §60 odst. 1 autorského zákona.
+
+\vspace{10mm}
+
+\hbox{\hbox to 0.5\hsize{%
+V ........ dne ............
+\hss}\hbox to 0.5\hsize{%
+Podpis autora
+\hss}}
+
+\vspace{20mm}
+\newpage
+
+%%% Povinná informační strana diplomové práce
+
+\vbox to 0.5\vsize{
+\setlength\parindent{0mm}
+\setlength\parskip{5mm}
+
+Název práce:
+Využití Linked Data pro sdílení dat o smlouvách veřejných institucí
+% přesně dle zadání
+
+Autor:
+Bc. Pavel Hryzlík
+
+Katedra:  % Případně Ústav:
+Katedra softwarového inženýrství
+% dle Organizační struktury MFF UK
+
+Vedoucí diplomové práce:
+Mgr. Martin Nečaský, Ph.D., Katedra softwarového inženýrství
+% dle Organizační struktury MFF UK, případně plný název pracoviště mimo MFF UK
+
+Abstrakt:
+% abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání diplomové práce
+
+Klíčová slova:
+% 3 až 5 klíčových slov
+
+\vss}\nobreak\vbox to 0.49\vsize{
+\setlength\parindent{0mm}
+\setlength\parskip{5mm}
+
+Title:
+Exploitation of Linked Data for sharing public agreements data
+% přesný překlad názvu práce v angličtině
+
+Author:
+Bc. Pavel Hryzlík
+
+Department:
+Department of Software Engineering
+% dle Organizační struktury MFF UK v angličtině
+
+Supervisor:
+Doc. Mgr. Martin Nečaský, Ph.D., Department of Software Engineering
+% dle Organizační struktury MFF UK, případně plný název pracoviště
+% mimo MFF UK v angličtině
+
+Abstract:
+% abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
+% zadání diplomové práce
+
+Keywords:
+% 3 až 5 klíčových slov v angličtině
+
+\vss}
+
+\newpage
+
+%%% Strana s automaticky generovaným obsahem diplomové práce. U matematických
+%%% prací je přípustné, aby seznam tabulek a zkratek, existují-li, byl umístěn
+%%% na začátku práce, místo na jejím konci.
+
+\openright
+\pagestyle{plain}
+\setcounter{page}{1}
+\tableofcontents
+
+%%% Jednotlivé kapitoly práce jsou pro přehlednost uloženy v samostatných souborech
+\include{uvod}
+\include{kap1}
+\include{kap2}
+\include{kap3}
+\include{kap4}
+\include{kap5}
+\include{kap6}
+\include{kap7}
+
+% Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
+% \include{ukazka}
+
+\include{zaver}
+
+%%% Seznam použité literatury
+\include{literatura}
+
+%%% Tabulky v diplomové práci, existují-li.
+\chapwithtoc{Seznam tabulek}
+
+%%% Použité zkratky v diplomové práci, existují-li, včetně jejich vysvětlení.
+\chapwithtoc{Seznam použitých zkratek}
+
+%%% Přílohy k diplomové práci, existují-li (různé dodatky jako výpisy programů,
+%%% diagramy apod.). Každá příloha musí být alespoň jednou odkazována z vlastního
+%%% textu práce. Přílohy se číslují.
+\chapwithtoc{Přílohy}
+\include{prilohy}
+
+\openright
+\end{document}

@@ -1,0 +1,17 @@
+@prefix :     <http://tiny.cc/open-contracting#> .
+@prefix dc:   <http://purl.org/dc/terms/> .
+@prefix gr:   <http://purl.org/goodrelations/v1#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Contract a owl:Class ;
+  rdfs:label "Smlouva"@cs, "Contract"@en ;
+  rdfs:subClassOf :Document ;
+  rdfs:isDefinedBy <http://tiny.cc/open-contracting> .
+
+:party a owl:ObjectProperty ;
+  rdfs:label "Smluvní strana"@cs, "Party"@en ;
+  rdfs:domain [ a rdfs:Class ; owl:unionOf ( :Contract :Order :Invoice ) ] ;
+  rdfs:range gr:BusinessEntity ;
+  rdfs:isDefinedBy <http://tiny.cc/open-contracting> .

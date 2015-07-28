@@ -1,0 +1,15 @@
+@prefix cn: <http://tiny.cc/open-contracting#>.
+@prefix dc: <http://purl.org/dc/terms/>.
+@prefix gr: <http://purl.org/goodrelations/v1#>.
+@prefix s:  <http://schema.org/>.
+
+<http://rsmluv/contract/42/1> a cn:Contract;
+  dc:title "Softwarová zakázka";
+  cn:party <http://rsmluv/party/420>.
+
+<http://rsmluv/party/420> a gr:BusinessEntity;
+  gr:legalName "Magistrát HMP";
+  s:address <http://rsmluv/party/420/address>.
+
+<http://rsmluv/party/420/address> a s:PostalAddress;
+  s:streetAddress "Staroměstské nám. 4".

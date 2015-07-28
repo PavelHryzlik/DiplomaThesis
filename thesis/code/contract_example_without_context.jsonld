@@ -1,0 +1,152 @@
+{
+  "@context": "http://tiny.cc/open-contracting_context",
+
+  "@id" : "http://rsmluv.cz/data/89f689cd-e784-4374-bb17-94144679d46f",
+  "id": "89f689cd-e784-4374-bb17-94144679d46f",
+  "published": "2014-03-25T23:20:50+01:00",
+  "language": "cs",
+
+  "documents": [
+    {
+      "@id" : "http://rsmluv.cz/contract/12345/2",
+      "@type" : "Contract",
+      "uri" : "http://rsmluv.cz/contract/12345/2",
+      "document" : "http://rsmluv.cz/file/b15a3c45-5595-4a28-b156-4578edeb2a98/Smlouva12345.docx",
+      "type" : "Smlouva",
+      "valid" : true,
+      "anonymised" : false,
+    
+      "awardID": "486026",
+      "awardProfileID": "OI-010143",
+      "amount": 584520.00,
+      "title": "Brno, Vackova, Šafaříkova - rekonstrukce kanalizace a vodovodu",
+      "contractType": "Kupní smlouva",
+      "subjectType": "Právní, finanční překladatelské, pojišťovnické, poradenské a jiné služby",
+      "priceAnnual": false,
+      "currency": "CZK",
+      "dateSigned": "2011-11-16",
+      "validFrom": "2011-11-02",
+      "validUntil": "2012-06-30",
+      "competency" : [ "Soukromoprávní smlouva" ],
+      "currentValidContract": "http://zakazky.brno.cz/?pg=detail&id=18249&list=135",
+      "description": "Projektová dokumentace pro stavební povolení a zadání stavby bude řešit rekonstrukci stávající kanalizační stoky z profilu DN 500 na DN 800/1200 v délce 146 m, rekonstrukci kanalizačních přípojek pod veřejným prostranstvím a přepojení všech stávajících dešťových vpustí a také vybourání vozovek a chodníků nad rýhou a zásyp rýhy recyklátem. Součástí bude inženýrsko-geologický průzkum, geodetické zaměření dotčené oblasti, inventarizace zeleně, výkaz výměr, položkový rozpočet a výkon autorského dozoru až do dokončení stavby. Dokumentace bude projednána s orgány státní správy a s účastníky stavebního řízení a jejich připomínky budou do dokumentace zapracovány.",    
+    
+      "responsiblePersons" : [ "Ing. Petr Vokřál ", "Mgr. Adriana Krnáčová, MBA"],
+      
+      "publisher" : {
+        "@id" : "http://rsmluv.cz/contract/12345/2/publisher",
+        "@type" : "Publisher",
+        "id" : "6003508",
+        "name" : "Statutární město Brno",
+        "noID" : false,
+        "country" : "CZE",
+        "authentication" : "email"    
+      },
+      
+      "parties" : [ 
+        { "@id" : "http://rsmluv.cz/party/132456" },
+        { "@id" : "http://rsmluv.cz/party/987654" }
+      ], 
+      
+      "implementation" : {
+        "@id" : "http://rsmluv.cz/contract/12345/2/implementation",
+        "@type" : "Implementation",
+      
+        "milestones" : [
+          { 
+            "@id" : "http://rsmluv.cz/contract/132456/2/milestone/5830",
+            "@type" : "Milestone",
+            "title" : "Výpověď smlouvy",
+            "dueDate" : "2012-06-20T23:20:50+01:00"
+          }
+        ],
+        "transactions" : [
+          {
+            "@id" : "http://rsmluv.cz/contract/132456/2/transaction/132456",
+            "@type" : "Transaction",
+            "publisherId" : "1269483",
+            "date" : "2012-01-01T18:35:20+01:00",
+            "amount" : 300000,
+            "senderOrganization" : "http://rsmluv.cz/party/987654",
+            "receiverOrganization" : "http://rsmluv.cz/party/987654"
+          },
+          {
+            "@id" : "http://rsmluv.cz/contract/132456/2/transaction/934584",
+            "@type" : "Transaction",
+            "publisherId" : "934584",
+            "date" : "2012-02-01T09:13:40+01:00",
+            "amount" : 284520,
+            "senderOrganization" : "http://rsmluv.cz/party/987654",
+            "receiverOrganization" : "http://rsmluv.cz/party/987654"
+          }
+        ]
+      },
+      
+      "versions" : [ 
+        {  
+          "version" : 1,
+          "@id" : "http://rsmluv.cz/contract/12345/1/version",
+          "@type" : "Version",
+          "uri" : "http://rsmluv.cz/contract/12345/1",
+          "published" : "2014-09-15T23:20:50+01:00"    
+        },
+        {  
+          "version" : 2,
+          "@id" : "http://rsmluv.cz/contract/12345/2/version",
+          "@type" : "Version",
+          "uri" : "http://rsmluv.cz/contract/12345/2",
+          "published" : "2015-03-15T14:35:28+01:00"    
+        }  
+      ]
+    }
+  ],
+  
+  "parties" : [
+    {
+      "@id" : "http://rsmluv.cz/party/132456",
+      "@type" : "Party",
+      "localID" : 132456,
+      "id" : "44992785",
+      "name" : "Statutární město Brno",
+      "payer" : false,
+      "noID" : false,
+      "country" : "CZE",
+      "address" : {
+        "@id" : "http://rsmluv.cz/party/132456/address",
+        "@type" : "Address",
+        "streetAddress" : "Dominikánské náměstí 196/1",
+        "locality" : "Brno-město, Brno",
+        "postalCode" : 60200,
+        "nuts" : "CZ064"
+      },
+      "superiorInstitution" : {
+        "@id" : "http://rsmluv.cz/superiorInstitution/00064581",
+        "@type" : "SuperiorInstitution",
+        "id" : "00064581",
+        "localID" : 56486,
+        "name" : "Magistrát hlavního města Prahy",
+        "noID" : false,
+        "country" : "CZE" 
+      }
+    },
+    {
+      "@id" : "http://rsmluv.cz/party/987654",
+      "@type" : "Party",
+      "localID" : 987654,
+      "id" : "46347011",
+      "name" : "Kovoprojekta Brno a.s.",
+      "payer" : true,
+      "noID" : false,
+      "country" : "CZE",
+      "address" : {
+        "@id" : "http://rsmluv.cz/party/987654/address",
+        "@type" : "Address",
+        "streetAddress" : "Šumavská 416/15",
+        "locality" : "Ponava, Brno",
+        "postalCode" : 60200,
+        "nuts" : "CZ064"
+      }
+    }      
+  ]
+  
+}
