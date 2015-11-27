@@ -1,4 +1,5 @@
 \chapter{Otevřená data a principy Linked Data}
+\label{sec:kap2}
 
 Předmětem této kapitoly je čtenáře stručně seznámit se základními pojmy a principy otevřených, propojitelných dat a následně s technologiemi sloužícími k jejich zápisu a zpracování.
 
@@ -7,7 +8,7 @@ Předmětem této kapitoly je čtenáře stručně seznámit se základními poj
 \textit{\uv{Open data can help us address the greatest challenges of our time and generate value for everyone}} - Open Data Institute 2012
 \newline
 
-Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můžeme chápat údaje zveřejněná na internetu, která jsou[ZDROJ]:
+Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můžeme chápat údaje zveřejněná na internetu, která jsou\cite{mv}
 
 \begin{enumerate}
 \item úplná
@@ -20,7 +21,7 @@ Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můž
 
 \subsection*{Úplnost}
 
-Pokud se rozhodneme zveřejňovat data, tak v případě že nás neomezuje zákon, či jiná restriktivní opatření, měli bychom dbát na to, aby byla úplná, resp. v maximálním možné rozsahu. Není cílem zveřejňovat útržky ztrácející vypovídající hodnotu.
+Pokud se rozhodneme zveřejňovat data, tak v případě, že nás neomezuje zákon, či jiná restriktivní opatření, měli bychom dbát na to, aby byla úplná, resp. v maximálním možné rozsahu. Není cílem zveřejňovat útržky ztrácející vypovídající hodnotu.
 
 \subsection*{Snadná dostupnost}
 
@@ -32,11 +33,11 @@ Klíčovou vlastností otevřených dat je strojová čitelnost. Otevřeným dat
 
 \subsection*{Otevřené standardy}
 
-Software, nástroje či metodiky potřebné k zpracování dat by měly být volně dostupné. Data v uzavřeném formátu, které potřebují ke zpracování konkrétní proprietární software, postrádají smysl otevřenosti.
+Software, nástroje či metodiky potřebné k zpracování dat by měly být volně dostupné. Data v uzavřeném formátu, která potřebují ke zpracování konkrétní proprietární software, postrádají smysl otevřenosti.
 
 \subsection*{Zpřístupněna za jasně definovaných podmínek}
 
-Typicky je třeba dbát nato, aby data byla zveřejňována pod otevřenou licencí.\footnote{Více k problematice licencování a užití otevřených dat lze dohledat na webu Ministerstva vnitra - http://www.mvcr.cz/clanek/otevrena-data.aspx?q=Y2hudW09Mg\%3d\%3d}
+Typicky je třeba dbát na to, aby data byla zveřejňována pod otevřenou licencí.\footnote{Více k problematice licencování a užití otevřených dat lze dohledat na webu Ministerstva vnitra - http://www.mvcr.cz/clanek/otevrena-data.aspx?q=Y2hudW09Mg\%3d\%3d}
 
 \subsection*{Dostupná uživatelům s minimem nákladů}
 
@@ -53,9 +54,9 @@ Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro p
 
 \section{Kvalita otevřených dat}
 
-Tvůrce WWW a ředitel konsorcia W3C\footnote{W3C - http://www.w3.org/} Tim Berners-Lee\footnote{Tim Berners-Lee - životopis - http://www.w3.org/People/Berners-Lee/} navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšíření) stupně předešlého.
+Tvůrce WWW a ředitel konsorcia W3C\footnote{W3C - http://www.w3.org/} Tim Berners-Lee\footnote{Tim Berners-Lee - životopis - http://www.w3.org/People/Berners-Lee/} navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.
 
-\section{Stupně otevřenosti\protect\footnote{5 star ifno - http://5stardata.info/}}
+\section{Stupně otevřenosti\protect\cite{5starInfo}}
 
 \subsection*{$\bigstar$ Libovolná zveřejněná data pod otevřenou licencí}
 
@@ -79,7 +80,7 @@ Publikace dat na úrovni 1$\bigstar$ je zdaleka nejjednodušší a nepotřebuje 
 \item Příkladem může být formát MS Excel (.xls)
 \end{itemize}
 
-V dnešní době už poměrně rozšířený způsob publikace dat. Zpracování dat ale vyžaduje specifické nástroje k tomu určené. Pokud tedy chceme zpracovávat např. excelovskou tabulku (.xls), potřebujeme k tomu komerční produkt MS Excel\footnote{Toto se netýká formátu .xlsx. Ten již vychází z otevřené specifikace Office Open XML - \hyperref{https://cs.wikipedia.org/wiki/Office_Open_XML}. Data publikovaná v .xlsx formátu tedy můžeme chápat jako 3$\bigstar$.}. 
+V dnešní době už poměrně rozšířený způsob publikace dat. Zpracování dat ale vyžaduje specifické nástroje k tomu určené. Pokud tedy chceme zpracovávat např. excelovskou tabulku (.xls), potřebujeme k tomu komerční produkt MS Excel\footnote{Toto se netýká formátu .xlsx. Ten již vychází z otevřené specifikace Office Open XML - \\https://cs.wikipedia.org/wiki/Office\_Open\_XML. Data publikovaná v .xlsx formátu tedy můžeme chápat jako 3$\bigstar$.}. 
 
 \subsection*{$\bigstar\bigstar\bigstar$ Formát dat je otevřený}
 
@@ -91,7 +92,7 @@ V dnešní době už poměrně rozšířený způsob publikace dat. Zpracování
 \item Příkladem může být formát CSV
 \end{itemize}
 
-Teprve v této kategorii se můžeme bavit o “opravdových” otevřených datech. Resp. data musejí mít stupeň otevřenosti minimálně 3$\bigstar$ , aby naplnila základní definici otevřených dat uvedenou výše.
+Teprve v této kategorii se můžeme bavit o \uv{opravdových} otevřených datech. Resp. data musejí mít stupeň otevřenosti minimálně 3$\bigstar$ , aby naplnila základní definici otevřených dat uvedenou výše.
 
 \subsection*{$\bigstar\bigstar\bigstar\bigstar$ Jednotlivé objekty jsou identifikovány pomocí URI}
 
@@ -103,9 +104,9 @@ Teprve v této kategorii se můžeme bavit o “opravdových” otevřených dat
 \item Příkladem může být formát RDF
 \end{itemize}
 
-Důležité je dbát na to, aby URI nebylo virtuální, resp. po dotázání se uživateli vrátil požadovaný obsah. V prostředí WWW je zajištění obsahu typicky praktikováno skrze protokol HTTP. 
+Důležité je dbát na to, aby URI nebylo virtuální, resp. aby se po dotázání uživateli vrátil požadovaný obsah. V prostředí WWW je zajištění obsahu typicky praktikováno skrze protokol HTTP. 
 
-Díky URI identifikaci můžeme data reprezentovat jako orientovaný graf propojených objektů, které na sebe mohou vzájemně odkazovat. K popisu takovýchto dat se používá formát RDF.[ODKAZ NA KAPITOLU]  
+Díky URI identifikaci můžeme data reprezentovat jako orientovaný graf propojených objektů, které na sebe mohou vzájemně odkazovat. K popisu takovýchto dat se používá formát RDF.[\ref{sec:RDF}]  
 
 V prostředí České republiky považováno jako nadstandard.
 
@@ -123,7 +124,7 @@ V této nejvyšší kategorii se data mohou stát součástí datové sítě pro
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/5star_steps.eps}}
-\caption{Stupně otevřenosti dat, zdroj: http://5stardata.info/}
+\caption{Stupně otevřenosti dat, zdroj: \cite{5starInfo}}
 \label{obr:5star_steps}
 \end{figure}
 
@@ -131,12 +132,12 @@ V této nejvyšší kategorii se data mohou stát součástí datové sítě pro
 
 \section{Propojitelná data (Linked Data)}
 
-Linked Data vychází z myšlenky webu aplikované na data. Webu rozumíme jako síti propojených webových stránek. Cílem Linked Data je mít síť propojených, strojově čitelných dat, resp. stavební kámen sémantického webu\footnote{Semantic web - http://www.cs.umd.edu/~golbeck/LBSC690/SemanticWeb.html}. Jedná se v podstatě o další krok v evolučním vývoji webu jako takového.
+Linked Data vychází z myšlenky webu aplikované na data. Webu rozumíme jako síti propojených webových stránek. Cílem Linked Data je mít síť propojených, strojově čitelných dat, resp. stavební kámen sémantického webu\footnote{Sémantický web - http://www.cs.umd.edu/~golbeck/LBSC690/SemanticWeb.html}. Jedná se v podstatě o další krok v evolučním vývoji webu jako takového.
 
-Podle [\footnote{Linked Data - http://www.w3.org/DesignIssues/LinkedData.html}] definujeme základní principy Linked Data jako:
+Podle \cite{linkedData} definujeme základní principy Linked Data jako:
 
 \begin{enumerate}
-\item Každá entita je identifikována pomocí HTTP URI\footnote{V prostředí webu to bude typicky hypertextový odkaz ve formě URL[ZDROJ]}    
+\item Každá entita je identifikována pomocí HTTP URI\footnote{V prostředí webu to bude typicky hypertextový odkaz ve formě URL}    
 \item HTTP URI by mělo být vyhledatelné v síti WWW a umožňovat k němu přistupovat a odkazovat se na něj
 \item Po přistoupení na HTTP URI entity mají být poskytnuty relevantní informace o dané entitě ve standardizovaném formátu či prostřednictvím API\footnote{Pro popis Linked Data se typicky používá jazyk RDF - http://www.w3.org/RDF/, k dotazování k datovému API - SPARQL - http://www.w3.org/TR/rdf-sparql-query/}
 \item Data k entitám rozšířit o HTTP URI odkazy na další související entity\footnote{o nám zaručí, že můžeme procházet jednotlivé entity podobným způsobem jako webové stránky v rámci sítě WWW.}
@@ -175,13 +176,14 @@ Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojen
 \begin{enumerate}
 \item Sdílená, rozšiřitelná a snadno znovu použitelná data   
 \item Data jsou začleněna do kontextu, resp. lze se odkazovat přímo na data
-\item Data jsou propojena s dalšími relevantními daty, informační hodnota dat je tedy tím Větší, čím více mají vazeb
+\item Data jsou propojena s dalšími relevantními daty, informační hodnota dat je tedy tím větší, čím více mají vazeb
 \item Standardizované formáty pro publikaci
 \end{enumerate}
 
 \newpage
 
 \section{RDF (Resource Description Framework)}
+\label{sec:RDF}
 
 Formát RDF byl vyvinut za účelem snadného strojového zpracování a propojování dat. Jedná se o čistě abstraktní formát udávající, jak data popisovat. Nezabývá se tedy konkrétní podobou výsledných dat. 
 
@@ -200,7 +202,7 @@ Základním stavebním kamenem RDF je tvrzení, resp. trojice: \textbf{Subjekt -
 \item Objektem je buď hodnota (literál), odkaz na subjekt (resource), nebo je označen jako anonymní
 \item Pro každý subjekt je specifikován jeho typ (třída) formou URI
 \item Každému predikátu je přiřazen také jeho typ formou URI
-\item Jednotlivé URI z bodů 4,5 by měly odkazovat na konkrétní slovníky tříd a predikátů, resp. ontologie
+\item Jednotlivé URI z bodů 3,4 by měly odkazovat na konkrétní slovníky tříd a predikátů, resp. ontologie
 \end{enumerate}
 
 Na obr. \ref{obr:rdf_graph} vidíme příklad jednoduchého grafu ve formátu RDF (aplikována pravidla 1 a 2). Popisuje 3 subjekty a přiřazuje jim konkrétní vlastnosti. Vidíme, že každý subjekt je identifikován vlastním URI. Díky tomu mohou subjekty na sebe odkazovat. Jednotlivé trojice by pak vypadaly takto:
@@ -227,13 +229,13 @@ Ze zmíněného příkladu ale není zřejmý význam, resp. sémantika jednotli
 \label{obr:rdf_graphWithOntology}
 \end{figure}
 
-\section{RDFOntologie}
+\section{RDF Ontologie}
 
 Pod pojmem ontologie si můžeme představit sadu termínů popisujících určitou věcnou oblast. V případě popisování RDF dat definujeme slovník tříd a vlastností (predikátů), které mohou uživatelé ve svých datech používat.
 
 Konkrétní ontologii nelze chápat jako striktně vyžadovaný standard, ale spíše jako sadu doporučení. Buď využijeme k popisu dat nějakou z řady již existujících ontologií, nebo můžeme vytvořit ontologii vlastní. Přesto ale chceme, aby se již existující ontologie používaly co nejvíce. Přínosem je hlavně to, že aplikace a nástroje implementované nad známými ontologiemi budou schopné automaticky rozpoznat naše data\footnote{Mezi všeobecně známé ontologie patří např. DublinCore - http://purl.org/dc/terms/, Friend-of-a-Friend - http://xmlns.com/foaf/0.1/ nebo Schema - http://schema.org/. Existuje také katalog ontologií - http://lov.okfn.org/dataset/lov/}. 
 
-Základními jazyky pro modelování RDF dat jsou Web Ontology Language (OWL)\footnote{Web Ontology Language - http://www.w3.org/2001/sw/wiki/OWL} a RDF Schema (RDFS)\footnote{RDF Schema - http://www.w3.org/TR/rdf-schema/}. Konkrétní specifikace se provádí opět ve formátu RDF a je publikována pod vlastním URI.
+Základními jazyky pro modelování RDF dat jsou Web Ontology Language (OWL)\cite{OWL} a RDF Schema (RDFS)\cite{RdfSchema}. Konkrétní specifikace se provádí opět ve formátu RDF a je publikována pod vlastním URI.
 
 Mezi základní výrazové prostředky jazyka OWL a RDFS patří:
 
@@ -253,7 +255,7 @@ Mezi základní výrazové prostředky jazyka OWL a RDFS patří:
 \item \textit{rdfs:subPropertyOf} - definice, že se jedná o podvlastnost určité vlastnosti  
 \end{itemize}
 
-Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad ontologie třídy Contract. Ontologie nám říká, že se jedná o třídu (typ owl:Class) s názvem Smlouva (rdfs:label), která je podtřídou (rdfs:subClassOf) Document a je definovaná (rdfs:isDefinedBy) v ontologii http://tiny.cc/open-contracting. Kdokoli pak bude zpracovávat entitu označenou tímto typem, tak díky přiřazené ontologii bude schopen určit, že se jedná o smlouvu.
+Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad ontologie třídy Contract. Ontologie nám říká, že se jedná o třídu (typ owl:Class) s názvem Smlouva (rdfs:label), která je podtřídou (rdfs:subClassOf) třídy Document a je definovaná (rdfs:isDefinedBy) v ontologii http://tiny.cc/open-contracting. Kdokoli pak bude zpracovávat entitu označenou tímto typem, tak díky přiřazené ontologii bude schopen určit, že se jedná o smlouvu.
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/rdf_ontologyClass.eps}}
@@ -263,13 +265,13 @@ Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad ontologie třídy Contract
 
 \subsection{Propojování se souvisejícími entitami}
 
-Díky RDF můžeme data reprezentovat jako orientovaný graf. Otázka tedy zní, zda-li lze propojovat grafy mezi sebou. Ve formátu RDF je to velmi jednoduché. Jako objekt predikátu stačí položit subjekt z jiného grafu. Díky URI identifikaci entit tedy není rozdílem, zda-li je cílovým subjektem entita v lokálních datech, nebo entita cizí.  
+Díky RDF můžeme data reprezentovat jako orientovaný graf. Otázka tedy zní, zdali lze propojovat grafy mezi sebou. Ve formátu RDF je to velmi jednoduché. Jako objekt predikátu stačí položit subjekt z jiného grafu. Díky URI identifikaci entit tedy není rozdílem, zdali je cílovým subjektem entita v lokálních datech, nebo entita cizí.  
 
 V rámci propojování dat s jinými datasety však není neobvyklé, že stejné entity jsou reprezentované v různých datasetech pod vlastními URI. Je tedy třeba vyjádřit, že se jedná o data reprezentující stejné entity. V jazyku OWL za tímto účelem existuje predikát sameAs, kterým můžeme definovat odpovídající si entity (viz Obrázek \ref{obr:rdf_ontologyLinks}).
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=110mm]{img/rdf_ontologyLinks.eps}}
-\caption{Možnost propojení dat}
+\caption{Odpovídající si entity}
 \label{obr:rdf_ontologyLinks}
 \end{figure}
 
@@ -277,34 +279,33 @@ V rámci propojování dat s jinými datasety však není neobvyklé, že stejn�
 
 \section{Publikace}
 
-V minulých kapitolách bylo řečeno, jak popisovat data pomocí RDF. Jednalo se o sémantický popis. Pokud však data chceme publikovat, je třeba konkrétního datového formátu, který definuje syntaxi, resp. jak RDF data serializovat. Takových formátů existuje celá řada, např.
+V minulých kapitolách bylo řečeno, jak popisovat data pomocí RDF. Jednalo se o sémantický popis. Pokud však data chceme publikovat, je třeba konkrétního datového formátu, který definuje syntaxi, resp. jak RDF data serializovat. Takových formátů existuje celá řada, např.:
 
 \begin{itemize}
-\item \textbf{N-Triples\footnote{N-Triples - http://www.w3.org/TR/n-triples/}} - nejjednodušší serializace RDF grafu v podobě výčtu trojic
-\item \textbf{N-Quads\footnote{N-Quads - http://www.w3.org/TR/n-quads/}} - rozšíření pro N-Triples s možností zaznamenat více grafů
-\item \textbf{RDF/XML\footnote{RDF/XML - http://www.w3.org/TR/REC-rdf-syntax}} - RDF graf serializovaný do XML, využívající prefixového zápisů
-\item \textbf{Turtle\footnote{Turtle - http://www.w3.org/TR/turtle/}} - úsporný textový formát s možností komprese trojic, využívající prefixových zápisů
-\item \textbf{Trig\footnote{Trig - http://www.w3.org/TR/trig/}} - rozšíření Turtle pro použití nad více grafy
-\item \textbf{RDFa\footnote{RDFa - http://www.w3.org/TR/rdfa-syntax/}} - serializace RDF do (X)HTML\footnote{(X)Html - http://www.w3.org/TR/xhtml1/} dokumentů, využívající prefixového zápisů
-\item \textbf{JSON-LD\footnote{JSON-LD - http://www.w3.org/TR/json-ld/
-}} - specifický zápis RDF grafu, využívající mapování položek JSON dokumentu na RDF ontologie
+\item \textbf{N-Triples\cite{N-Triples}} - nejjednodušší serializace RDF grafu v podobě výčtu trojic
+\item \textbf{N-Quads\cite{N-Quads}} - rozšíření pro N-Triples s možností zaznamenat více grafů
+\item \textbf{RDF/XML\cite{RDF/XML}} - RDF graf serializovaný do XML, využívající prefixového zápisu
+\item \textbf{Turtle\cite{Turtle}} - úsporný textový formát s možností komprese trojic, využívající prefixových zápisů
+\item \textbf{Trig\cite{Trig}} - rozšíření Turtle pro použití nad více grafy
+\item \textbf{RDFa\cite{RDFa}} - serializace RDF do (X)HTML{\cite{XHtml}} dokumentů, využívající prefixového zápisu
+\item \textbf{JSON-LD\cite{JSON-LD}} - specifický zápis RDF grafu, využívající mapování položek JSON dokumentu na RDF ontologie
 \end{itemize}
 
 Pro potřeby této práce si vystačíme s formáty N-Triples, Turtle a JSON-LD. Vysvětlíme si je na příkladech. Jako data k serializaci použijeme příklad z obr. \ref{obr:rdf_graphWithOntology}.
 
 \subsection{Příklad dat serializovaných ve formátu N-Triples}
 
-Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obrázek \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti trojice uvedeny na samostatných řádcích}.\\
+Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obrázek \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti uvedeny na samostatných řádcích}.\\
 
 \lstinputlisting[label=lst:ntriples_example,caption=Příklad RDF dat - N-Triples, language=XML]{code/ntriples_example.nt}
 
 \subsection{Příklad dat serializovaných ve formátu Turtle}
 
-Formát Turtle umožňuje zkracování URI pomocí prefixů. Umožňuje také zkracovat zápis tím, že nemusíme zapisovat opakující se subjekt. Jednotlivé dvojice predikát-hodnota lze tak přehledně mít u jednoho subjektu. Oddělovačem mezi dvojicemi v rámci subjektu je středník, blok informací o daném subjektu je zakončený tečkou. Pro definování typu subjektu se může použít klíčové slovo \uv{a}, namísto predikátu rdf:type. Výhodou je úspornost a velmi dobrá lidská čitelnost (viz Kód \ref{lst:turtle_example}).\\
+Formát Turtle umožňuje zkracování URI pomocí prefixů. Umožňuje také zkracovat zápis tím, že nemusíme zapisovat opakující se subjekt. Jednotlivé dvojice predikát-hodnota lze tak přehledně mít u jednoho subjektu. Oddělovačem mezi dvojicemi v rámci subjektu je středník, blok informací o daném subjektu je zakončený tečkou. Pro definování typu subjektu se může použít klíčové slovo \uv{a}, namísto predikátu rdf:type. Výhodou formátu je úspornost a velmi dobrá lidská čitelnost (viz Kód \ref{lst:turtle_example}).\\
 
 \lstinputlisting[label=lst:turtle_example, caption=Příklad RDF dat - Turtle, language=XML]{code/turtle_example.ttl}
 
-Díky dobré čitelnosti, se formát Turtle hojně používá pro zapisování ontologií. V kódu \ref{lst:turtleOntology_example} vidíme znázorněnou jednoduchou ontologii. Popisuje 2 objekty. Prvním je třída Contract (typ owl:Class). Definuje, že se jedná o smlouvu, je podtřídou (rdfs:subClassOf) třídy Document a je definována v ontologii (rdfs:DefinedBy) http://tiny.cc/open-contracting. Je to serializovaný zápis ontologie z obr. \ref{obr:rdf_ontologyClass}. Druhým objektem je vlastnost party (typ owl:ObjectProperty). V predikátu rdfs:domain je specifikováno, že vlastnost party může být použita u třech tříd a to Contract, Order nebo Invoice. Predikát rdfs:range znamená, že očekávaný přiřazený objekt je typu gr:BusinessEntity.\\
+Díky dobré čitelnosti, se formát Turtle hojně používá pro zapisování ontologií. V kódu \ref{lst:turtleOntology_example} vidíme znázorněnou jednoduchou ontologii. Popisuje 2 objekty. Prvním je třída Contract (typ owl:Class). Definuje, že se jedná o smlouvu, je podtřídou (rdfs:subClassOf) třídy Document a je definována v ontologii (rdfs:DefinedBy) http://tiny.cc/open-contracting. Je to serializovaný zápis ontologie z obr. \ref{obr:rdf_ontologyClass}. Druhým objektem je vlastnost party (typ owl:ObjectProperty). V predikátu rdfs:domain je specifikováno, že vlastnost party může být použita u třech tříd, a to Contract, Order nebo Invoice. Predikát rdfs:range znamená, že očekávaný přiřazený objekt je typu gr:BusinessEntity.\\
 
 \lstinputlisting[label=lst:turtleOntology_example, caption=Příklad RDF Ontologie - Turtle, language=XML]{code/turtleOntology_example.ttl}
 

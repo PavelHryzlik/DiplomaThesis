@@ -1,5 +1,57 @@
 \chapter{Požadavky na platformu pro otevřené smlouvy}
+\label{sec:kap5}
+
+Jedním z cílů této práce je návrh a implementace platformy pro otevírání smluv veřejných institucí. Platforma bude mít tři základní části. První částí je převod interně uložených smluv v relačních databázích do otevřeného formátu splňujícího principy Linked Data. Druhou je jednotné úložiště smluv v otevřeném formátu a třetí je nad tímto úložištěm zpřístupnit otevřené smlouvy koncovým uživatelům. Shrňme si v následující části základní funkční a nefunkční požadavky na platformu: 
 
 \section{Funkční požadavky}
 
+\begin{itemize}
+\item Platforma bude umět převádět údaje o smlouvách z relačních databází veřejných institucí do otevřených dat
+	\begin{itemize}
+	\item Jedná se o otevřená data, tedy dostupná on-line ke stažen9/prohlížení
+	\item Otevřená data by měla splňovat datový standard pro otevřené smlouvy (kapitola~\nameref{sec:kap3})
+	\item Otevřená data by měla splňovat principy Linked Data (kapitola\\~\nameref{sec:kap2}),\\~\nameref{sec:kap4}))
+	\item Výstupní formát by měl reflektovat alespoň jeden publikační formát datového standardu pro budoucí kompatibilitu
+	\end{itemize}
+\item Platforma bude otevřené smlouvy ukládat v jednotném úložišti
+	\begin{itemize}
+	\item Jednotné úložiště bude reflektovat, že se jedná o Linked Data, resp. bude mít formu databáze trojic (Triplestore)
+	\item Data budou dostupná skrze API
+	\end{itemize}
+\item Platforma nad jednotným úložištěm zpřístupní otevřené smlouvy koncovým uživatelům formou webové aplikace
+	\begin{itemize}
+	\item Aplikace by měla umět zobrazovat seznam smluv
+	\item Aplikace by měla umět filtrovat smlouvy podle jednotlivých veřejných institucí
+	\item Aplikace by měla umožňovat prohlédnout si detail veřejné instituce a její smlouvy
+	\item Aplikace by měla umožňovat zobrazit detail smlouvy 
+	\end{itemize}
+\end{itemize}
+
+\newpage
+
 \section{Nefunkční požadavky}
+
+\begin{itemize}
+\item Použitelnost
+	\begin{itemize}
+	\item Platforma by měla počítat s použitím v českém prostředí
+	\item Platforma bude obsahovat uživatelskou dokumentaci
+	\item Webová aplikace by měla vhodným způsobem demonstrovat výhody Linked Open Data
+	\end{itemize}
+\item Výkon
+	\begin{itemize}
+	\item Konverzní mechanismus platformy by měl umět zpracovávat i větší objemy dat (řádově alespoň desetitisíce údajů v relačních databázích)
+	\end{itemize}
+\item Rozšiřitelnost a modifikovatelnost
+	\begin{itemize}
+	\item Každá ze tří částí platformy by měla být snadno nahraditelná a modifikovatelná
+	\end{itemize}
+\item Integrovatelnost
+	\begin{itemize}
+	\item Nasazení konverzního mechanismu u veřejných institucí by mělo být co nejjednodušší
+	\end{itemize}
+\item Bezpečnost
+	\begin{itemize}
+	\item Při použití konverzního mechanismu by nemělo dojít k narušení vnitřních dat veřejných institucí	
+	\end{itemize}
+\end{itemize}

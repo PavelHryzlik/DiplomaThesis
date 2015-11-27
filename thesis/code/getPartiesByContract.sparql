@@ -1,0 +1,22 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?ID ?Uri ?Name ?Country ?PaysVAT ?StreetAddres ?Locality ?PostalCode 
+WHERE 
+{ 
+    @contract cn:party ?Uri .
+    ?Uri a gr:BusinessEntity ;
+           gr:legalName ?Name ;
+           schema:addressCountry ?Country ;
+           schema:address ?Address ;
+           gr:valueAddedTaxIncluded ?PaysVAT .
+
+    OPTIONAL {?Uri dc:identifier ?ID}
+
+    ?Address a schema:PostalAddress ;
+              schema:streetAddres ?StreetAddres ;
+              schema:addressLocality ?Locality ;
+              schema:postalCode ?PostalCode .       
+}

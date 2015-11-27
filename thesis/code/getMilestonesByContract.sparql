@@ -1,0 +1,15 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+
+SELECT ?Uri ?Title ?DueDate
+WHERE 
+{          
+    @contract cn:implementation ?Implementation .
+                   
+    ?Implementation a cn:Implementation ;
+                      cn:milestone ?Uri .                  
+
+    ?Uri a cn:Milestone ;
+           dc:title ?Title ;
+           cn:dueDate ?DueDate .       
+}

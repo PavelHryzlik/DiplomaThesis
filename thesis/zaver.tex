@@ -1,2 +1,57 @@
 \chapter*{Závěr}
 \addcontentsline{toc}{chapter}{Závěr}
+
+V rámci této práce jsme si kladli za cíl využít principů Linked Data pro publikaci a sdílení dat o smlouvách. 
+
+Začali jsme definováním datového standardu pro otevřené smlouvy. Ten probíhal v rámci akční skupiny pod záštitou Oživení o.s. a Centra aplikované ekonomie o.s. Hlavním přínosem je reálná možnost zařazení standardu do sady doporučení Ministerstva vnitra pro publikovatelné datové sady. Na základě standardu byla navržena podoba datových formátů pro jejich publikaci. Dílčím výsledkem byla tvorba metodiky ve formě webové aplikace mající za cíl technicky i věcně datový standard popsat. 
+
+V dalším kroku byla navržena ontologie pro publikace otevřených smluv v RDF podobě. Zaměřili jsme se také na možnost propojení se souvisejícími daty. Ukázali jsme výhody serializace RDF dat v JSON-LD formátu. Klíčovým přínosem JSON-LD formátu je, že vypublikovaná data splňují datový standard pro otevřené smlouvy a zároveň se jedná o RDF data. 
+
+V následující části jsme navrhli a implementovali platformu pro otevírání smluv. Platforma je složena ze třech základních součástí: konverzního modulu, jednotného úložiště a prezentační webové aplikace. 
+
+V návrhu konverzního modulu jsme se zaměřili na konverzi relačních dat stávajících informačních systémů do RDF podoby splňující principy Linked Data. Jako zdroj pro konkrétní implementaci byl zvolen modul Munis ESML informačního systému Triada spol. s.r.o. Řešení přináší zajímavý přístup mapování relačních dat do RDF podoby pomocí R2RML skriptu. Díky tomu lze konverzní mechanismus s drobnými úpravami využít i nad jinými informačními systémy.
+Druhou součástí platfromy bylo navrženo a implementováno jednotné úložiště. Úložiště je na základě definovaného datového katalogu schopno stahovat konkrétní datasety údajů o smlouvách v RDF podobě a ukládat je do triplestore databáze. Díky navržené jednoznačné identifikaci entit odpadly problémy s heterogenitou dat. 
+
+Jako poslední součást platformy byla navržena a implementována webová aplikace zpřístupňující údaje o smlouvách z jednotného úložiště koncovým uživatelům. V rámci aplikace jsme se zaměřili na demonstraci přínosů využití principů Linked Data. Navrhli jsme proto síť propojených datasetů s cílem poskytnout uživateli údaje o smlouvách obohacených o informace např. z ARESu, RUIANU, nebo Věstníku veřejných zakázek.
+
+Následně jsme otestovali konverzní mechanismus a webovou aplikaci ve snaze simulovat možnosti reálného využití. Na základě procesu otevírání smluv jsme také uvedli obecný postup otevírání dat využitelný i v jiných doménách.
+
+\section*{Linked Data v procesu otevírání smluv}
+
+V rámci této práce jsme ukázali, že využití principů Linked Data je pro doménu smluvních údajů možné. Ukázali jsme také postup, jak toho dosáhnout. Shrňme si tedy základní výhody a nevýhody využití Linked Data v procesu otevírání smluv:
+
+\subsubsection*{Výhody}
+
+\begin{itemize}
+\item V našem případě se zároveň jedná o otevřená data. Údaje o smlouvách tedy mohou být dostupné široké veřejnosti na internetu a přinášet veškeré výhody otevřených dat. 
+\item Díky možnosti propojení se smlouvy stanou součástí daleko širšího kontextu otevřených a  propojitelných dat. Zvýší se tak informační hodnota každé smlouvy
+\item Údaje o každé smlouvě, resp. entitě jsou dostupné pod vlastním URI. Smlouva je tak na jednom místě a můžeme se na ni libovolně odkazovat.   
+\end{itemize}
+
+\subsubsection*{Nevýhody}
+
+\begin{itemize}
+\item Nelze očekávat, že práce nad daty využívajícími principy Linked Data, bude rychlá jako nad relačními databázemi. 
+\item Častou nevýhodou využití principu Linked Data bývá velká náročnost kladená na subjekt, který chce zveřejňovat (v rámci platformy navržený konverzní mechanismus ale nároky na subjekt výrazně redukuje).
+\item Obecně příprava dat, tvorba standardu, ontologie, definování URI identifikátorů apod. vyžaduje jisté znalosti a netriviální úsilí.  
+\end{itemize}
+
+K přípravě dat bych rád doplnil, že před zpracováním podobných domén, jako jsou údaje o smlouvách do Linked Data podoby, je důležité navrhnout datový standard definující, co je vůbec vybrané domény obsahem. Ze zkušenosti v rámci akční skupiny pro tvorbu standardu mohu konstatovat, že tato činnost nemusí být triviální. Každá konkrétní položka může mít různé technické, ale hlavně i právní aspekty, které je třeba podrobit diskuzi s relevantními osobami.   
+
+S ohledem na potřebnou přípravu dat se tedy nabízí otázka celkové pracnosti. Náročnost přípravy dat a implementace konverzního modulu bych na základě zkušenosti odhadl zhruba takto:
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\hiderowcolors \textbf{Datový standard} & \textbf{Linked Data} & \textbf{
+Konverzní modul + R2ML mapování} \\ \showrowcolors
+\hline
+2 člověkoměsíce & 1,5 člověkoměsíce & 
+2,5 člověkoměsíce\\
+33,3\% & 25\% & 41,7\% \\
+\end{tabular}
+\caption{Odhad pracnosti přípravy dat a implementace konverzního modulu}
+\end{table}
+
+Celkovou náročnost otevření domény smluv tedy můžeme odhadnout na zhruba 6 člověkoměsíců. Pro každý další subjekt zapracovávající doménu smluv pak stačí odhadem 2,5 člověkoměsíce (tvorba konverzního modulu a R2RML mapování).

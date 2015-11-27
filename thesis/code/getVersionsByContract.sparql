@@ -1,0 +1,12 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+
+SELECT ?Uri ?Issued ?ContractUri ?VersionOrder
+WHERE 
+{          
+   @contract cn:version ?Uri.
+
+   ?Uri dc:issued ?Issued ;
+        cn:uri ?ContractUri ;
+        cn:versionOrder ?VersionOrder.           
+}

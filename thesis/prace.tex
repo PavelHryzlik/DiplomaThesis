@@ -43,6 +43,8 @@
 \renewcommand\lstlistingname{Výpis kódu} % předefinování nadpisu
 \renewcommand\lstlistlistingname{Výpisy kódu} % předefinování nadpisu v obsahu
 
+\usepackage{nameref}
+
 \usepackage[table]{xcolor}
 \usepackage{color}
 \usepackage{xcolor,colortbl}
@@ -134,8 +136,8 @@
 %% ale hlavně ho používáme k uložení metadat do PDF (včetně obsahu).
 %% POZOR, nezapomeňte vyplnit jméno práce a autora.
 \usepackage[ps2pdf,unicode]{hyperref}   % Musí být za všemi ostatními balíčky
-\hypersetup{pdftitle=Název práce}
-\hypersetup{pdfauthor=Jméno Příjmení}
+\hypersetup{pdftitle=Využití Linked Data pro sdílení dat o smlouvách veřejných institucí}
+\hypersetup{pdfauthor=Bc. Pavel Hryzlík}
 
 %%% Drobné úpravy stylu
 
@@ -234,7 +236,7 @@ Praha 2015
 \openright
 
 \noindent
-Poděkování.
+Zde bych rád poděkoval vedoucímu práce Doc. Mgr. Martin Nečaskému, Ph.D. za správné směrování, rady a nápady. Dále bych chtěl poděkovat Ondřeji Profantovi a také PhDr. Ing. Jiřímu Skuhrovcovi. Díky nim jsem pronikl do světa otevřených dat. Díky patří pochopitelně také mým nejbližším. 
 
 \newpage
 
@@ -286,9 +288,11 @@ Mgr. Martin Nečaský, Ph.D., Katedra softwarového inženýrství
 
 Abstrakt:
 % abstrakt v rozsahu 80-200 slov; nejedná se však o opis zadání diplomové práce
+Cílem diplomové práce je prozkoumat možnosti využití principů Linked Data pro publikaci a sdílení dat o smlouvách veřejných institucí a jejich propojení na související data ve veřejném prostoru (např. obchodní a živnostenský rejstřík, registr veřejných zakázek, apod.). Práce představí kompletní proces otevírání smluv. Definuje datový standard pro otevřené smlouvy a navrhne ontologii pro publikaci dat o smlouvách a jejich propojení. Dále navrhne a implementuje platformu pro publikaci smluv. První částí platformy je konverzní modul umožňující konverzi smluv uložených v relačních databázích do RDF podoby. Využije zde techniky R2RML mapování. Druhou částí je jednotné úložiště stahující údaje o smlouvách v Linked Data podobě. Třetí částí je webová aplikace, která data o smlouvách zpřístupní koncovým uživatelům.
 
 Klíčová slova:
 % 3 až 5 klíčových slov
+Smlouva, Otevřená data, Linked Data, RDF, JSON-LD, R2RML, SPARQL
 
 \vss}\nobreak\vbox to 0.49\vsize{
 \setlength\parindent{0mm}
@@ -313,9 +317,11 @@ Doc. Mgr. Martin Nečaský, Ph.D., Department of Software Engineering
 Abstract:
 % abstrakt v rozsahu 80-200 slov v angličtině; nejedná se však o překlad
 % zadání diplomové práce
+The objective of the thesis is to explore the possibilities of using Linked Data principles for publishing and sharing data on contracts of public institutions and their connections to related data in the public domain (eg. Business and trade register, register of contracts, etc.). Thesis presents the entire process of opening up contracts. Defines a data standard for open contracts and proposes an ontology for the publication of data on contracts and their interconnections. Furthermore, designs and implements a platform for publishing contracts. The first part of the platform is a conversion module enabling the conversion of contracts stored in relational databases into RDF form. Employed are R2RML mapping techniques. The second part is a uniform repository that downloads data on contracts in Linked Data format. The third part is a web application that will make the data on contracts available to end users.
 
 Keywords:
 % 3 až 5 klíčových slov v angličtině
+Contract, Open Data, Linked Data, RDF, JSON-LD, R2RML, SPARQL
 
 \vss}
 
@@ -339,6 +345,7 @@ Keywords:
 \include{kap5}
 \include{kap6}
 \include{kap7}
+\include{kap8}
 
 % Ukázka použití některých konstrukcí LateXu (odkomentujte, chcete-li)
 % \include{ukazka}
@@ -349,7 +356,16 @@ Keywords:
 \include{literatura}
 
 %%% Tabulky v diplomové práci, existují-li.
-\chapwithtoc{Seznam tabulek}
+%\chapwithtoc{Seznam tabulek}
+
+\listoffigures
+\addcontentsline{toc}{chapter}{Seznam obrázků}
+
+\listoftables
+\addcontentsline{toc}{chapter}{Seznam tabulek}
+
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Výpisy kódu}
 
 %%% Použité zkratky v diplomové práci, existují-li, včetně jejich vysvětlení.
 \chapwithtoc{Seznam použitých zkratek}

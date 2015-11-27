@@ -1,0 +1,14 @@
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX schema: <http://schema.org/>
+PREFIX ruian: <http://ruian.linked.opendata.cz/ontology/>
+
+SELECT ?longitude ?latitude
+WHERE 
+{
+    @addressPoint ruian:adresniBod ?addressPoint .
+
+    ?addressPoint s:geo ?geoCoordinates.
+
+    ?geoCoordinates s:longitude ?longitude ;
+                    s:latitude ?latitude .
+}

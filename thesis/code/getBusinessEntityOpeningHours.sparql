@@ -1,0 +1,19 @@
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?localPlace ?streetAddress ?postalCode ?dayOfWeek ?open ?close
+WHERE 
+{
+    ?subjekt <http://linked.opendata.cz/ontology/domain/seznam.gov.cz/ovm/business-entity> @businessEntity;
+            gr:hasPOS ?localPlace .
+
+    ?localPlace s:address ?address ;
+                gr:openingHoursSpecification ?openingHours .
+
+    ?address s:streetAddress ?streetAddress ;
+            s:postalCode ?postalCode .
+  
+    ?openingHours gr:hasOpeningHoursDayOfWeek ?dayOfWeek ;
+                gr:opens ?open ;
+                gr:closes ?close .
+}

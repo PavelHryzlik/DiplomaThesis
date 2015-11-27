@@ -1,0 +1,19 @@
+\chapter{Shrnutí procesu otevírání smluv}
+
+Za účelem větší názornosti shrneme dosavadní proces otevírání smluv jedním diagramem (viz Obr. \ref{obr:openingContracts}). Diagram je rozdělen do tří řádků a tří sloupců. První řádek zachycuje proces otevírání dat. Druhý řádek znázorňuje otevírání dat s využitím prinicpů Linked Data. Třetím řádkem je zapojení relačních dat do procesu. V prvním sloupci se nacházíme na úrovni schématu. Zde definujeme standardy, ontologie, schémata. Druhý sloupec znázorňuje produkci otevřených a propojitelných dat. V třetím sloupci jsme na úrovni publikace dat, resp. serializace otevřených a propojitelných dat do přenositelných formátů.
+
+Začátek procesu je v tvorbě schématu. V našem případě se jedná o datový standard pro otevřené smlouvy. Na základě schématu je v diagramu znázorněna možnost produkovat otevřená data. Ta jsou pak serializovatelná do konkrétních datových formátů. Lepšími datovými formáty jsou ale ty, které jsou definované pomocí schématu datového, pro naše účely se jedná o formát JSON. Z diagramu je vidět, že ze schématu vytvoříme datové JSON schéma, které je poté využitelné při publikaci dat.
+
+Na základě schématu můžeme také nadefinovat RDF ontologii, díky které se dostaneme do světa Linked Data. V diagramu je obdobně jako u otevřených dat znázorněna možnost na základě ontologií produkovat Linked Data a ta pak serializovat do RDF datových formátů.
+
+Speciálním případem serializace RDF dat jsou data ve formátu JSON-LD. Na základě schématu, resp. datového JSON schématu a RDF ontologie, můžeme vytvořit takový JSON-LD kontext, že výsledná vypublikovaná JSON-LD data budou naplňovat jak datový standard, tak i RDF ontologii.
+
+Posledním krokem je zapojení relačních dat do procesu otevírání smluv. Tato relační data na základě relačního schématu, resp. jeho datového modelu a RDF ontologie, zkonvertujeme do Linked Data.
+
+Lze si všimnout, že se nebavíme pouze o údajích o smlouvách. Tento postup lze obecně použít nejen pro smlouvy, ale i pro libovolnou jinou doménu.
+
+\begin{figure}[H]
+\centerline{\includegraphics[angle=90,width=\textwidth]{img/openingContracts.eps}}
+\caption{Linked Data v procesu otevírání smluv}
+\label{obr:openingContracts}
+\end{figure}

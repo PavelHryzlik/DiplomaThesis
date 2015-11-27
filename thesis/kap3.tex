@@ -1,6 +1,7 @@
 \chapter{Otevřené smlouvy jako Linked Data}
+\label{sec:kap4}
 
-V minulé kapitole bylo řečeno, jak reprezentovat smlouvy jako otevřená data. Data serializovaná do formátu JSON, či CSV můžeme kategorizovat stupněm 3$\bigstar$[TODO - odkaz na kapitolu]. Pokud však chceme dosáhnout otevřenosti dat kategorie 5$\bigstar$, je třeba provést několik dalších kroků:
+V minulé kapitole [\ref{sec:kap3}] bylo řečeno, jak reprezentovat smlouvy jako otevřená data. Data serializovaná do formátu JSON, či CSV můžeme kategorizovat stupněm 3$\bigstar$. Pokud však chceme dosáhnout otevřenosti dat kategorie 5$\bigstar$, je třeba provést několik dalších kroků:
 
 \begin{itemize}
 \item Identifikovat reprezentované objekty a vlastnosti pomocí URI
@@ -26,14 +27,14 @@ Výsledné identifikátory entit:
 
 \begin{itemize}
 \item \textbf{Document} (Dokument) - \textit{http://[domain]/[type]/[documentId]/[versionId]}
-Type může nabývat hodnot contract/attachment/amendment - resp. jedná se v podstatě o hodnotu položky Uri z datového standardu
-\item \textbf{Publisher TODO} (Vydavatel) -\\\textit{http://[domain]/[type]/[documentId]/[versionId]/publisher}
-Jedná se o podřízenou položku dokumentu 
 	\begin{itemize}
-	\item Jedná se o podřízenou položku dokumentu 
+	\item Type může nabývat hodnot contract/attachment/amendment - resp. jedná se v podstatě o hodnotu položky Uri z datového standardu 
+	\end{itemize}
+\item \textbf{Publisher} (Vydavatel) -\textit{http://[domain]/publisher}
+	\begin{itemize}
+	\item Jedná se o podřízenou položku dokumentu. Předpokládáme, že instituce publikující na konkrétní doméně odpovídá konkrétnímu vydavateli smluv. Je vhodné, aby každý vydavatel publikoval pod unikátní doménou. 
 	\end{itemize}
 \item \textbf{Version} (Verze) - \textit{http://[domain][type]/[documentId]/[versionId]/version}
-Jedná se o podřízenou položku dokumentu 
 	\begin{itemize}
 	\item Jedná se o podřízenou položku dokumentu 
 	\end{itemize}
@@ -97,9 +98,9 @@ Samotnou tvorbu ontologie rozdělíme do dvou kroků:
 
 \subsection{Analýza vhodných, již existujících ontologií}
 
-Při tvorbě ontologie se zaměříme na otázku, zdali existuje třída, či predikát v nějaké ontologii sémanticky ekvivalentní třídě, či konkrétní položce datového standardu pro smlouvy\footnote{TODO}. Takových vhodných ontologií ve světě Linked Data může být celá řada. K výběru stačí libovolná z nich. 
+Při tvorbě ontologie se zaměříme na otázku, zdali existuje třída, či predikát v nějaké ontologii sémanticky ekvivalentní třídě, či konkrétní položce datového standardu pro smlouvy. Takových vhodných ontologií ve světě Linked Data může být celá řada. K výběru stačí libovolná z nich. 
 
-V následujícím seznamu je výčet vybraných ontologií, které se jeví jako vhodné pro použití při popisování smluv\footnote{Obecně výběr ontologií nemusíme považovat za striktní. Každou třídu, či predikát lze označit jako sémanticky ekvivalentní jiné třídě, či predikátu. Slouží k tomu konstrukce jazyka owl[TODO - odkaz definice ontologie] - \textit{equivalentClass}, resp. \textit{equivalentProperty}.}. U každého bodu je zmíněn popis ontologie, důvod, proč byla daná ontologie zvolena, a seznam tříd a predikátů vhodných k použití.
+V následujícím seznamu je výčet vybraných ontologií, které se jeví jako vhodné pro použití při popisování smluv\footnote{Obecně výběr ontologií nemusíme považovat za striktní. Každou třídu, či predikát lze označit jako sémanticky ekvivalentní jiné třídě, či predikátu. Slouží k tomu konstrukce jazyka Owl - \textit{equivalentClass}, resp. \textit{equivalentProperty}.}. U každého bodu je zmíněn popis ontologie, důvod, proč byla daná ontologie zvolena, a seznam tříd a predikátů vhodných k použití.
 
 \bigskip
 \noindent
@@ -195,7 +196,7 @@ Vybrané ontologie:
 	\end{itemize}
 \item \textbf{Vann} (\textit{http://purl.org/vocab/vann/}) - anotační ontologie pro dokumenty 
 	\begin{itemize}
-	\item Důvod použití - nesouvisí s datových standardem, tato ontologie je vhodná pro popis ontologií a bude zmíněna níže v publikaci[TODO-odkaz].
+	\item Důvod použití - nesouvisí s datových standardem, tato ontologie je vhodná pro popis ontologií a bude zmíněna níže v publikaci [\ref{sec:kap3}].
 	\item Vybrané predikáty
 		\begin{itemize}
 		\item preferredNamespaceUri - preferovaná adresa ontologie
@@ -212,7 +213,7 @@ Každou položku datového standardu namapujeme na třídu, či predikát výsle
 
 Vlastní ontologii nazveme jako open-contracting a budeme pro ni používat zkratku cn.  
 
-Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. V prvním sloupečku se nachází entita/vlastnost datového standardu, v druhém napamovaná třída/predikát a v třetím případná poznámka\footnote{Entity jsou uváděny velkým písmem, predikáty malým}.
+Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. V prvním sloupečku se nachází entita/vlastnost datového standardu, v druhém napamovaná třída/predikát a v třetím případná poznámka\footnote{Entity jsou uváděny velkým písmem, vlastnosti malým}.
 
 \subsubsection*{Dokument}
 
@@ -311,7 +312,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \hline
 \endhead
 \endfoot
-\caption{Mapování entity Smlouva}
+\caption{Mapování entity Smlouva TODO-PriceSpec}
 \endlastfoot
 \textbf{Contrac}t & cn:Contract \\
 \textbf{awardID} & cn:awardID \\
@@ -599,25 +600,26 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \end{center}
 
 \subsection{Publikace}
+\label{sec:kap423}
 
-K serializaci výsledné ontologie využijeme formátu Turtle. Soubor se skládá z hlavičky a definicí nově vytvořených tříd a predikátů. V hlavičce definujeme prefixy použitých ontologií a základní informace o ontologii. Použité třídy a predikáty zmíníme v poznámkách k použití (predikát \textit{vann:usageNote}). Příklad ontologie lze nalézt v Příloze B(TODO).
+K serializaci výsledné ontologie využijeme formátu Turtle. Soubor se skládá z hlavičky a definicí nově vytvořených tříd a predikátů. V hlavičce definujeme prefixy použitých ontologií a základní informace o ontologii. Použité třídy a predikáty zmíníme v poznámkách k použití (predikát \textit{vann:usageNote}). Příklad ontologie lze nalézt v Příloze D.
 
 \section{Možnosti propojení na související data}
 
 První bezpochyby zajímavou možností je propojení smluv s veřejnými zakázkami, resp. věstníkem veřejných zakázek provozovaným Ministerstvem pro místní rozvoj. Jednotlivé smlouvy mající spojitost s veřejnou zakázkou poznáme podle vlastnosti AwardID, resp. evidenční číslo veřejné zakázky.  
 
-Dalšími zajímavými prvky k propojení jsou pokročilé informace o smluvním stranách. Každá smluvní strana vystupující ve smlouvě může mít zveřejněno mimo jiné identifikační číslo a adresu. Nabízí se tedy propojení s národními registry ARES a RÚIAN. ARES je registrem informací o ekonomických subjektech provozovaný Ministerstvem financí, RÚIAN je registrem územní identifikace, adres a nemovitostí provozovaný Českým úřadem zeměměřickým a katastrálním. Vhodné informace k propojení tedy jsou:
+Dalšími zajímavými prvky k propojení jsou pokročilé informacemi o smluvním stranách. Každá smluvní strana vystupující ve smlouvě může mít zveřejněno mimo jiné identifikační číslo a adresu. Nabízí se tedy propojení s národními registry ARES a RÚIAN. ARES je registrem informací o ekonomických subjektech provozovaný Ministerstvem financí, RÚIAN je registrem územní identifikace, adres a nemovitostí provozovaný Českým úřadem zeměměřickým a katastrálním. Vhodné informace k propojení tedy jsou:
 
 \begin{itemize}
-\item Evidenční číslo veřejné zakázky u smlouvy na věstník veřejných zakázek
+\item Evidenční číslo veřejné zakázky u smlouvy k propojením s věstníkem veřejných zakázek
 	\begin{itemize}
 	\item Iniciativa OpenData.cz zpracovává údaje o veřejných zakázkách v RDF podobě, využijeme tedy propojení právě s tímto datasetem 
-	\item Cílové URL - http://linked.opendata.cz/resource/business-entity/CZ{ICO}
+	\item Cílové URL -\\http://linked.opendata.cz/resource/domain/buyer-profiles/contract/cz/{EvidencniCisloZakazky}
 	\end{itemize}
-\item Identifikační číslo smluvní strany na ARES
+\item Identifikační číslo smluvní strany s možností propojení na ARES
 	\begin{itemize}
 	\item OpenData.cz aktuálně zpracovávají také údaje z registru ARES
-	\item Cílové URL - http://linked.opendata.cz/resource/domain/buyer-profiles/contract/cz/{EvidencniCisloZakazky}
+	\item Cílové URL - http://linked.opendata.cz/resource/business-entity/CZ{ICO}\footnote{Informace skrývající se za tímto odkazem jsou sjednocením více datových zdrojů, ne pouze ARESu} 
 	\end{itemize}
 \item Adresa smluvní strany na RÚIAN - TODO
 \end{itemize}

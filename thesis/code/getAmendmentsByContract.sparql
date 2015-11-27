@@ -1,0 +1,13 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX com: <https://w3id.org/commerce#>
+PREFIX dc: <http://purl.org/dc/terms/>
+
+SELECT ?Uri ?Title ?DateSigned ?Document
+WHERE 
+{ 
+    ?Uri a cn:Amendment ;
+           dc:title ?Title ;
+           dc:created ?DateSigned ;
+           com:contentUrl  ?Document ;
+           cn:contract @contract .
+}

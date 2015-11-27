@@ -1,0 +1,28 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX pc: <http://purl.org/procurement/public-contracts#>
+PREFIX pccz: <http://purl.org/procurement/public-contracts-czech#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?Uri ?KodProfil ?Title ?SupplierUri ?ID ?Amount ?Vat
+WHERE 
+{
+    ?Uri pc:contractingAuthority @businessEntity ;
+         dc:title ?Title .
+     
+    OPTIONAL 
+    {
+    ?Uri pccz:kodprofil ?KodProfil ;
+            pco:awardedTender ?Tender .
+    ?Tender pco:offeredPrice ?PriceSpec ;
+            pco:supplier ?SupplierUri . 
+    ?SupplierUri gr:legalName ?Supplier . 
+               
+    BIND(CONCAT(str(?SupplierUri), '/identifier') as ?IcStr)
+    BIND(URI(?IcStr) as ?IcUri)
+
+    ?IcUri skos:notation ?ID .
+    ?PriceSpec gr:hasCurrencyValue ?Amount ;
+                gr:valueAddedTaxIncluded	1 .
+    }      
+}

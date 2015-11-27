@@ -1,0 +1,12 @@
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX schema: <http://schema.org/>
+
+SELECT *
+WHERE 
+{
+    @businessEntity s:address ?address .
+
+    ?address  ruianlink:adresni-misto ?ruianLink .
+                                                                
+    FILTER(CONTAINS(str(?address), 'ares'))
+}
