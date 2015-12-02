@@ -7,7 +7,7 @@ Začali jsme definováním datového standardu pro otevřené smlouvy. Ten prob�
 
 V dalším kroku byla navržena ontologie pro publikaci otevřených smluv v RDF podobě. Zaměřili jsme se také na možnost propojení se souvisejícími daty. Ukázali jsme výhody serializace RDF dat v JSON-LD formátu. Klíčovým přínosem JSON-LD formátu je, že vypublikovaná data splňují datový standard pro otevřené smlouvy a zároveň se jedná o RDF data. 
 
-V následující části jsme navrhli a implementovali platformu pro otevírání smluv. Platforma je složena ze třech základních součástí: konverzního modulu, jednotného úložiště a prezentační webové aplikace. 
+V následující části jsme navrhli a implementovali platformu pro otevírání smluv. Platforma je složena ze třech základních součástí: Konverzního modulu, jednotného úložiště a prezentační webové aplikace. 
 
 V návrhu konverzního modulu jsme se zaměřili na konverzi relačních dat stávajících informačních systémů do RDF podoby splňující principy Linked Data. Jako zdroj pro konkrétní implementaci byl zvolen modul Munis ESML informačního systému Triada spol. s.r.o. Řešení přináší zajímavý přístup mapování relačních dat do RDF podoby pomocí R2RML skriptu. Díky tomu lze konverzní mechanismus s drobnými úpravami využít i nad jinými informačními systémy.
 Druhou součástí platfromy bylo navrženo a implementováno jednotné úložiště. Úložiště je na základě definovaného datového katalogu schopno stahovat konkrétní datasety údajů o smlouvách v RDF podobě a ukládat je do triplestore databáze. Díky navržené jednoznačné identifikaci entit odpadly problémy s heterogenitou dat. 
@@ -36,7 +36,7 @@ V rámci této práce jsme ukázali, že využití principů Linked Data je pro 
 \item Obecně příprava dat, tvorba standardu, ontologie, definování URI identifikátorů apod. vyžaduje jisté znalosti a netriviální úsilí.  
 \end{itemize}
 
-K přípravě dat bych rád doplnil, že před zpracováním podobných domén, jako jsou údaje o smlouvách do Linked Data podoby, je důležité navrhnout datový standard definující, co je vůbec vybrané domény obsahem. Ze zkušenosti v rámci akční skupiny pro tvorbu standardu mohu konstatovat, že tato činnost nemusí být triviální. Každá konkrétní položka může mít různé technické, ale hlavně i právní aspekty, které je třeba podrobit diskuzi s relevantními osobami.   
+K přípravě dat bych rád doplnil, že před zpracováním podobných domén jako jsou údaje o smlouvách do Linked Data podoby, je důležité navrhnout datový standard definující, co je vůbec vybrané domény obsahem. Ze zkušenosti v rámci akční skupiny pro tvorbu standardu mohu konstatovat, že tato činnost nemusí být triviální. Každá konkrétní položka může mít různé technické, ale především právní aspekty, které je třeba podrobit diskuzi s relevantními osobami.   
 
 S ohledem na potřebnou přípravu dat se tedy nabízí otázka celkové pracnosti. Náročnost přípravy dat a implementace konverzního modulu bych na základě zkušenosti odhadl zhruba takto:
 
@@ -55,7 +55,5 @@ Konverzní modul + R2ML mapování} \\ \showrowcolors
 \end{table}
 
 Celkovou náročnost otevření této domény smluv tedy můžeme odhadnout na zhruba 6 člověkoměsíců. Pro každý další subjekt zapracovávající doménu smluv pak stačí odhadem 2,5 člověkoměsíce (tvorba konverzního modulu a R2RML mapování).
-
-\subsubsection*{Budoucnost}
 
 

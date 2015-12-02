@@ -1,7 +1,7 @@
 \chapter{Otevřené smlouvy jako Linked Data}
 \label{sec:kap4}
 
-V minulé kapitole [\ref{sec:kap3}] bylo řečeno, jak reprezentovat smlouvy jako otevřená data. Data serializovaná do formátu JSON, či CSV můžeme kategorizovat stupněm 3$\bigstar$. Pokud však chceme dosáhnout otevřenosti dat kategorie 5$\bigstar$, je třeba provést několik dalších kroků:
+V minulé kapitole [\ref{sec:kap3}] bylo řečeno, jak prezentovat smlouvy jako otevřená data. Data serializovaná do formátu JSON, či CSV můžeme kategorizovat stupněm 3$\bigstar$. Pokud však chceme dosáhnout otevřenosti dat kategorie 5$\bigstar$, je třeba provést několik dalších kroků:
 
 \begin{itemize}
 \item Identifikovat reprezentované objekty a vlastnosti pomocí URI
@@ -441,6 +441,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \end{longtable}
 \end{center}
 
+\newpage
+
 \subsubsection*{Adresa}
 
 \begin{center}
@@ -611,7 +613,7 @@ První bezpochyby zajímavou možností je propojení smluv s veřejnými zakáz
 Dalšími zajímavými prvky k propojení jsou pokročilé informace o smluvních stranách. Každá smluvní strana vystupující ve smlouvě může mít zveřejněno mimo jiné identifikační číslo a adresu. Nabízí se tedy propojení s národními registry ARES a RÚIAN. ARES je registrem informací o ekonomických subjektech provozovaný Ministerstvem financí, RÚIAN je registrem územní identifikace, adres a nemovitostí provozovaný Českým úřadem zeměměřickým a katastrálním. Vhodné informace k propojení tedy jsou:
 
 \begin{itemize}
-\item Evidenční číslo veřejné zakázky u smlouvy k propojením s věstníkem veřejných zakázek
+\item Evidenční číslo veřejné zakázky u smlouvy s věstníkem veřejných zakázek
 	\begin{itemize}
 	\item Iniciativa OpenData.cz\cite{od} zpracovává údaje o veřejných zakázkách v RDF podobě, využijeme tedy propojení právě s tímto datasetem 
 	\item Cílové URL -\\http://linked.opendata.cz/resource/domain/buyer-profiles/contract/-\\cz/\{EvidencniCisloZakazky\}

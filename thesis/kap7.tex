@@ -7,9 +7,9 @@ V rámci této kapitoly se nejdříve zaměříme na otestovaní konverzního me
 V únoru roku 2015 vydalo Ministerstvo vnitra dopadovou studii na odhad nákladů k zavedení zákona o registru smluv\cite{dopad}. V reakci na tento odhad nedlouho poté vydalo Cetrum aplikované ekonomie o.s. stínový výpočet korigující výsledky Ministerstva vnitra\cite{stinovyvypocet}. Na základě těchto studií můžeme získat hrubou představu o tom, kolik jednotlivé subjekty uzavírají přibližně smluv. Veřejné instituce tak rozdělíme do čtyř kategorií:  
 
 \begin{itemize}
-\item Malé - Nejmenší instituce, uzavírající jednotky smluv měsíčně s celkovým úhrnem maximálně několika desítek smluv ročně (v rámci měst a obcí jde o nejvyšší zastoupení).
-\item Střední - Subjekty generující maximálně desítky smluv měsíčně, s jednotkami stovek smluv ročně (v rámci všech subjektů pravděpodobně nevýznamnější zastoupení). 
-\item Středně velké - Instituce, které produkují desítky, až stovky smluv měsíčně s jednotkami tisíců smluv ročně.
+\item Malé - Nejmenší instituce uzavírající jednotky smluv měsíčně s celkovým úhrnem maximálně několika desítek smluv ročně (v rámci měst a obcí jde o nejvyšší zastoupení).
+\item Střední - Subjekty generující maximálně desítky smluv měsíčně s jednotkami stovek smluv ročně (v rámci všech subjektů pravděpodobně nevýznamnější zastoupení). 
+\item Středně velké - Instituce, které produkují desítky až stovky smluv měsíčně s jednotkami tisíců smluv ročně.
 \item Velké - Velké instituce se stovkami až tisíci smluv měsíčně s roční produkcí tisíců až desetitisíců smluv.
 \end{itemize}
 
@@ -26,7 +26,7 @@ Měření probíhalo na sestavě:
 \item Databáze - MS SQL 2014
 \end{itemize}
 
-Pro každou kategorii bylo provedeno 15 měření pro dump, resp. vyhledání smlouvy. Z každé sady výsledků se odebrala minimální a maximální hodnota a následně ze zbývajících hodnot byl vypočítán průměr. Pro názornost, u dumpu uvádíme také velikost výstupních dat a počet vygenerovaných trojic. Výsledky lze najít v následujících grafech (\ref{obr:graphDump1},\ref{obr:graphDump2},\ref{obr:graphGet1}).
+Pro každou kategorii bylo provedeno 15 měření pro dump, resp. vyhledání smlouvy. Z každé sady výsledků se odebrala minimální a maximální hodnota a následně ze zbývajících hodnot byl vypočítán průměr. Pro názornost u dumpu uvádíme také velikost výstupních dat a počet vygenerovaných trojic. Výsledky lze najít v následujících grafech (\ref{obr:graphDump1},\ref{obr:graphDump2},\ref{obr:graphGet1}).
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/graphDump1.eps}}
@@ -51,7 +51,7 @@ Z výsledků lze konstatovat, že výkon klesá téměř lineárně s množství
 
 \section{Test webové aplikace}
 
-Webová aplikace se skládá z pěti pohledů, kde čtyři z nich volají jinou sadu SPARQL dotazů nad různými endpointy (viz kapitola Implementace). Řekněme, že úzkým hrdlem aplikace je rychlost zpracování dotazů nad jednotlivými endpointy. Zvláště pak nad endpointem jednotného úložiště platformy. Provedeme proto 4 různé testy simulující dotazy již zmíněných pohledů. Každý test spustíme 50x a podobně jako u konverzního modulu odebereme minimální a maximální hodnotu a ze zbývajících hodnot vypočítáme průměr. V jednotném úložišti je uložen datový soubor s cca 10000 smlouvami (řádově statisíce trojic). Výsledky jednotlivých testů vidíme v následující tabulce \ref{tbl:tblVysledky}:
+Webová aplikace se skládá z pěti pohledů, kde čtyři z nich volají jinou sadu SPARQL dotazů nad různými endpointy (viz kapitola Implementace). Řekněme, že úzkým hrdlem aplikace je rychlost zpracování dotazů nad jednotlivými endpointy, zvláště pak nad endpointem jednotného úložiště platformy. Provedeme proto 4 různé testy simulující dotazy již zmíněných pohledů. Každý test spustíme 50x a podobně jako u konverzního modulu odebereme minimální a maximální hodnotu a ze zbývajících hodnot vypočítáme průměr. V jednotném úložišti je uložen datový soubor s cca 10000 smlouvami (řádově statisíce trojic). Výsledky jednotlivých testů vidíme v následující tabulce \ref{tbl:tblVysledky}:
 
 \begin{table}[h]
 \centering

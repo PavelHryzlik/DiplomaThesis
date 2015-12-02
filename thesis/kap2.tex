@@ -13,9 +13,9 @@ Další otázkou je, jak mají data o zveřejněných smlouvách vypadat, které
 
 V úvodu již bylo řečeno, že pod záštitou Oživení o.s.\cite{oz} a EconLabu\cite{econLab} (dříve Centrum aplikované ekonomie o.s.) vzniká datový standard pro otevřené smlouvy. Hlavními postavami koordinujícími vývoj standardu se stali PhDr. Ing. Jiří Skuhrovec a Mgr. Lenka Franková. Na tvorbě standardu participuji a mohu konstatovat, že základní verze je již hotová\footnote{Původní, nerozšířený koncept standardu vyplynuvší z práce akční skupiny je k nalezení na webu iniciativy Bezkorupce\cite{standard}}. Velmi pozitivní zprávou je to, že se tento standard s velkou pravděpodobností dostane do oficiálního doporučení Ministerstva vnitra ČR. Zdá se tedy, že celá tato snaha má smysl.
 
-Standardem pro smlouvy to ale nekončí. Myšlenka úzké spolupráce zástupců měst a obcí, akademické a neziskové sféry se osvědčila. Výsledkem je vznik organizace Otevřená města\cite{otv}, která má za cíl sdružovat veřejné instituce. Pod společnou taktovkou pak financovat společné otevřené projekty. Prvním společným projektem je právě registr smluv.
+Standardem pro smlouvy to ale nekončí. Myšlenka úzké spolupráce zástupců měst a obcí, akademické a neziskové sféry se osvědčila. Výsledkem je vznik organizace Otevřená města\cite{otv}, která má za cíl sdružovat veřejné instituce. Pod společnou taktovkou pak financovat společné otevřené projekty. Prvním společným projektem je právě registr smluv. \cite{opendatapsi, opendatagovernment, opendatacr, odgov_s}
 
-\section{Standard pro zveřejňování smluv}
+\section[Standard pro zveřejňování smluv]{Standard pro zveřejňování smluv\cite{metodika, standard}}
 
 V této kapitole se podrobněji seznámíme se standardem pro zveřejňování smluv. Nejdříve je vyložena základní struktura datového standardu, poté jsou popsány konkrétní položky standardu a číselníky. Následně jsou popsány způsoby publikace. Na závěr zmíníme několik informací o vznikající metodice pro zveřejňování smluv. 
 
@@ -70,7 +70,7 @@ Datový typ & Přípustný datový typ položky \\
 Validita & Stupeň kvality položky. \\
 Popis & Podrobný popis položky \\
 \end{tabular}
-\caption{Položky tabulek datového standardu}
+\caption[Položky tabulek datového standardu]{Položky tabulek datového standardu, zdroj:\cite{metodika, standard}}
 \end{table}
 
 U každé zveřejněné smlouvy rozlišujeme tři stupně validity, resp. správnosti a úplnosti dat: A (kvalitní), B (dobrý), C (základní). Dokumenty musí splňovat alespoň minimální přípustnou kvalitu C. Pokud je nějaký atribut požadován pro stupeň validity C, je níže v textu označen např. takto (C). Položky doplněné systémem jsou označeny (S). Nepovinné položky jsou značeny (N), hvězdička znamená, že položka je kontrolována pokročilejším pravidlem popsaném u konkrétní položky. 
@@ -86,7 +86,7 @@ Nepovinné & N & Nepovinná položka \\
 \rowcolor{validateA}Kvalitní & A & Rozšiřující položka pro status \uv{Kvalitní} \\
 \rowcolor{validateS}Systémové & S & Položka doplněná systémem \\
 \end{tabular}
-\caption{Validita}
+\caption[Validita]{Validita, zdroj:\cite{metodika, standard}}
 \end{table}
 
 \subsubsection*{Doplňující validační pravidla}
@@ -116,7 +116,7 @@ Dokumenty připojené ke smlouvám by měly být strojově čitelné, resp. v t�
 \rowcolor{validateB}XLSX & B & Tabulka Microsoft Excel \\
 \rowcolor{validateB}ODS & B & Tabulka OpenDocument \\
 \end{tabular}
-\caption{Akceptovatelné soubory}
+\caption[Akceptovatelné soubory]{Akceptovatelné soubory, zdroj:\cite{metodika, standard}}
 \end{table}
 
 \newpage
@@ -142,7 +142,7 @@ Dokumenty připojené ke smlouvám by měly být strojově čitelné, resp. v t�
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti dokumentu}
+\caption[Vlastnosti dokumentu]{Vlastnosti dokumentu, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateS}URI & String URI & S & Jednoznačný identifikátor formou URL. Typicky rsmluv.cz/[Typ]/[Id]/[Version], kde Version je vzestupné číslování verzí při změnách dokumentu či metadat \\
 \rowcolor{validateS}Document & String URI & S & Adresa URL fyzického umístění dokumentu. Typicky rsmluv.cz/[Typ]/[Id]/[Version]/File, viz akceptovatelné soubory \\
@@ -173,7 +173,7 @@ Dokumenty připojené ke smlouvám by měly být strojově čitelné, resp. v t�
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti vydavatele}
+\caption[Vlastnosti vydavatele]{Vlastnosti vydavatele, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční ID \\
 \rowcolor{validateC}Name & String & C & Název, případně jméno a příjmení (s tituly) \\
@@ -202,7 +202,7 @@ ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční ID \
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti verze smlouvy}
+\caption[Vlastnosti verze smlouvy]{Vlastnosti verze smlouvy, zdroj:\cite{metodika, standard}}
 \endlastfoot
 PublisherId & String & N & Libovolný číselný identifikátor verze, spisové číslo apod. \\
 \rowcolor{validateS}Version & Int & S & Pořadové číslo verze, nejvyšší = aktuální \\
@@ -228,7 +228,7 @@ PublisherId & String & N & Libovolný číselný identifikátor verze, spisové 
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti smlouvy}
+\caption[Vlastnosti smlouvy]{Vlastnosti smlouvy, zdroj:\cite{metodika, standard}}
 \endlastfoot
 AwardID & String & N* & Evidenční číslo veřejné zakázky. Uvádí se volitelně, pokud existuje \\
 AwardProfileID & String & N & Číslo zakázky na profilu zadavatele \\
@@ -270,7 +270,7 @@ AwardProfileID & String & N & Číslo zakázky na profilu zadavatele \\
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti přílohy}
+\caption[Vlastnosti přílohy]{Vlastnosti přílohy, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Title & String & C & Název \\
 \rowcolor{validateC}Contract & String URI & C & Jednoznační identifikátor smlouvy \\
@@ -295,7 +295,7 @@ AwardProfileID & String & N & Číslo zakázky na profilu zadavatele \\
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti dodatku}
+\caption[Vlastnosti dodatku]{Vlastnosti dodatku, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Title & String & C & Název \\
 \rowcolor{validateC}Contract & String URI & C & Jednoznační identifikátor smlouvy \\
@@ -323,7 +323,7 @@ AwardProfileID & String & N & Číslo zakázky na profilu zadavatele \\
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti smluvní strany}
+\caption[Vlastnosti smluvní strany]{Vlastnosti smluvní strany, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \\
 \rowcolor{validateC}LocalID & String URI/Int & C & Jednoznačný identifikátor v rámci dokumentu \\
@@ -354,7 +354,7 @@ ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti nadřazené instituce}
+\caption[Vlastnosti nadřazené instituce]{Vlastnosti nadřazené instituce, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \\
 \rowcolor{validateC}LocalID & String URI/Int & C & Jednoznačný identifikátor v rámci dokumentu \\
@@ -383,7 +383,7 @@ ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti adresy}
+\caption[Vlastnosti adresy]{Vlastnosti adresy, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateA}StreetAddress & String & A & Ulice, případně "Anonymizováno" \\
 \rowcolor{validateA}Locality & String & A & Město, případně "Anonymizováno" \\
@@ -409,7 +409,7 @@ ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti objednávky}
+\caption[Vlastnosti objednávky]{Vlastnosti objednávky, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ParrentDocument & String URI & N & Jednoznačný identifikátor dokumentu \\
 SubjectType & String & N & Číselník typů zboží/služeb, viz Číselníky \\
@@ -439,7 +439,7 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti faktury}
+\caption[Vlastnosti faktury]{Vlastnosti faktury, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ParrentDocument & String URI & N & Jednoznačný identifikátor dokumentu \\
 Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entitia Smluvní strana \\
@@ -470,7 +470,7 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti implementace}
+\caption[Vlastnosti implementace]{Vlastnosti implementace, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateA}Milestones & Object arra & A & Milníky, pro volnou evidenci událostí (obnova smlouvy, předání apod.). Viz entitia Milník \\
 \rowcolor{validateA}Transactions & Object array & A & Seznam transakcí, tedy proběhlých plateb na základě smlouvy. Viz entitia Transakce \\
@@ -494,7 +494,7 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti milníku}
+\caption[Vlastnosti milníku]{Vlastnosti milníku, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Title & String & C & Název \\
 \rowcolor{validateC}DueDate & String & C & Datum \\
@@ -518,7 +518,7 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \hline
 \endhead
 \endfoot
-\caption{Vlastnosti transakce}
+\caption[Vlastnosti transakce]{Vlastnosti transakce, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Date & DateTime & C & Datum a čas proběhlé transakce \\
 \rowcolor{validateC}Ammount & Float & C & Zaplacená cena s DPH, vždy stejná měna jako v Currency \\
@@ -544,7 +544,7 @@ V následujících tabulkách 3.18,\ref{tbl:cisTypsmlouvy} jsou znázorněny př
 \rowcolor{validateB}Příloha \\
 \rowcolor{validateB}Dodatek \\
 \end{tabular}
-\caption{Číselník typu dokumentu}
+\caption[Číselník typu dokumentu]{Číselník typu dokumentu, zdroj:\cite{metodika, standard}}
 \end{table}
 
 \begin{center}
@@ -557,7 +557,7 @@ V následujících tabulkách 3.18,\ref{tbl:cisTypsmlouvy} jsou znázorněny př
 \hline
 \endhead
 \endfoot
-\caption{Číselník typu smlouvy}
+\caption[Číselník typu smlouvy]{Číselník typu smlouvy, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateB}Nájemní smlouva \\
 \rowcolor{validateB}Darovací smlouva \\
@@ -595,11 +595,11 @@ Pro potřeby publikace je třeba zvolit vhodný datový formát v kterém budou 
 
 Není překvapující, že obecně nejznámějšími datovými formáty splňujícími výše zmíněná pravidla jsou formáty XML (Extensible Markup Language) a JSON (JavaScript Object Notation)\cite{JSON}. Vzhledem k úspornosti a možnostem rychlejšího zpracování padla volba na formát JSON.
 
-Pokud však chceme, aby datový standard byl součástí plánovaného doporučení Ministerstva vnitra ČR, tak je nutné podporovat také formát CSV (Comma-separated values)\cite{csv}. Jedná se o jednoduchý, otevřený datový formát, ale s plochou strukturou. Publikace smluv v CSV si tedy vyžádá řadu omezení. 
+Pokud však chceme, aby datový standard byl součástí plánovaného doporučení Ministerstva vnitra ČR, tak je nutné podporovat také formát CSV (Comma-separated values)\cite{csv}. Jedná se o jednoduchý, otevřený datový formát, ale s plochou strukturou. Publikace smluv v CSV si tedy vyžádá řadu omezení. \cite{opendatametodika, howtoopendata}
 
 \subsection{JSON}
 
-Základní strukturu datového souboru lze vidět z tabulky \ref{tbl:strukturaJson}. Položky Id, Date a Language slouží k popisu datového souboru jako celku. Položky Documents, Parties, Orders a Invoices už obsahují konkrétní výčty entit ze standardu. Položky vyznačené stupněm validity C, jsou povinné.
+Základní strukturu datového souboru lze vidět z tabulky \ref{tbl:strukturaJson}. Položky Id, Date a Language slouží k popisu datového souboru jako celku. Položky Documents, Parties, Orders a Invoices už obsahují konkrétní výčty entit ze standardu. Položky vyznačené stupněm validity C jsou povinné.
 
 Ke konkrétní specifikaci jednotlivých položek ve formátu JSON se používá JSON Schema\cite{JSONSchema}\footnote{Popisem způsobu zápisu konkrétních položek se v rámci této práce zabývat nebudeme}. Lze v něm definovat konkrétní elementy a podelementy, výchozí hodnoty, datové typy, požadovaný obsah apod. Příklad JSON Schématu vycházejícího z datového standardu lze nalézt na přiloženém datovém nosiči\footnote{Nebo online na GitHubu\cite{contractschema}.}.
 
@@ -622,7 +622,7 @@ Datový soubor, validní vůči JSON schématu, s jednou smlouvou a dvěma smluv
 \hline
 \endhead
 \endfoot
-\caption{Struktura datového souboru}
+\caption[Číselník datového souboru]{Struktura datového souboru, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Id & String & C & Jednoznačný identifikátor souboru \\
 \rowcolor{validateC}Date & DateTime & C & Datum publikace souboru \\
@@ -688,7 +688,7 @@ Formát CSV je jednoduchou plochou strukturou, nelze tedy pomocí tohoto formát
 \hline
 \endhead
 \endfoot
-\caption{Datový standard serializovaný do CSV}
+\caption[Datový standard serializovaný do CSV]{Datový standard serializovaný do CSV, zdroj:\cite{metodika, standard}}
 \endlastfoot
 \rowcolor{validateC}Amount & Nullable float & Cena s DPH. Nejvyšší přípustná hodnota řádného plnění z dané smlouvy, které vynaloží některá smluvní strana. U smluv na dobu určitou se jedná o očekávané celkové finanční plnění strany s nejvyšším plněním, včetně opcí, bez sankcí. U smluv na dobu neurčitou, ve kterých není stanoven strop na celkové plnění, se jedná o nejvyšší očekávané roční plnění. U smluv bez finančního plnění (bartery, darovací smlouvy) je uvedena celková hodnota nefinančního plnění strany s nejvyšším plněním (např. odhadovaná hodnota daru). U smluv s nejasným plněním připustit NULL. \\
 \rowcolor{validateC}AmountNoVat & Nullable float & Cena bez DPH (u neplátců celková cena). Nejvyšší přípustná hodnota řádného plnění z dané smlouvy, které vynaloží některá smluvní strana. U smluv na dobu určitou se jedná o očekávané celkové finanční plnění strany s nejvyšším plněním, včetně opcí, bez sankcí. U smluv na dobu neurčitou, ve kterých není stanoven strop na celkové plnění, se jedná o nejvyšší očekávané roční plnění. U smluv bez finančního plnění (bartery, darovací smlouvy) je uvedena celková hodnota nefinančního plnění strany s nejvyšším plněním (např. odhadovaná hodnota daru). U smluv s nejasným plněním připustit NULL. \\
@@ -734,11 +734,11 @@ TotalPaidVolume & Float & Celkový objem plnění \\
 
 Spolu s datovým standardem vzniká i metodika mající za cíl technicky i věcně datový standard popsat. Tvorbu této metodiky jsem pod taktovkou Jiřího Skuhrovce dostal na starost. Obsah této metodiky vznikal souběžně s touto prací.
 
-Jedná se o jednoduchou webovou aplikaci na bázi wikipedie. Implementována je pomocí nástroje Dokuwiki\cite{dokuwiki}. Dostupná je pod hlavičkou EkonLabu\cite{metodika}\\
+Jedná se o jednoduchou webovou aplikaci na bázi wikipedie. Implementována je pomocí nástroje Dokuwiki\cite{dokuwiki}. Dostupná je pod hlavičkou EkonLabu\cite{metodika}\footnote{Inspirováno standardem Open Data Contracting\cite{ocds}}\\
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/standard_methodics.eps}}
-\caption{Metodika zveřejňování smluv}
+\caption[Metodika zveřejňování smluv]{Metodika zveřejňování smluv\cite{metodika}}
 \label{obr:standard_methodics}
 \end{figure}
 

@@ -181,7 +181,7 @@ Mapování smluvní strany a adresy vychází z údajů tabulek \\ESMLUV\_SMLUVS
 \item \textbf{cn:noID} - \uv{true} pokud je vyplněno IČ, jinak \uv{false}
 \item \textbf{cn:localID} - Atribut HAD\_POUZITA
 \item \textbf{schema:addressCountry} - Atribut STAT
-\item \textbf{cn:paysVAT} - Atribut PLATCEDPH - TODO(předělat!)
+\item \textbf{cn:paysVAT} - Atribut PLATCEDPH
 \item \textbf{schema:address} - Odkaz na adresu
 	\begin{itemize}
 	\item \textit{http://[domain]/party/\{HAD\_POUZITA\}/address}
@@ -241,15 +241,15 @@ Mapování přílohy vychází z údajů tabuly \\ESMLUV\_PRILOHASMLOUVY (viz Ob
 \item \textbf{dc:identifier} - Atribut ID
 \item \textbf{schema:url} - Odkaz na fyzické umístění souboru
 	\begin{itemize}
-	\item textit{http://[domain]/file/\{SADADUL\_ULOZISTEID\}/\{NAZEVSOUBORU\}}
+	\item \textit{http://[domain]/file/\{SADADUL\_ULOZISTEID\}/\{NAZEVSOUBORU\}}
 	\end{itemize}
 \item \textbf{dc:publisher} - Odkaz na vydavatele
 	\begin{itemize}
-	\item textit{http://[domain]/publisher}
+	\item \textit{http://[domain]/publisher}
 	\end{itemize}
 \item \textbf{cn:version} - Odkaz na informace o verzi smlouvy
 	\begin{itemize}
-	\item textit{http://[domain]/attachment/{ID}/1/version}
+	\item \textit{http://[domain]/attachment/{ID}/1/version}
 	\end{itemize}
 \item \textbf{cn:contract} - Odkaz na nadřízenou smlouvu. K tomuto údaji je třeba ID Smlouvy (tabulka ESMLUV\_SMLOUVA a pořadí verze smlouvy, tabulka ESMLUV\_VERZESMLOUVY)
 	\begin{itemize}
@@ -318,7 +318,7 @@ K mapování jednotlivých verzí smlouvy/přílohy/dodatku. Pro smlouvy/dodatky
 \begin{itemize}
 \item \textbf{URI entity}
 	\begin{itemize}
-	\item U smlouvy/dodatku - \textit{http://[domain]/[type]/\{ID\}/\{PORADIVERZE\}/version}
+	\item U smlouvy/dodatku - \\\textit{http://[domain]/[type]/\{ID\}/\{PORADIVERZE\}/version}
 	\item U přílohy - \textit{http://[domain]/attachment/\{ID\}/1/version}
 	\end{itemize}
 \item \textbf{Typ} - cn:Version
@@ -355,16 +355,17 @@ Entitu implementace nereprezentuje žádná tabulka v rámci datového modulu ER
 \begin{itemize}
 \item \textbf{cn:milestone} - Položka je stejná jako URI entity
 	\begin{itemize}
-	\item textit{http://[domain]/contract/\{ID\}/\{PORADIVERZE\}/milestone/-\\\{MilestoneID\}}
+	\item textit{http://[domain]/contract/\{ID\}/\{PORADIVERZE\}/milestone/- \{MilestoneID\}}
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Milník}
 
-K mapování milníků využijeme tabulek ESMLUV\_SMLOUVA, ESMLUV\_VERZESMLOUVY a ESMLUV\_MILNIK (tabulka milníku viz Obr. \ref{mapMilestone}).
+K mapování milníků využijeme tabulek ESMLUV\_SMLOUVA, \\ESMLUV\_VERZESMLOUVY a ESMLUV\_MILNIK (tabulka milníku viz Obr. \ref{obr:mapMilestone}).
 
 \begin{itemize}
-\item \textbf{URI entity} - \textit{http://[domain]/contract/\{ID\}/\{PORADIVERZE\}/milestone/-\\\{MilestoneID\}}
+\item \textbf{URI entity} - \textit{http://[domain]/contract/\{ID\}/\{PORADIVERZE\}/milestone/-
+\{MilestoneID\}}
 \item \textbf{Typ} - cn:Milestone
 \end{itemize}
 
@@ -629,7 +630,7 @@ Detail subjektu nabízí podrobné informace o vydavateli a seznam jeho smluv. I
 
 \subsubsection*{Detail smlouvy}
 
-Jak název napovídá, detail smlouvy poskytuje podrobné informace o smlouvě, smluvních stranách, přílohách, dodatcích, milnících, informacích o ceně a verzí smlouvy. Údaje získáme pomocí dotazů \ref{lst:getContract},\ref{lst:getPartiesByContract},\ref{lst:getAttachmentsByContract},\ref{lst:getAmendmentsByContract},\ref{lst:getMilestonesByContract},\ref{lst:getPriceSpecByContract},\ref{lst:getVersionsByContract} nad endpointem Otevřené smlouvy (Viz Obr. \ref{obr:contractDetail}).\\
+Jak název napovídá, detail smlouvy poskytuje podrobné informace o smlouvě, smluvních stranách, přílohách, dodatcích, milnících, informacích o ceně a verzích smlouvy. Údaje získáme pomocí dotazů \ref{lst:getContract},\ref{lst:getPartiesByContract},\ref{lst:getAttachmentsByContract},\ref{lst:getAmendmentsByContract},\ref{lst:getMilestonesByContract},\ref{lst:getPriceSpecByContract},\ref{lst:getVersionsByContract} nad endpointem Otevřené smlouvy (Viz Obr. \ref{obr:contractDetail}).\\
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/webContractDetail.eps}}

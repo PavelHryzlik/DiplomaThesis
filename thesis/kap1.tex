@@ -3,20 +3,20 @@
 
 Předmětem této kapitoly je čtenáře stručně seznámit se základními pojmy a principy otevřených, propojitelných dat a následně s technologiemi sloužícími k jejich zápisu a zpracování.
 
-\section{Otevřená data (Open Data)}
+\section[Otevřená data (Open Data)]{Otevřená data (Open Data)\cite{howtoopendata, odgov_s}}
 
 \textit{\uv{Open data can help us address the greatest challenges of our time and generate value for everyone}} - Open Data Institute 2012
 \newline
 
-Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můžeme chápat údaje zveřejněná na internetu, která jsou\cite{mv}
+Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můžeme chápat údaje zveřejněná na internetu, která jsou 
 
 \begin{enumerate}
-\item úplná
-\item snadno dostupná
-\item strojově čitelná
-\item používající standardy s volně dostupnou specifikací
-\item zpřístupněna za jasně definovaných podmínek užití dat s minimem omezení
-\item dostupná uživatelům při vynaložení minima možných nákladů
+\item \textit{úplná}
+\item \textit{snadno dostupná}
+\item \textit{strojově čitelná}
+\item \textit{používající standardy s volně dostupnou specifikací}
+\item \textit{zpřístupněna za jasně definovaných podmínek užití dat s minimem omezení}
+\item \textit{dostupná uživatelům při vynaložení minima možných nákladů}\cite{mv}
 \end{enumerate}
 
 \subsection*{Úplnost}
@@ -41,7 +41,7 @@ Typicky je třeba dbát na to, aby data byla zveřejňována pod otevřenou lice
 
 \subsection*{Dostupná uživatelům s minimem nákladů}
 
-Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro přidanou hodnotu, např. pro lepší službu nebo vyšší efektivitu. Náklady na zveřejnění by tak neměly přesáhnout případná zlepšení.
+Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro přidanou hodnotu, např. pro lepší službu nebo vyšší efektivitu. Náklady na zveřejnění by tak neměly přesáhnout případná zlepšení. 
 \newline
 
 \begin{figure}[h]
@@ -56,7 +56,7 @@ Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro p
 
 Tvůrce WWW a ředitel konsorcia W3C Tim Berners-Lee navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.
 
-\section{Stupně otevřenosti\protect\cite{5starInfo}}
+\section[Stupně otevřenosti]{Stupně otevřenosti\cite{5starInfo, linkedData}}    
 
 \subsection*{$\bigstar$ Libovolná zveřejněná data pod otevřenou licencí}
 
@@ -108,7 +108,7 @@ Důležité je dbát na to, aby URI nebylo virtuální, resp. aby se po dotázá
 
 Díky URI identifikaci můžeme data reprezentovat jako orientovaný graf propojených objektů, které na sebe mohou vzájemně odkazovat. K popisu takovýchto dat se používá formát RDF.[\ref{sec:RDF}]  
 
-V prostředí České republiky považováno jako nadstandard.
+V prostředí České republiky je tento stupeň považován za nadstandard.
 
 \subsection*{$\bigstar\bigstar\bigstar\bigstar\bigstar$ Data jsou propojena se souvisejícími daty}
 
@@ -124,7 +124,7 @@ V této nejvyšší kategorii se data mohou stát součástí datové sítě pro
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/5star_steps.eps}}
-\caption{Stupně otevřenosti dat}
+\caption[Stupně otevřenosti dat]{Stupně otevřenosti dat, zdroj:\cite{5starInfo}}
 \label{obr:5star_steps}
 \end{figure}
 
@@ -137,33 +137,33 @@ Linked Data vychází z myšlenky webu aplikované na data. Webu rozumíme jako 
 Podle \cite{linkedData} definujeme základní principy Linked Data jako:
 
 \begin{enumerate}
-\item Každá entita je identifikována pomocí HTTP URI    
-\item HTTP URI by mělo být vyhledatelné v síti WWW a umožňovat k němu přistupovat a odkazovat se na něj
-\item Po přistoupení na HTTP URI entity mají být poskytnuty relevantní informace o dané entitě ve standardizovaném formátu či prostřednictvím API\footnote{Pro popis Linked Data se typicky používá jazyk RDF\cite{RdfConcepts}, k dotazování k datovému API - SPARQL\cite{Sparql}}
-\item Data k entitám rozšířit o HTTP URI odkazy na další související entity\footnote{To nám zaručí, že můžeme procházet jednotlivé entity podobným způsobem jako webové stránky v rámci sítě WWW.}
+\item \textit{Každá entita je identifikována pomocí HTTP URI}   
+\item \textit{HTTP URI by mělo být vyhledatelné v síti WWW a umožňovat k němu přistupovat a odkazovat se na něj}
+\item \textit{Po přistoupení na HTTP URI entity mají být poskytnuty relevantní informace o dané entitě ve standardizovaném formátu či prostřednictvím API\footnote{Pro popis Linked Data se typicky používá jazyk RDF\cite{RdfConcepts}, k dotazování k datovému API - SPARQL\cite{Sparql}}}
+\item \textit{Data k entitám rozšířit o HTTP URI odkazy na další související entity\footnote{To nám zaručí, že můžeme procházet jednotlivé entity podobným způsobem jako webové stránky v rámci sítě WWW.}}
 \end{enumerate}
 
-Jak je vidět, Linked Data naplňují všechny požadavky na 5$\bigstar$ kvalitu dat s jednou výjimkou. Linked Data nemusejí být z podstaty otevřenými daty. Určitě si dovedeme představit mnoho scénářů, kdy je přínosem mít propojená, ale privátní data. Typickým příkladem můžou být korporátní intranetové informační systémy.
+Jak je vidět, Linked Data naplňují všechny požadavky na 5$\bigstar$ kvalitu dat s jednou výjimkou. Linked Data nemusejí být z podstaty otevřenými daty. Určitě si dovedeme představit mnoho scénářů, kdy je přínosem mít propojená, ale privátní data. Typickým příkladem můžou být korporátní intranetové informační systémy. \cite{opendatacasestudy}
 
 \section{Otevřená a propojitelná data (Linked Open Data - LOD)}
 
-Otevřená data na úrovni 5$\bigstar$ kvality můžeme tedy chápat jako Linked Open Data. Taková data se mohou stát součástí globálního prostoru sdílených, propojených dat. Připojením datové sady tak můžeme čerpat informační potenciál celého prostoru\footnote{Tvůrci grafu procházejí web a do cloudu přidávají dostupné datasety splňující podmínky Linked Data a podmínky na počet trojic a odkazů. Nezkoumají ale licence jednotlivých datasetů. Některé datesety proto mohou být chráněny specifickými právy.}.
+Otevřená data na úrovni 5$\bigstar$ kvality můžeme tedy chápat jako Linked Open Data. Taková data se mohou stát součástí globálního prostoru sdílených, propojených dat. Připojením datové sady tak můžeme čerpat informační potenciál celého prostoru\footnote{Tvůrci grafu procházejí web a do cloudu přidávají dostupné datasety splňující podmínky Linked Data a podmínky na počet trojic a odkazů. Nezkoumají ale licence jednotlivých datasetů. Některé datesety proto mohou být chráněny specifickými právy.\cite{cloud}}.
 
 Takový prostor s časem neustále roste. Využití lze nalézt ve většině oblastí lidského konání. Od sdílení a obohacování vědeckých dat, např. biologických, chemických struktur a reakcí s cílem objevů nových postupů v medicíně, přes zpracování dat jednotlivých veřejných správ za účelem kvalitnější veřejné služby až po obohacování kontextu nejrůznějšího mediálního obsahu. 
 
-Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojených (LOD) dat nazývaný Linked Open Data Cloud. Jedná se o datasety obsahující alespoň 1000 trojic (více v kapitole o RDF) a alespoň 50 odkazů na jiná data ve sdíleném prostoru.  
+Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojených (LOD) dat nazývaný Linked Open Data Cloud. Jedná se o datasety obsahující alespoň 1000 trojic (více v kapitole o RDF) a alespoň 50 odkazů na jiná data ve sdíleném prostoru. 
 
 \newpage
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/lodcloud.eps}}
-\caption{Linked Open Data Cloud, Srpen 2014}
+\caption[Linked Open Data Cloud]{Linked Open Data Cloud, Srpen 2014, \cite{cloud}}
 \label{obr:lodcloud}
 \end{figure}
 
 \section{Výhody a přínosy otevřených dat a principů Linked data}
 
-\subsection*{Obecné výhody otevřených dat}
+\subsection*{Obecné výhody otevřených dat\cite{benefitsgovernment,howtoopendata}}
 
 \begin{enumerate}
 \item Zapojení uživatelů - kontrola, návrhy ke zlepšení dat   
@@ -174,7 +174,7 @@ Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojen
 \item Široké možnosti dalšího využití - analýzy, statistiky, vizualizace
 \end{enumerate}
 
-\subsection*{Výhody principů Linked Data}
+\subsection*{Výhody principů Linked Data\cite{5starInfo, linkedData}}
 
 \begin{enumerate}
 \item Sdílená, rozšiřitelná a snadno znovu použitelná data   
