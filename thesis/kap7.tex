@@ -1,8 +1,10 @@
 \chapter{Evaluace}
 
-V rámci této kapitoly se zaměříme na otestovaní konverzního mechanismu platformy nad daty nastiňující reálnou situaci na úřadech.
+V rámci této kapitoly se nejdříve zaměříme na otestovaní konverzního mechanismu platformy nad daty nastiňující reálnou situaci na úřadech, posléze otestováním webové aplikace.
 
-V únoru roku 2015 vydalo Ministerstvo vnitra dopadovou studii na odhad nákladů k zavedení zákona o registru smluv\footnote{http://www.janfarsky.cz/wp-content/uploads/2015/05/Dopadov\%C3\%A1-studie-ke-KPN-k-registru-smluv-PRACOVNI-VERZE-27-02-2015-1.pdf}. V reakci na tento odhad nedlouho poté vydalo Cetrum aplikované ekonomie o.s. stínový výpočet korigující výsledky Ministerstva vnitra\footnote{ http://www.rekonstrukcestatu.cz/publikace/2015-03-04-stinovy-vypocet-ria-k-registru-smluv.pdf}. Na základě těchto studií můžeme získat hrubou představu o tom, kolik jednotlivé subjekty cca uzavírají nedlouho poté smluv. Veřejné instituce tak rozdělíme do čtyř kategorií:  
+\section{Test konverzního modulu}
+
+V únoru roku 2015 vydalo Ministerstvo vnitra dopadovou studii na odhad nákladů k zavedení zákona o registru smluv\cite{dopad}. V reakci na tento odhad nedlouho poté vydalo Cetrum aplikované ekonomie o.s. stínový výpočet korigující výsledky Ministerstva vnitra\cite{stinovyvypocet}. Na základě těchto studií můžeme získat hrubou představu o tom, kolik jednotlivé subjekty uzavírají přibližně smluv. Veřejné instituce tak rozdělíme do čtyř kategorií:  
 
 \begin{itemize}
 \item Malé - Nejmenší instituce, uzavírající jednotky smluv měsíčně s celkovým úhrnem maximálně několika desítek smluv ročně (v rámci měst a obcí jde o nejvyšší zastoupení).
@@ -13,7 +15,7 @@ V únoru roku 2015 vydalo Ministerstvo vnitra dopadovou studii na odhad náklad�
 
 Pro simulaci prostředí jednotlivých kategorií vytvoříme pro každou skupinu testovací relační databázi s desítkami, stovkami, tisíci a desetitisíci smluv. Nad každou databází spustíme konverzní modul a změříme dva pravděpodobně nejčastější požadavky - dump dat, resp. výčet všech smluv a vyhledání jedné konkrétní smlouvy. Dump je základní funkcionalitou k vypublikování otevřených smluv. Potřebujeme ho také v rámci platformy, resp. jednotného úložiště, které dílčí dumpy stahuje. Ukázka vyhledání jedné smlouvy slouží spíše k ukázce, že konverzní modul půjde využít i mimo platformu, např. v rámci webových stránek konkrétní veřejné instituce.   
 
-Pro generování dat v SQL databázi byl zvolen nástroj Sql Data Generator\footnote{TODO - odkaz na zdroj.}. Tento nástroj umožňuje nastavení nejen počtu vygenerovaných dat, ale i např. procentuální zastoupení propojení tabulek nebo šablony pro konkrétní hodnoty v jednotlivých sloupcích. Umožní nám přiblížit se k reálnému obsahu databází veřejných institucí\footnote{Pro představu je příklad XML scriptu přiložen na datovém nosiči. Sql Data Generator je ale komerční nástroj, který neumožňuje zobrazit generovaný sql příkaz.}. K samotnému profilingu využijeme klasických prostředků prostředí .Net. Změříme dobu od přijmutí požadavku po jeho kompletní zpracování.
+Pro generování dat v SQL databázi byl zvolen nástroj Sql Data Generator. Tento nástroj umožňuje nastavení nejen počtu vygenerovaných dat, ale i např. procentuální zastoupení propojení tabulek nebo šablony pro konkrétní hodnoty v jednotlivých sloupcích. Umožní nám přiblížit se k reálnému obsahu databází veřejných institucí\footnote{Pro představu je příklad XML scriptu přiložen na datovém nosiči. Sql Data Generator je ale komerční nástroj, který neumožňuje zobrazit generovaný sql příkaz.}. K samotnému profilingu využijeme klasických prostředků prostředí .Net. Změříme dobu od přijmutí požadavku po jeho kompletní zpracování.
 \newpage
 
 Měření probíhalo na sestavě:
@@ -34,15 +36,38 @@ Pro každou kategorii bylo provedeno 15 měření pro dump, resp. vyhledání sm
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/graphDump2.eps}}
-\caption{Znázornění vztahu počtu vygenerovaných trojic a času při dumpu vybraných dat}
+\caption{Vztah počtu vygenerovaných trojic a času při dumpu vybraných dat}
 \label{obr:graphDump2}
 \end{figure}
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/graphGet1.eps}}
-\caption{Znázornění časové náročnosti získání jedné smlouvy u vybraných dat}
+\caption{Časová náročnost získání jedné smlouvy u vybraných dat}
 \label{obr:graphGet1}
 \end{figure}
 
 \newpage
-Z výsledků lze konstatovat, že výkon klesá cca lineárně s množstvím dat (viz. graf \ref{obr:graphDump2}). Můžeme říci, že konverzní modul je schopen poskytovat základní funkcionalitu v rozumném čase u menších, středních i středně velkých institucí. U velkých institucí už výsledky nejsou ideální. Institucí publikujících takové množství smluv je ale v prostředí České republiky velmi málo. Příslibem je také to, že využívaný R2RML procesor podléhá soustavnému vývoji a do budoucna lze očekávat výrazné zrychlení.
+Z výsledků lze konstatovat, že výkon klesá téměř lineárně s množstvím dat (viz. graf \ref{obr:graphDump2}). Můžeme říci, že konverzní modul je schopen poskytovat základní funkcionalitu v rozumném čase u menších, středních i středně velkých institucí. U velkých institucí už výsledky nejsou ideální. Institucí publikujících takové množství smluv je ale v prostředí České republiky velmi málo. Příslibem je také to, že využívaný R2RML procesor podléhá soustavnému vývoji a do budoucna lze očekávat výrazné zrychlení.
+
+\section{Test webové aplikace}
+
+Webová aplikace se skládá z pěti pohledů, kde čtyři z nich volají jinou sadu SPARQL dotazů nad různými endpointy (viz kapitola Implementace). Řekněme, že úzkým hrdlem aplikace je rychlost zpracování dotazů nad jednotlivými endpointy. Zvláště pak nad endpointem jednotného úložiště platformy. Provedeme proto 4 různé testy simulující dotazy již zmíněných pohledů. Každý test spustíme 50x a podobně jako u konverzního modulu odebereme minimální a maximální hodnotu a ze zbývajících hodnot vypočítáme průměr. V jednotném úložišti je uložen datový soubor s cca 10000 smlouvami (řádově statisíce trojic). Výsledky jednotlivých testů vidíme v následující tabulce \ref{tbl:tblVysledky}:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\hiderowcolors \textbf{Test} & \textbf{Celkový čas(ms)} \\ \showrowcolors
+\hline
+Test1 - Hlavní obrazovka & 4853,6667 \\
+Test2 - Detail vydavatele & 92,9584 \\
+Test3 - Detail smlouvy & 49,6875 \\
+Test3 - Veřejné zakázky vydavatele & 13,1667 \\
+\end{tabular}
+\caption{Výsledky testování webové aplikace}
+\label{tbl:tblVysledky}
+\end{table}
+
+Z výsledků je zřejmé, že načítání velkého množství dat v rámci hlavní obrazovky je výrazně pomalejší, než u zbylých pohledů\footnote{U detailu vydavatele také záleží na počtu jeho smluv.}. Nutno podotknout, že aplikace nebyla testována na profesionálním řešení, ale v domácích podmínkách. Přesto lze konstatovat, že načítání tisíců až desetitisíců smluv v rámci jednotek sekund lze považovat za rozumné. Typickým možným zrychlením, které můžeme vidět třeba na portálu veřejné správy\cite{portalgov}, je rozlišování seznamu smluv podle roků a měsíců.
+
+
+

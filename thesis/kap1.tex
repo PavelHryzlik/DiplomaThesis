@@ -37,7 +37,7 @@ Software, nástroje či metodiky potřebné k zpracování dat by měly být vol
 
 \subsection*{Zpřístupněna za jasně definovaných podmínek}
 
-Typicky je třeba dbát na to, aby data byla zveřejňována pod otevřenou licencí.\footnote{Více k problematice licencování a užití otevřených dat lze dohledat na webu Ministerstva vnitra - http://www.mvcr.cz/clanek/otevrena-data.aspx?q=Y2hudW09Mg\%3d\%3d}
+Typicky je třeba dbát na to, aby data byla zveřejňována pod otevřenou licencí.\footnote{Více k problematice licencování a užití otevřených dat lze dohledat na webu Ministerstva vnitra\cite{mv}}
 
 \subsection*{Dostupná uživatelům s minimem nákladů}
 
@@ -54,7 +54,7 @@ Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro p
 
 \section{Kvalita otevřených dat}
 
-Tvůrce WWW a ředitel konsorcia W3C\footnote{W3C - http://www.w3.org/} Tim Berners-Lee\footnote{Tim Berners-Lee - životopis - http://www.w3.org/People/Berners-Lee/} navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.
+Tvůrce WWW a ředitel konsorcia W3C Tim Berners-Lee navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.
 
 \section{Stupně otevřenosti\protect\cite{5starInfo}}
 
@@ -80,7 +80,7 @@ Publikace dat na úrovni 1$\bigstar$ je zdaleka nejjednodušší a nepotřebuje 
 \item Příkladem může být formát MS Excel (.xls)
 \end{itemize}
 
-V dnešní době už poměrně rozšířený způsob publikace dat. Zpracování dat ale vyžaduje specifické nástroje k tomu určené. Pokud tedy chceme zpracovávat např. excelovskou tabulku (.xls), potřebujeme k tomu komerční produkt MS Excel\footnote{Toto se netýká formátu .xlsx. Ten již vychází z otevřené specifikace Office Open XML - \\https://cs.wikipedia.org/wiki/Office\_Open\_XML. Data publikovaná v .xlsx formátu tedy můžeme chápat jako 3$\bigstar$.}. 
+V dnešní době už poměrně rozšířený způsob publikace dat. Zpracování dat ale vyžaduje specifické nástroje k tomu určené. Pokud tedy chceme zpracovávat např. excelovskou tabulku (.xls), potřebujeme k tomu komerční produkt MS Excel\footnote{Toto se netýká formátu .xlsx. Ten již vychází z otevřené specifikace Office Open XML\cite{OOXML}. Data publikovaná v .xlsx formátu tedy můžeme chápat jako 3$\bigstar$.}. 
 
 \subsection*{$\bigstar\bigstar\bigstar$ Formát dat je otevřený}
 
@@ -124,7 +124,7 @@ V této nejvyšší kategorii se data mohou stát součástí datové sítě pro
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/5star_steps.eps}}
-\caption{Stupně otevřenosti dat, zdroj: \cite{5starInfo}}
+\caption{Stupně otevřenosti dat}
 \label{obr:5star_steps}
 \end{figure}
 
@@ -132,15 +132,15 @@ V této nejvyšší kategorii se data mohou stát součástí datové sítě pro
 
 \section{Propojitelná data (Linked Data)}
 
-Linked Data vychází z myšlenky webu aplikované na data. Webu rozumíme jako síti propojených webových stránek. Cílem Linked Data je mít síť propojených, strojově čitelných dat, resp. stavební kámen sémantického webu\footnote{Sémantický web - http://www.cs.umd.edu/~golbeck/LBSC690/SemanticWeb.html}. Jedná se v podstatě o další krok v evolučním vývoji webu jako takového.
+Linked Data vychází z myšlenky webu aplikované na data. Webu rozumíme jako síti propojených webových stránek. Cílem Linked Data je mít síť propojených, strojově čitelných dat, resp. stavební kámen sémantického webu\cite{sw}. Jedná se v podstatě o další krok v evolučním vývoji webu jako takového.
 
 Podle \cite{linkedData} definujeme základní principy Linked Data jako:
 
 \begin{enumerate}
-\item Každá entita je identifikována pomocí HTTP URI\footnote{V prostředí webu to bude typicky hypertextový odkaz ve formě URL}    
+\item Každá entita je identifikována pomocí HTTP URI    
 \item HTTP URI by mělo být vyhledatelné v síti WWW a umožňovat k němu přistupovat a odkazovat se na něj
-\item Po přistoupení na HTTP URI entity mají být poskytnuty relevantní informace o dané entitě ve standardizovaném formátu či prostřednictvím API\footnote{Pro popis Linked Data se typicky používá jazyk RDF - http://www.w3.org/RDF/, k dotazování k datovému API - SPARQL - http://www.w3.org/TR/rdf-sparql-query/}
-\item Data k entitám rozšířit o HTTP URI odkazy na další související entity\footnote{o nám zaručí, že můžeme procházet jednotlivé entity podobným způsobem jako webové stránky v rámci sítě WWW.}
+\item Po přistoupení na HTTP URI entity mají být poskytnuty relevantní informace o dané entitě ve standardizovaném formátu či prostřednictvím API\footnote{Pro popis Linked Data se typicky používá jazyk RDF\cite{RdfConcepts}, k dotazování k datovému API - SPARQL\cite{Sparql}}
+\item Data k entitám rozšířit o HTTP URI odkazy na další související entity\footnote{To nám zaručí, že můžeme procházet jednotlivé entity podobným způsobem jako webové stránky v rámci sítě WWW.}
 \end{enumerate}
 
 Jak je vidět, Linked Data naplňují všechny požadavky na 5$\bigstar$ kvalitu dat s jednou výjimkou. Linked Data nemusejí být z podstaty otevřenými daty. Určitě si dovedeme představit mnoho scénářů, kdy je přínosem mít propojená, ale privátní data. Typickým příkladem můžou být korporátní intranetové informační systémy.
@@ -153,9 +153,11 @@ Takový prostor s časem neustále roste. Využití lze nalézt ve většině ob
 
 Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojených (LOD) dat nazývaný Linked Open Data Cloud. Jedná se o datasety obsahující alespoň 1000 trojic (více v kapitole o RDF) a alespoň 50 odkazů na jiná data ve sdíleném prostoru.  
 
+\newpage
+
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/lodcloud.eps}}
-\caption{Linked Open Data Cloud, Srpen 2014, zdroj: http://lod-cloud.net/}
+\caption{Linked Open Data Cloud, Srpen 2014}
 \label{obr:lodcloud}
 \end{figure}
 
@@ -166,8 +168,9 @@ Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojen
 \begin{enumerate}
 \item Zapojení uživatelů - kontrola, návrhy ke zlepšení dat   
 \item Zvýšení transparentnosti vydavatele dat, boj s korupcí
-\item Kvalitnější veřejná služba
-\item Zvýšení efektivity, úspora nákladů
+\item Kvalitnější veřejná služba, lepší prezentace subjektu
+\item Zvýšení efektivity, úspora nákladů, méně chyb
+\item Méně žádostí o data podle zákona č. 106/1999 Sb.\cite{z106} 
 \item Široké možnosti dalšího využití - analýzy, statistiky, vizualizace
 \end{enumerate}
 
@@ -187,7 +190,7 @@ Na obr. \ref{obr:lodcloud} vidíme příklad vizualizace otevřených a propojen
 
 Formát RDF byl vyvinut za účelem snadného strojového zpracování a propojování dat. Jedná se o čistě abstraktní formát udávající, jak data popisovat. Nezabývá se tedy konkrétní podobou výsledných dat. 
 
-Základním stavebním kamenem RDF je tvrzení, resp. trojice: \textbf{Subjekt - Predikát - Objekt} (viz Obrázek \ref{obr:rdf_basic}). Subjektem je míněn zdroj, který popisujeme. Predikát je vlastnost, která o objektu něco tvrdí. Objekt je hodnota dané vlastnosti. Jednotlivé trojice mohou na sebe navazovat a vytvořit tak orientovaný graf.
+Základním stavebním kamenem RDF je tvrzení, resp. trojice: \textbf{Subjekt - Predikát - Objekt} (viz Obr. \ref{obr:rdf_basic}). Subjektem je míněn zdroj, který popisujeme. Predikát je vlastnost, která o objektu něco tvrdí. Objekt je hodnota dané vlastnosti. Jednotlivé trojice mohou na sebe navazovat a vytvořit tak orientovaný graf.
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=110mm]{img/rdf_basic.eps}}
@@ -198,11 +201,11 @@ Základním stavebním kamenem RDF je tvrzení, resp. trojice: \textbf{Subjekt -
 \subsection*{Nyní definujeme několik pravidel a doporučení pro popisování dat v RDF}
 
 \begin{enumerate}
-\item Každý subjekt je jednoznačně identifikován pomocí URI, nebo je označen jako anonymní\footnote{Subjekty, příp. objekty lze označit jako anonymní, resp. Blank node. Na anonymní subjekty, resp. objekty ale nelze přímo přistupovat. Používají se typicky k zapouzdření, či jako kontejnery jiných objektů.} 
+\item Každý subjekt je jednoznačně identifikován pomocí URI, nebo je označen jako anonymní\footnote{Subjekty, příp. objekty lze označit jako anonymní, resp. pomocí tzv. Blank node. Na anonymní subjekty, resp. objekty ale nelze přímo přistupovat. Používají se typicky k zapouzdření, či jako kontejnery jiných objektů.} 
 \item Objektem je buď hodnota (literál), odkaz na subjekt (resource), nebo je označen jako anonymní
 \item Pro každý subjekt je specifikován jeho typ (třída) formou URI
 \item Každému predikátu je přiřazen také jeho typ formou URI
-\item Jednotlivé URI z bodů 3,4 by měly odkazovat na konkrétní slovníky tříd a predikátů, resp. ontologie
+\item Jednotlivé URI z bodů 3, 4 by měly odkazovat na konkrétní slovníky tříd a predikátů, resp. ontologie
 \end{enumerate}
 
 Na obr. \ref{obr:rdf_graph} vidíme příklad jednoduchého grafu ve formátu RDF (aplikována pravidla 1 a 2). Popisuje 3 subjekty a přiřazuje jim konkrétní vlastnosti. Vidíme, že každý subjekt je identifikován vlastním URI. Díky tomu mohou subjekty na sebe odkazovat. Jednotlivé trojice by pak vypadaly takto:
@@ -229,11 +232,13 @@ Ze zmíněného příkladu ale není zřejmý význam, resp. sémantika jednotli
 \label{obr:rdf_graphWithOntology}
 \end{figure}
 
+\newpage
+
 \section{RDF Ontologie}
 
 Pod pojmem ontologie si můžeme představit sadu termínů popisujících určitou věcnou oblast. V případě popisování RDF dat definujeme slovník tříd a vlastností (predikátů), které mohou uživatelé ve svých datech používat.
 
-Konkrétní ontologii nelze chápat jako striktně vyžadovaný standard, ale spíše jako sadu doporučení. Buď využijeme k popisu dat nějakou z řady již existujících ontologií, nebo můžeme vytvořit ontologii vlastní. Přesto ale chceme, aby se již existující ontologie používaly co nejvíce. Přínosem je hlavně to, že aplikace a nástroje implementované nad známými ontologiemi budou schopné automaticky rozpoznat naše data\footnote{Mezi všeobecně známé ontologie patří např. DublinCore - http://purl.org/dc/terms/, Friend-of-a-Friend - http://xmlns.com/foaf/0.1/ nebo Schema - http://schema.org/. Existuje také katalog ontologií - http://lov.okfn.org/dataset/lov/}. 
+Konkrétní ontologii nelze chápat jako striktně vyžadovaný standard, ale spíše jako sadu doporučení. Buď využijeme k popisu dat nějakou z řady již existujících ontologií, nebo můžeme vytvořit ontologii vlastní. Přesto ale chceme, aby se již existující ontologie používaly co nejvíce. Přínosem je hlavně to, že aplikace a nástroje implementované nad známými ontologiemi budou schopné automaticky rozpoznat naše data\footnote{Mezi všeobecně známé ontologie patří např. DublinCore\cite{dc}, Friend-of-a-Friend\cite{foaf} nebo Schema\cite{schema}. Existuje také katalog ontologií\cite{lov}}. 
 
 Základními jazyky pro modelování RDF dat jsou Web Ontology Language (OWL)\cite{OWL} a RDF Schema (RDFS)\cite{RdfSchema}. Konkrétní specifikace se provádí opět ve formátu RDF a je publikována pod vlastním URI.
 
@@ -267,7 +272,7 @@ Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad ontologie třídy Contract
 
 Díky RDF můžeme data reprezentovat jako orientovaný graf. Otázka tedy zní, zdali lze propojovat grafy mezi sebou. Ve formátu RDF je to velmi jednoduché. Jako objekt predikátu stačí položit subjekt z jiného grafu. Díky URI identifikaci entit tedy není rozdílem, zdali je cílovým subjektem entita v lokálních datech, nebo entita cizí.  
 
-V rámci propojování dat s jinými datasety však není neobvyklé, že stejné entity jsou reprezentované v různých datasetech pod vlastními URI. Je tedy třeba vyjádřit, že se jedná o data reprezentující stejné entity. V jazyku OWL za tímto účelem existuje predikát sameAs, kterým můžeme definovat odpovídající si entity (viz Obrázek \ref{obr:rdf_ontologyLinks}).
+V rámci propojování dat s jinými datasety však není neobvyklé, že stejné entity jsou reprezentované v různých datasetech pod vlastními URI. Je tedy třeba vyjádřit, že se jedná o data reprezentující stejné entity. V jazyku OWL za tímto účelem existuje predikát sameAs, kterým můžeme definovat odpovídající si entity (viz Obr. \ref{obr:rdf_ontologyLinks}).
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=110mm]{img/rdf_ontologyLinks.eps}}
@@ -287,7 +292,7 @@ V minulých kapitolách bylo řečeno, jak popisovat data pomocí RDF. Jednalo s
 \item \textbf{RDF/XML\cite{RDF/XML}} - RDF graf serializovaný do XML, využívající prefixového zápisu
 \item \textbf{Turtle\cite{Turtle}} - úsporný textový formát s možností komprese trojic, využívající prefixových zápisů
 \item \textbf{Trig\cite{Trig}} - rozšíření Turtle pro použití nad více grafy
-\item \textbf{RDFa\cite{RDFa}} - serializace RDF do (X)HTML{\cite{XHtml}} dokumentů, využívající prefixového zápisu
+\item \textbf{RDFa\cite{RDFa}} - serializace RDF do (X)HTML dokumentů, využívající prefixového zápisu
 \item \textbf{JSON-LD\cite{JSON-LD}} - specifický zápis RDF grafu, využívající mapování položek JSON dokumentu na RDF ontologie
 \end{itemize}
 
@@ -295,7 +300,7 @@ Pro potřeby této práce si vystačíme s formáty N-Triples, Turtle a JSON-LD.
 
 \subsection{Příklad dat serializovaných ve formátu N-Triples}
 
-Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obrázek \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti uvedeny na samostatných řádcích}.\\
+Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obr \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti uvedeny na samostatných řádcích}.\\
 
 \lstinputlisting[label=lst:ntriples_example,caption=Příklad RDF dat - N-Triples, language=XML]{code/ntriples_example.nt}
 
@@ -323,6 +328,6 @@ Výsledkem tedy může být JSON-LD soubor (viz Kód \ref{lst:jsonldWithContext_
 
 \lstinputlisting[label=lst:json_example, caption=Obyčejný JSON dokument, language=XML]{code/json_example.json}
 
-\lstinputlisting[label=lst:jsonld_example, caption=Příklad RDF dat - JSON-LD s Contextem, language=XML]{code/jsonld_example.jsonld}
+\lstinputlisting[label=lst:jsonld_example, caption=Příklad RDF dat - JSON-LD, language=XML]{code/jsonld_example.jsonld}
 
-\lstinputlisting[label=lst:jsonldWithContext_example, caption=Příklad RDF dat - JSON-LD, language=XML]{code/jsonldWithContext_example.jsonld}
+\lstinputlisting[label=lst:jsonldWithContext_example, caption=Příklad RDF dat - JSON-LD s Contextem, language=XML]{code/jsonldWithContext_example.jsonld}

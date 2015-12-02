@@ -15,10 +15,13 @@ K jednoznačné identifikaci každé entity nám stačí její \textit{typ} a \t
 
 \bigskip
 
-\textit{http://[domain]/[typ]/[entitaId]/{[versionId]}/{[childEntity]}/{[childEntityId]}}
+\textit{http://[domain]/[type]/[entityId]/[versionId]/[childEntity]/[childEntityId]}
 \begin{itemize}
-\item domain je doména instituce publikující smlouvy
-\item údaje ve složených závorkách jsou volitelné
+\item \textit{domain} je doména instituce publikující smlouvy
+\item \textit{type} značí typ reprezentované entity
+\item \textit{entityId} je jednoznačný identifikátor entity
+\item \textit{versionId} určuje konkrétní verzi entity (pokud je entita verzovaná)
+\item některé entity mohou mít i podelementy reprezentované pomocí \textit{childEntity}, resp. identifikátorem \textit{childEntityId}
 \end{itemize}
 
 \medskip
@@ -83,6 +86,8 @@ Výsledné identifikátory entit:
 \item \textbf{SuperiorInstitution} (Nadřazená instituce) - \\\textit{http://[domain]/superiorInstitution/[superiorInstitutionId]}
 \end{itemize}
 
+\newpage
+
 \section{Ontologie pro publikaci dat o smlouvách}
 
 Než začneme s tvorbou ontologie, je dobré si uvědomit, že vycházíme z již hotového datového standardu. Nemáme tedy v tvorbě úplnou svobodu. Cílem tedy bude tvorba takové ontologie, která bude odpovídat stávajícímu datovému standardu, a přesto se bude snažit využít co nejvíce již existujících ontologií.
@@ -100,14 +105,14 @@ Samotnou tvorbu ontologie rozdělíme do dvou kroků:
 
 Při tvorbě ontologie se zaměříme na otázku, zdali existuje třída, či predikát v nějaké ontologii sémanticky ekvivalentní třídě, či konkrétní položce datového standardu pro smlouvy. Takových vhodných ontologií ve světě Linked Data může být celá řada. K výběru stačí libovolná z nich. 
 
-V následujícím seznamu je výčet vybraných ontologií, které se jeví jako vhodné pro použití při popisování smluv\footnote{Obecně výběr ontologií nemusíme považovat za striktní. Každou třídu, či predikát lze označit jako sémanticky ekvivalentní jiné třídě, či predikátu. Slouží k tomu konstrukce jazyka Owl - \textit{equivalentClass}, resp. \textit{equivalentProperty}.}. U každého bodu je zmíněn popis ontologie, důvod, proč byla daná ontologie zvolena, a seznam tříd a predikátů vhodných k použití.
+V následujícím seznamu je výčet vybraných ontologií\footnote{V závorce u názvu ontologií je uvedena typicky používaná zkratka}, které se jeví jako vhodné pro použití při popisování smluv\footnote{Obecně výběr ontologií nemusíme považovat za striktní. Každou třídu, či predikát lze označit jako sémanticky ekvivalentní jiné třídě, či predikátu. Slouží k tomu konstrukce jazyka Owl - \textit{equivalentClass}, resp. \textit{equivalentProperty}.}. U každého bodu je zmíněn popis ontologie, důvod, proč byla daná ontologie zvolena, a seznam tříd a predikátů vhodných k použití.
 
 \bigskip
 \noindent
 Vybrané ontologie:
 
 \begin{itemize}
-\item \textbf{Commerce} (\textit{https://w3id.org/commerce\#}) - ontologie pro popisování obchodních transakcí
+\item \textbf{Commerce (com)} (\textit{https://w3id.org/commerce\#}) - ontologie pro popisování obchodních transakcí
 	\begin{itemize}
 	\item Důvod použití - užitečná třída transakce 
 	\item Vybrané třídy 
@@ -116,12 +121,11 @@ Vybrané ontologie:
 		\end{itemize}
 	\item Vybrané predikáty
 		\begin{itemize}
-		\item contentUrl - adresa obsahu
-		\item source - zdroj transakce (pozor na party)
-		\item destination - cíl transakce  (pozor na party)
+		\item source - zdroj transakce
+		\item destination - cíl transakce
 		\end{itemize}
 	\end{itemize}
-\item \textbf{DublinCore} (\textit{http://purl.org/dc/terms/}) - základní ontologie pro popis metadat 
+\item \textbf{DublinCore (dc,dcmi)} (\textit{http://purl.org/dc/terms/}) - základní ontologie pro popis metadat 
 	\begin{itemize}
 	\item Důvod použití - základní a všeobecně známá ontologie popisující metadata
 	\item Vybrané predikáty
@@ -140,7 +144,7 @@ Vybrané ontologie:
 		\item type - typ dokumentu
 		\end{itemize}
 	\end{itemize}
-\item \textbf{Friend-of-a-Friend} (\textit{http://xmlns.com/foaf/0.1}) - ontologie pro popis vazeb mezi lidmi
+\item \textbf{Friend-of-a-Friend (foaf)} (\textit{http://xmlns.com/foaf/0.1}) - ontologie pro popis vazeb mezi lidmi
 	\begin{itemize}
 	\item Důvod použití - vhodná pro označení třídy vydavatele
 	\item Vybrané třídy 
@@ -154,12 +158,13 @@ Vybrané ontologie:
 		\item mbox - email osoby
 		\end{itemize}
 	\end{itemize}
-\item \textbf{GoodRelations} (\textit{http://purl.org/goodrelations/v1\#}) - ontologie pro popis produktů, cen a obchodních dat
+\item \textbf{GoodRelations (gr)} (\textit{http://purl.org/goodrelations/v1\#}) - ontologie pro popis produktů, cen a obchodních dat
 	\begin{itemize}
 	\item Důvod použití - známá ontologie, vhodná pro popis smluvních stran a informací o cenách 
 	\item Vybrané třídy 
 		\begin{itemize}
 		\item BusinessEntity - třída popisující hospodářské subjekty
+		\item PriceSpecification - třída popisující informace o ceně
 		\end{itemize}
 	\item Vybrané predikáty
 		\begin{itemize}
@@ -167,15 +172,6 @@ Vybrané ontologie:
 		\item hasCurrencyValue - cena
 		\item legalName - název subjektu
 		\item valueAddedTaxIncluded - plátce DPH
-		\end{itemize}
-	\end{itemize}
-\item \textbf{PaySwarm} (\textit{https://w3id.org/payswarm\#}) - ontologie popisující účtenky, platby, pronájmy a obecně výměnné platby na webu
-	\begin{itemize}
-	\item Důvod použití - obsahuje predikáty popisující intervaly platnosti
-	\item Vybrané predikáty
-		\begin{itemize}
-		\item validFrom - datum platnosti od
-		\item validUntil - datum platnosti do
 		\end{itemize}
 	\end{itemize}
 \item \textbf{Schema} (\textit{http://schema.org/}) - obecná ontologie mající za cíl pokrývat co největší možné množství informací
@@ -187,6 +183,7 @@ Vybrané ontologie:
 		\end{itemize}
 	\item Vybrané predikáty
 		\begin{itemize}
+		\item url - URL adresa obsahu
 		\item address - adresa
 		\item addressCountry - země
 		\item addressLocality - město
@@ -209,16 +206,16 @@ Vybrané ontologie:
 
 \subsection{Tvorba ontologie}
 
-Každou položku datového standardu namapujeme na třídu, či predikát výsledné ontologie. Pro některé položky využijeme zmíněné predikáty z již existujících ontologií, pro ostatní vytvoříme třídy a predikáty vlastní. 
+Každou položku datového standardu namapujeme na třídu, či predikát výsledné ontologie\footnote{Kolekce jsou řešeny výčtem. Např. kolekce odpovědných osob bude vypadat jako výčet trojic se stejným odpovídajícím predikátem reprezentující odpovědnou osobu.}. Pro některé položky využijeme zmíněné predikáty z již existujících ontologií, pro ostatní vytvoříme třídy a predikáty vlastní.
 
 Vlastní ontologii nazveme jako open-contracting a budeme pro ni používat zkratku cn.  
 
-Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. V prvním sloupečku se nachází entita/vlastnost datového standardu, v druhém napamovaná třída/predikát a v třetím případná poznámka\footnote{Entity jsou uváděny velkým písmem, vlastnosti malým}.
+Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. V prvním sloupečku se nachází entita/vlastnost datového standardu, v druhém napamovaná třída/predikát a v třetím případná poznámka\footnote{Entity jsou uváděny velkým písmem, vlastnosti malým}.
 
 \subsubsection*{Dokument}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -232,24 +229,23 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Document}
 \endlastfoot
+\textbf{Document} & cn:Document \\
 \textbf{uri} & cn:uri \\
-\textbf{document} & com:contentUrl \\
+\textbf{document} & schema:url \\
 \textbf{versions} & cn:version \\
 \textbf{type} & dcmi:type \\
-\textbf{publisher} & dc:publisher \\
+\textbf{publisher} & dc:publisher & Odkaz na objekt vydavatele \\
 \textbf{valid} & cn:valid \\
-\textbf{plainText} & cn: plainText \\
-\textbf{responsiblePersons} & cn:responsiblePerson \\
+\textbf{plainText} & cn:plainText \\
+\textbf{responsiblePersons} & cn:responsiblePerson & Původně kolekce \\
 \textbf{anonymised} & cn:anonymised \\
 \end{longtable}
 \end{center}
 
-\newpage
-
 \subsubsection*{Vydavatel}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -263,7 +259,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Vydavatel}
 \endlastfoot
-\textbf{Publisher} & foaf:Organization \\
+\textbf{Publisher} & foaf:Organization & \\
 \textbf{id} & dc:identifier \\
 \textbf{name} & gr:legalName \\
 \textbf{noID} & cn:noID \\
@@ -275,7 +271,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Verze}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -289,8 +285,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Verze smlouvy}
 \endlastfoot
-\textbf{Version} & cn:Version \\
-\textbf{publisherId} & cn:publisherId \\
+\textbf{Version} & cn:Version & \\
+\textbf{publisherId} & cn:publisherId & \\
 \textbf{version} & cn:versionOrder \\
 \textbf{uri} & cn:uri \\
 \textbf{published} & dc:issued \\
@@ -300,7 +296,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Smlouva}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -312,36 +308,36 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \hline
 \endhead
 \endfoot
-\caption{Mapování entity Smlouva TODO-PriceSpec}
+\caption{Mapování entity Smlouva}
 \endlastfoot
 \textbf{Contrac}t & cn:Contract \\
 \textbf{awardID} & cn:awardID \\
 \textbf{awardProfileID} & cn:awardProfileID \\
-\textbf{amount} & gr:hasCurrencyValue \\
-\textbf{amountNoVat} & gr:hasCurrencyValue \\
+\textbf{amount} & cn:amount & Pro lepší zapouzdření informací o ceně definujeme cn:amount jako objekt typu gr:PriceSpecification obsahující informace o ceně amountValue (gr:hasCurrencyValue) a currency (gr:hasCurrency). Nedoporučuje se tedy pak používat položku currency zvlášť. \\
+\textbf{amountNoVat} & cn:amountNoVat & Viz amount \\
 \textbf{title} & dc:title \\
 \textbf{contractType} & cn:contractType \\
-\textbf{parties} & cn:party \\
+\textbf{parties} & cn:party & Původně kolekce\\
 \textbf{subjectType} & cn:subjectType \\
 \textbf{priceAnnual} & cn:priceAnnual \\
 \textbf{currency} & gr:hasCurrency \\
 \textbf{dateSigned} & dc:created \\
-\textbf{validFrom} & ps:validFrom \\
-\textbf{validUntil} & ps:validUntil \\
+\textbf{validFrom} & cn:validFrom \\
+\textbf{validUntil} & cn:validUntil \\
 \textbf{funding} & cn:funding \\
-\textbf{attachments} & cn:attachment \\
-\textbf{amendments} & cn:amendment \\
+\textbf{attachments} & cn:attachment & Původně kolekce, odkazy na přílohy  \\
+\textbf{amendments} & cn:amendment & Původně kolekce, odkazy na dodatky \\
 \textbf{competency} & cn:competency \\
 \textbf{currentValidContract} & cn:currentValidContract \\
 \textbf{description} & dc:description \\
-\textbf{implementation} & cn:implementation \\
+\textbf{implementation} & cn:implementation & Odkaz na objekt implementace \\
 \end{longtable}
 \end{center}
 
 \subsubsection*{Příloha}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -355,17 +351,19 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Příloha}
 \endlastfoot
-\textbf{Attachment} & cn:Attachment \\
+\textbf{Attachment} & cn:Attachment & \\
 \textbf{title} & dc:title \\
 \textbf{contract} & cn:contract \\
-\textbf{number} & cn:attachmentOrder \\
+\textbf{attachmentOrder} & cn:attachmentOrder \\
 \end{longtable}
 \end{center}
+
+\newpage
 
 \subsubsection*{Dodatek}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -379,10 +377,10 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Dodatek}
 \endlastfoot
-\textbf{Amendment} & cn:Amendment \\
+\textbf{Amendment} & cn:Amendment & \\
 \textbf{title} & dc:title \\
 \textbf{contract} & cn:contract \\
-\textbf{number} & cn:amendmentOrder \\
+\textbf{amendmentOrder} & cn:amendmentOrder \\
 \textbf{dateSigned} & dc:created \\
 \end{longtable}
 \end{center}
@@ -390,7 +388,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Smluvní strana}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -411,7 +409,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \textbf{payer} & cn:payer \\
 \textbf{noID} & cn:noID \\
 \textbf{country} & schema:addressCountry \\
-\textbf{paysVAT} & gr:valueAddedTaxIncluded \\
+\textbf{address} & schema:address & Odkaz na objekt adresy \\
+\textbf{paysVAT} & cn:paysVAT \\
 \textbf{superiorInstitution} & cn:superiorInstitution \\
 \end{longtable}
 \end{center}
@@ -419,7 +418,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Nadřazená instituce}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -433,11 +432,10 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Nadřazená instituce}
 \endlastfoot
-\textbf{SuperiorInstitution} & gr:BusinessEntity \\
+\textbf{SuperiorInstitution} & gr:BusinessEntity & \\
 \textbf{id} & dc:identifier \\
 \textbf{localID} & cn:localID \\
 \textbf{name} & gr:legalName \\
-\textbf{payer} & cn:payer \\
 \textbf{noID} & cn:noID \\
 \textbf{country} & schema:addressCountry \\
 \end{longtable}
@@ -446,7 +444,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Adresa}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -460,7 +458,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Nadřazená instituce}
 \endlastfoot
-\textbf{Address} & schema:PostalAddress \\
+\textbf{Address} & schema:PostalAddress & \\
 \textbf{streetAddress} & schema:streetAddres \\
 \textbf{locality} & schema:addressLocality \\
 \textbf{postalCode} & schema:postalCode \\
@@ -471,7 +469,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Objednávka}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -486,11 +484,11 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \caption{Mapování entity Objednávka}
 \endlastfoot
 \textbf{Order} & cn:Order \\
-\textbf{parrentDocument} & cn:parrentDocument \\
+\textbf{parrentDocument} & cn:parrentDocument & Odkaz na rodičovský dokument \\
 \textbf{subjectType} & cn:subjectType \\
-\textbf{parties} & cn:party \\
+\textbf{parties} & cn:party & Původně kolekce \\
 \textbf{title} & dc:title \\
-\textbf{amount} & gr:hasCurrencyValue \\
+\textbf{amount} & cn:amount & Viz amount u smlouvy \\
 \textbf{currency} & gr:hasCurrency \\
 \textbf{dateSigned} & dc:created \\
 \textbf{implementation} & cn:implementation \\
@@ -500,7 +498,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Faktura}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -515,10 +513,10 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \caption{Mapování entity Faktura}
 \endlastfoot
 \textbf{Invoice} & cn:Invoice \\
-\textbf{parrentDocument} & cn:parrentDocument \\
-\textbf{parties} & cn:party \\
+\textbf{parrentDocument} & cn:parrentDocument & Odkaz na rodičovský dokument \\
+\textbf{parties} & cn:party & Původně kolekce \\
 \textbf{title} & dc:title \\
-\textbf{amount} & gr:hasCurrencyValue \\
+\textbf{amount} & cn:amount & Viz amount u smlouvy \\
 \textbf{currency} & gr:hasCurrency \\
 \textbf{dateSigned} & dc:created \\
 \textbf{dueDate} & cn:dueDate \\
@@ -530,7 +528,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Implementace}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -544,16 +542,16 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endfoot
 \caption{Mapování entity Implementace}
 \endlastfoot
-\textbf{Implementation} & cn:Implementation \\
-\textbf{milestones} & cn:milestone \\
-\textbf{transactions} & cn:transaction \\
+\textbf{Implementation} & cn:Implementation & \\
+\textbf{milestones} & cn:milestone & Původně kolekce, odkazy na milníky\\
+\textbf{transactions} & cn:transaction & Původně kolekce, odkazy na transakce\\
 \end{longtable}
 \end{center}
 
 \subsubsection*{Milník}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -576,7 +574,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \subsubsection*{Transakce}
 
 \begin{center}
-\begin{longtable}{lll}
+\begin{longtable}{lp{30mm}p{65mm}}
 \label{grid_mlmmh} \\
 \multicolumn{1}{l}{\textbf{Entita/Vlastnost}} & 
 \multicolumn{1}{l}{\textbf{Třída/Predikát}} & 
@@ -592,7 +590,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 \endlastfoot
 \textbf{Transaction} & com:Transaction \\
 \textbf{date} & dc:date \\
-\textbf{amount} & gr:hasCurrencyValue \\
+\textbf{amount} & cn:amount & Viz amount u smlouvy\\
 \textbf{senderOrganization} & com:source \\
 \textbf{receiverOrganization} & com:destination \\ 
 \textbf{publisherId} & cn:publisherId \\
@@ -604,24 +602,29 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.13. 
 
 K serializaci výsledné ontologie využijeme formátu Turtle. Soubor se skládá z hlavičky a definicí nově vytvořených tříd a predikátů. V hlavičce definujeme prefixy použitých ontologií a základní informace o ontologii. Použité třídy a predikáty zmíníme v poznámkách k použití (predikát \textit{vann:usageNote}). Příklad ontologie lze nalézt v Příloze D.
 
+\newpage
+
 \section{Možnosti propojení na související data}
 
 První bezpochyby zajímavou možností je propojení smluv s veřejnými zakázkami, resp. věstníkem veřejných zakázek provozovaným Ministerstvem pro místní rozvoj. Jednotlivé smlouvy mající spojitost s veřejnou zakázkou poznáme podle vlastnosti AwardID, resp. evidenční číslo veřejné zakázky.  
 
-Dalšími zajímavými prvky k propojení jsou pokročilé informacemi o smluvním stranách. Každá smluvní strana vystupující ve smlouvě může mít zveřejněno mimo jiné identifikační číslo a adresu. Nabízí se tedy propojení s národními registry ARES a RÚIAN. ARES je registrem informací o ekonomických subjektech provozovaný Ministerstvem financí, RÚIAN je registrem územní identifikace, adres a nemovitostí provozovaný Českým úřadem zeměměřickým a katastrálním. Vhodné informace k propojení tedy jsou:
+Dalšími zajímavými prvky k propojení jsou pokročilé informace o smluvních stranách. Každá smluvní strana vystupující ve smlouvě může mít zveřejněno mimo jiné identifikační číslo a adresu. Nabízí se tedy propojení s národními registry ARES a RÚIAN. ARES je registrem informací o ekonomických subjektech provozovaný Ministerstvem financí, RÚIAN je registrem územní identifikace, adres a nemovitostí provozovaný Českým úřadem zeměměřickým a katastrálním. Vhodné informace k propojení tedy jsou:
 
 \begin{itemize}
 \item Evidenční číslo veřejné zakázky u smlouvy k propojením s věstníkem veřejných zakázek
 	\begin{itemize}
-	\item Iniciativa OpenData.cz zpracovává údaje o veřejných zakázkách v RDF podobě, využijeme tedy propojení právě s tímto datasetem 
-	\item Cílové URL -\\http://linked.opendata.cz/resource/domain/buyer-profiles/contract/cz/{EvidencniCisloZakazky}
+	\item Iniciativa OpenData.cz\cite{od} zpracovává údaje o veřejných zakázkách v RDF podobě, využijeme tedy propojení právě s tímto datasetem 
+	\item Cílové URL -\\http://linked.opendata.cz/resource/domain/buyer-profiles/contract/-\\cz/\{EvidencniCisloZakazky\}
 	\end{itemize}
 \item Identifikační číslo smluvní strany s možností propojení na ARES
 	\begin{itemize}
 	\item OpenData.cz aktuálně zpracovávají také údaje z registru ARES
-	\item Cílové URL - http://linked.opendata.cz/resource/business-entity/CZ{ICO}\footnote{Informace skrývající se za tímto odkazem jsou sjednocením více datových zdrojů, ne pouze ARESu} 
+	\item Cílové URL - \\http://linked.opendata.cz/resource/business-entity/CZ\{ICO\}\footnote{Informace skrývající se za tímto odkazem jsou sjednocením více datových zdrojů, ne pouze ARESu} 
 	\end{itemize}
-\item Adresa smluvní strany na RÚIAN - TODO
+\item Adresa smluvní strany na RÚIAN
+	\begin{itemize}
+	\item V rámci iniciativy OpenData.cz vzniká služba na mapování adres na RÚIAN. V budoucnu proto bude možné využít i této možnosti propojení.
+	\end{itemize}
 \end{itemize}
 
 \section{Provázání s datovým formátem JSON}

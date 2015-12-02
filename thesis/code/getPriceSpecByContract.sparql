@@ -1,0 +1,10 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+SELECT ?Uri ?Amount ?Currency
+WHERE 
+{ 
+    @contract cn:amount ?Uri .
+
+    ?Uri gr:hasCurrencyValue ?Amount ;
+         gr:hasCurrency ?Currency .
+}

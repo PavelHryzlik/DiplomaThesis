@@ -2,19 +2,21 @@
 
 \section*{Harmonogram událostí v souvislosti s otevřenými smlouvami}
 
-\begin{itemize}
-\item[] 2.12.2013 - Předložen návrh zákona o Registru smluv
-\item[] 26.11.2014 - Seminář Transparentnost v obcích - Myšlenka datového standardu pro otevřené smlouvy
-\item[] 4.12.2014 - Schůzka akční skupiny k tvorbě datového standardu pro otevřené smlouvy na radnici Praha 6
-\item[] 6.1.2015 - Schůzka akční skupiny k potvrzení datového standardu pro otevřeného smlouvy na radnici Praha 6
-\item[] 6.2.2015 - Představen spolek Otevřená města
-\item[] 18.3.2015 - Schůzka s Jiřím Skuhrovcem k projektu Metodika zveřejňování smluv
-\item[] 29.8.2015 - Odeslán datový standard pro otevřené smlouvy Ministerstvu vnitra (ve formě CSV)
-\item[] 18.9.2015 - Schválen zákon o Registru smluv poslaneckou sněmovnou 
-\item[] 21.10.2015 - Zakládající konference spolku Otevřená města 
-\item[] 22.10.2015 - Zákon vrácen senátem s pozměňovacími návrhy 
-\item[] 24.11.2015 - Sněmovna setrvala na původním návrhu zákona
-\end{itemize}
+\begin{table}[h]
+\begin{tabular}{lp{120mm}}
+\textbf{2.12.2013} & Předložen návrh zákona o Registru smluv \\
+\textbf{26.11.2014} & Seminář Transparentnost v obcích - Myšlenka datového standardu pro otevřené smlouvy \\
+\textbf{4.12.2014} & Schůzka akční skupiny k tvorbě datového standardu pro otevřené smlouvy na radnici Praha 6 \\
+\textbf{6.1.2015} & Schůzka akční skupiny k potvrzení datového standardu pro otevřeného smlouvy na radnici Praha 6 \\
+\textbf{6.2.2015} & Představen spolek Otevřená města \\
+\textbf{18.3.2015} & Schůzka s Jiřím Skuhrovcem k projektu Metodika zveřejňování smluv \\
+\textbf{29.8.2015} & Odeslán datový standard pro otevřené smlouvy Ministerstvu vnitra (ve formě CSV) \\
+\textbf{18.9.2015} & Schválen zákon o Registru smluv poslaneckou sněmovnou  \\
+\textbf{21.10.2015} & Zakládající konference spolku Otevřená města  \\
+\textbf{22.10.2015} & Zákon vrácen senátem s pozměňovacími návrhy  \\
+\textbf{24.11.2015} & Sněmovna setrvala na původním návrhu zákona \\
+\end{tabular}
+\end{table}
 
 \chapwithtoc{B Příloha}
 
@@ -24,10 +26,44 @@
 
 \section*{Obsah přiloženého datového nosiče}
 
+Základní struktura přiloženého datového nosiče je rozdělena do těchto složek (zmíníme také klíčové skripty): 
+
+\begin{table}[h]
+\begin{tabular}{lp{55mm}}
+\textbf{/ContractStandard/} & Složka datového standardu \\
+\textbf{/ContractStandard/lod/} & Složka s skripty využívající principy LinkedData \\
+\textbf{/ContractStandard/lod/contract\_context.jsonld} & JSON-LD Context - mapující skript \\
+\textbf{/ContractStandard/lod/contract\_ontology.ttl} & Ontologie pro otevřené smlouvy \\
+\textbf{/ContractStandard/lod/subject\_catalog.ttl} & Datový katalog pro UnifiedViews \\
+\textbf{/ContractStandard/lod/triada\_esmluv\_r2rml.ttl} & R2RML mapovací skript \\
+\textbf{/ContractStandard/samples/} & Složka s příklady otevřených smluv \\
+\textbf{/ContractStandard/schema/} & Složka se schématy datového standardu \\
+\textbf{/ContractStandard/schema/contract\_schema.csv} & Datový standard pro otevřené smlouvy - CSV \\
+\textbf{/ContractStandard/schema/contract\_schema.json} & Datový standard pro otevřené smlouvy - JSON Schema \\
+\textbf{/ContractViewer/} & Složka s projektem webové aplikace  \\
+\textbf{/TestResults/} & Složka s testy konverzního modulu a web. aplikace \\
+\textbf{/TriadaEndpoint/} & Složka s projektem konverzního modulu \\
+\textbf{/UnifiedViews/} & Složka se skripty použité v rámci pipeline \\
+\textbf{/UnifiedViews/UnifiedViewsExport/} & Vyexportované soubory popisující pipeline nástroje UnifiedViews \\
+\textbf{/thesis.pdf} & Text práce \\
+\end{tabular}
+\end{table}
+
+\section*{Online repozitář}
+
+Projekty řešené v rámci této práce lze nalézt na Githubu na adresách:
+
+\begin{itemize}
+\item[] \textit{https://github.com/PavelHryzlik/ContractStandard} - Datový standard
+\item[] \textit{https://github.com/PavelHryzlik/ContractViewer} - Webová aplikace
+\item[] \textit{https://github.com/PavelHryzlik/DiplomaThesis} - Text práce
+\item[] \textit{https://github.com/PavelHryzlik/TriadaEndpoint} - Konverzní modul
+\end{itemize}
+
 \chapwithtoc{D Příloha}
 
-\lstinputlisting[label=lst:contract_ontology, caption=RDF Ontologie pro smlouvy, language=Xml]{code/contract_ontology.ttl}
+\lstinputlisting[basicstyle=\scriptsize, label=lst:contract_ontology, title=RDF Ontologie pro smlouvy, language=Xml]{code/contract_ontology.ttl}
 
 \chapwithtoc{E Příloha}
 
-\lstinputlisting[label=lst:triada_esmluv_r2rml, caption=R2RML mapovací skript, language=Xml]{code/triada_esmluv_r2rml.ttl}
+\lstinputlisting[basicstyle=\scriptsize, label=lst:triada_esmluv_r2rml, title=R2RML mapovací skript, language=Xml]{code/triada_esmluv_r2rml.ttl}

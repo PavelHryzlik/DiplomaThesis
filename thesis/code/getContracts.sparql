@@ -1,20 +1,20 @@
 PREFIX cn: <http://tiny.cc/open-contracting#>
 PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX gr: <http://purl.org/goodrelations/v1#>
-PREFIX ps: <https://w3id.org/payswarm#>
 
-SELECT ?Uri ?Publisher ?Title ?ContractType ?DateSigned ?ValidFrom ?Amount
+SELECT ?Uri ?Publisher ?PublisherId ?Title ?ContractType ?DateSigned ?ValidFrom ?Amount
 WHERE 
 { 
     ?Uri a cn:Contract ;
             dc:title ?Title ;
             cn:contractType ?ContractType ; 
             dc:created ?DateSigned ;
-            ps:validFrom  ?ValidFrom ;
+            cn:validFrom  ?ValidFrom ;
             dc:publisher ?PublisherLink ;
             cn:amount ?PriceSpec .
 
     ?PriceSpec gr:hasCurrencyValue ?Amount .
 
-    ?PublisherLink gr:legalName ?Publisher .
+    ?PublisherLink gr:legalName ?Publisher ;
+                   dc:identifier ?PublisherId .
 }

@@ -1,0 +1,22 @@
+PREFIX void: <http://rdfs.org/ns/void#>
+CONSTRUCT 
+{
+?ds a void:Dataset;
+        void:triples ?triples;
+        void:entities ?entities;
+        void:classes ?classes;
+        void:properties ?properties;
+        void:distinctSubjects ?dsubjects;
+        void:distinctObjects ?dobjects
+.
+}
+WHERE 
+{
+{ SELECT (COUNT (*) as ?triples) WHERE {?s ?p ?o} }
+{ SELECT (COUNT (distinct ?s) as ?entities) WHERE {?s a ?t} }
+{ SELECT (COUNT (distinct ?t) as ?classes) WHERE {?s a ?t} }
+{ SELECT (COUNT (distinct ?p) as ?properties) WHERE {?s ?p ?o} }
+{ SELECT (COUNT (distinct ?s) as ?dsubjects) WHERE {?s ?p ?o} }
+{ SELECT (COUNT (distinct ?o) as ?dobjects) WHERE {?s ?p ?o} }
+VALUES ?ds { <http://student.opendata.cz/resource/dataset/phr/contracts/distribution> }
+}

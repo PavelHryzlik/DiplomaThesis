@@ -1,0 +1,25 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#> 
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
+PREFIX dpu: <http://unifiedviews.eu/ontology/dpu/filesDownload/> 
+PREFIX dpuFile: <http://unifiedviews.eu/ontology/dpu/filesDownload/file/> 
+                    
+CONSTRUCT 
+{ 
+    <http://localhost/resource/config> rdf:type dpu:Config ;
+                                        dpu:hasFile ?distributionUri .
+
+    ?distributionUri rdf:type dpu:File;
+                dpuFile:uri ?stringUri .
+} 
+WHERE 
+{
+    ?dataset dcat:distribution ?distribution .
+    ?distribution dct:identifier ?id ;
+                dcat:accessURL ?uri .
+                                   
+
+    BIND(CONCAT('http://localhost/resource/file/', ?id) as ?distributionString)
+    BIND(URI(?distributionString) as ?distributionUri)
+    BIND(STR(?uri) as ?stringUri)
+} 

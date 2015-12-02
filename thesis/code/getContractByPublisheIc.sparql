@@ -1,0 +1,19 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+
+SELECT ?Uri ?Title ?ContractType ?DateSigned ?ValidFrom ?Amount
+WHERE 
+{ 
+    ?Uri a cn:Contract ;
+           dc:title ?Title ;
+           cn:contractType ?ContractType ; 
+           dc:created ?DateSigned ;
+           cn:validFrom  ?ValidFrom ;
+           dc:publisher ?PublisherLink ;
+           cn:amount ?PriceSpec .
+
+    ?PriceSpec gr:hasCurrencyValue ?Amount .
+
+    ?PublisherLink dc:identifier @publisherId .
+}

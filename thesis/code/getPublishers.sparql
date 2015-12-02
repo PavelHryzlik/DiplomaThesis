@@ -1,0 +1,23 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+
+SELECT ?Publisher ?Ic
+        (SAMPLE(?subject) AS ?Subject)
+        (SAMPLE(?aresLink ) AS ?AresLink)
+        (COUNT(?Contract) as ?ContractSum) 
+WHERE 
+{ 
+    ?Contract a cn:Contract ;
+                dc:publisher ?Publisher.
+    
+    ?Publisher gr:legalName ?subject;
+                dc:identifier ?Ic .
+
+    OPTIONAL
+    {
+        ?Publisher owl:sameAs ?aresLink .
+    }
+
+}
+GROUP BY ?Publisher ?Ic

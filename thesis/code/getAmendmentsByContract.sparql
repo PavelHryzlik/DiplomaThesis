@@ -1,6 +1,6 @@
 PREFIX cn: <http://tiny.cc/open-contracting#>
-PREFIX com: <https://w3id.org/commerce#>
 PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
 
 SELECT ?Uri ?Title ?DateSigned ?Document
 WHERE 
@@ -8,6 +8,6 @@ WHERE
     ?Uri a cn:Amendment ;
            dc:title ?Title ;
            dc:created ?DateSigned ;
-           com:contentUrl  ?Document ;
+           schema:url  ?Document ;
            cn:contract @contract .
 }

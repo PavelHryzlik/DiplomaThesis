@@ -11,7 +11,6 @@
 @prefix gr:      <http://purl.org/goodrelations/v1#> .
 @prefix owl:     <http://www.w3.org/2002/07/owl#> .
 @prefix pc:      <http://purl.org/procurement/public-contracts#> .
-@prefix ps:      <https://w3id.org/payswarm#> .
 @prefix schema:  <http://schema.org/> .
 @prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -248,10 +247,6 @@
     rr:predicateObjectMap [
         rr:predicate schema:addressCountry;
         rr:objectMap [  rr:constant "CZE" ];
-    ];
-    rr:predicateObjectMap [
-        rr:predicate cn:authentication;
-        rr:objectMap [  rr:constant "email" ];
     ].
   
 <#Contract> a rr:TriplesMap;
@@ -287,14 +282,14 @@
       ];
     ];
     rr:predicateObjectMap [
-      rr:predicate ps:validFrom;
+      rr:predicate cn:validFrom;
       rr:objectMap [ 
         rr:column "[DATUMUCINOSTI]"; 
         rr:datatype xsd:date; 
       ];
     ];
     rr:predicateObjectMap [
-      rr:predicate ps:validUntil;
+      rr:predicate cn:validUntil;
       rr:objectMap [ 
         rr:column "[DATUMUKONCENI]"; 
         rr:datatype xsd:date; 
@@ -387,7 +382,7 @@
         rr:template "http://localhost:7598/contract/{ID}/{PORADIVERZE}"
     ];
     rr:predicateObjectMap [
-        rr:predicate com:contentUrl;
+        rr:predicate schema:url;
         rr:objectMap [  rr:template "http://localhost:7598/file/{SADADUL_ULOZISTEID}/{NAZEVSOUBORU}" ];
     ].
 
@@ -487,7 +482,7 @@
         rr:objectMap [ rr:column "[STAT]" ];
 	  ];
     rr:predicateObjectMap [
-        rr:predicate gr:valueAddedTaxIncluded;
+        rr:predicate cn:paysVAT;
         rr:objectMap [ 
 			rr:column "[PlatceDPH]"; 
 			rr:datatype xsd:boolean;
@@ -603,7 +598,7 @@
         rr:template "http://localhost:7598/amendment/{ID}/{PORADIVERZE}"
     ];
     rr:predicateObjectMap [
-        rr:predicate com:contentUrl;
+        rr:predicate schema:url;
         rr:objectMap [  rr:template "http://localhost:7598/file/{SADADUL_ULOZISTEID}/{NAZEVSOUBORU}" ];
     ].
 
@@ -685,7 +680,7 @@
       ];
     ];
 	rr:predicateObjectMap [
-      rr:predicate com:contentUrl;
+      rr:predicate schema:url;
       rr:objectMap [  rr:template "http://localhost:7598/file/{SADADUL_ULOZISTEID}/{NAZEVSOUBORU}" ];
     ];
     rr:predicateObjectMap [
@@ -750,13 +745,13 @@
     ];
     rr:predicateObjectMap [
         rr:predicate cn:milestone;
-        rr:objectMap [ rr:template "http://localhost:7598/contract/{ID}/{PORADIVERZE}/implementation/milestone/{MilestoneID}" ];
+        rr:objectMap [ rr:template "http://localhost:7598/contract/{ID}/{PORADIVERZE}/milestone/{MilestoneID}" ];
 	].
 
 <#Milestone> a rr:TriplesMap;
     rr:logicalTable <#MilestoneTableView>;
     rr:subjectMap [
-        rr:template "http://localhost:7598/contract/{ID}/{PORADIVERZE}/implementation/milestone/{MilestoneID}";
+        rr:template "http://localhost:7598/contract/{ID}/{PORADIVERZE}/milestone/{MilestoneID}";
         rr:class cn:Milestone;
     ];
     rr:predicateObjectMap [

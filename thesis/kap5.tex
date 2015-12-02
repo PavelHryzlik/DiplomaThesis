@@ -25,17 +25,17 @@ Základní pohled na platformu můžeme vidět na Obr. \ref{obr:logicalView}.
 \label{obr:decompositionView}
 \end{figure}
 
-\subsection{Konverzní mechanismus}
+\section{Konverzní mechanismus}
 
 Návrh konverzního mechanismu rozdělíme do čtyř modulů (viz Obr. \ref{obr:decompositionView}). V rámci databázového modulu bude docházet ke komunikaci mezi připojenou databází a zbytkem konverzního mechanismu. V konfiguračním modulu se očekává definování základních vlastností konverzního mechanismu, převážně potřebné vstupní údaje pro převodní modul.
 
-\subsubsection*{Převodní modul}
+\subsection*{Převodní modul}
 
 Účelem tohoto modulu je převod relačních dat do RDF podoby. Nejjednodušším přístupem je manuální konverze, resp. ruční tvorba RDF výstupů. Tento přístup může být vhodný pro úzce specifické situace, avšak pro obecný přístup a možnost znovupoužití konverzního modulu vhodný není. Další možností je tvorba paralelní triplestore databáze. Relační data bychom v určitých intervalech převáděli z jedné do druhé. Tento přístup je výhodný, pokud chceme dosáhnout robustního řešení, budovat vlastní RDF úložiště, obohacovat data, přidávat další datasety apod. Klade však velké softwarové i hardwarové nároky na subjekt, vyžaduje netriviální údržbu a jedná se v podstatě o duplikovaná data z relační databáze. Poslední možností, kterou uvedeme, je tvorba wrapperu nad relační databází. Máme-li požadavek na RDF data, wrapper ho převede na ekvivalentní SQL dotaz do databáze a vrácená data převede zpět do odpovídající RDF podoby. Hlavní výhodou je, že takto uložená data jsou pouze v relační databázi a RDF data jsou tak vždy aktuální. Cílem je řešení s co nejmenší zátěží pro subjekt a s co nejlepším usnadněním znovupoužitelnosti. Ideálním řešením se tedy jeví tvorba wrapperu.
 
-Požadovanou funkcionalitou wrapperu je namapování datového modelu relační databáze na datový standard pro otevřené smlouvy. Mezi jazyky sloužící k popsání konkrétního mapování patří např. jazyk R2RML, nebo D2RQ. Doporučeným standardem konsorcia W3C je R2RML, zvolíme tedy jazyk R2RML.
+Požadovanou funkcionalitou wrapperu je namapování datového modelu relační databáze na datový standard pro otevřené smlouvy. Mezi jazyky sloužící k popsání konkrétního mapování patří např. jazyk R2RML\cite{R2RML}, nebo D2RQ\cite{D2RQ}. V rámci MFF UK vznikají projekty pracující nad R2RML (s potenciálem využití), jazyk je navíc doporučeným standardem konsorcia W3C. Zvolíme tedy jazyk R2RML.
 
-\subsubsection*{Publikační modul}
+\subsection*{Publikační modul}
 
 Převedená data můžeme publikovat třemi základními způsoby:
 
@@ -51,17 +51,17 @@ Pro naplnění principů Linked Data ale potřebujeme vyřešit dereferencován�
 
 Data budou publikována jak ve formě HTML stránky, tak v RDF formátech. Nutným základem bývá formát N-Triples a Turtle. Určíme podmínku, že pro dump je nutné umožnit i serializaci ve formátu JSON-LD z důvodu budoucí kompatibility s datovým standardem.
 
-\subsubsection*{Anonymizace} 
+\subsection*{Anonymizace} 
 
-Typickým problémem s publikací dat je, že mohou podléhat zákonu o ochraně osobních údajů\footnote{https://www.uoou.cz/anonymizace-osobnich-udaju/d-1764}. Některá data je proto před zveřejněním nutné anonymizovat. Proces a řešení anonymizace není předmětem této práce. Řekněme, že platforma počítá s tím, že subjekt si anonymizaci údajů vyřeší na své straně.
+Typickým problémem s publikací dat je, že mohou podléhat zákonu o ochraně osobních údajů\cite{z101}. Některá data je proto před zveřejněním nutné anonymizovat. Proces a řešení anonymizace není předmětem této práce. Řekněme, že platforma počítá s tím, že subjekt si anonymizaci údajů vyřeší na své straně.
 
-\subsection{Jednotné úložiště}
+\section{Jednotné úložiště}
 
-Agendou jednotného úložiště bude sbírat data vypublikovaná jednotlivými subjekty. Zapojené subjekty budeme řešit formou datového katalogu, kde budou odkazy na umístění požadovaných datasetů. Úložiště pak v definovaném intervalu stáhne datasety podle datového katalogu a uloží je do triplestore databáze.
+Agendou jednotného úložiště bude sbírat data vypublikovaná jednotlivými subjekty. Zapojené subjekty budeme řešit formou datového katalogu, v kterém se budou nacházet odkazy na umístění požadovaných datasetů. Úložiště pak v definovaném intervalu stáhne datasety podle datového katalogu a uloží je do triplestore databáze.
 
-Dekompozici do modulů je možné vidět na Obr. \ref{obr:decompositionView}. Konfigurační a databázový modul má podobný význam jako v konverzním mechanismu.
+Dekompozici do modulů je možné vidět na Obr. \ref{obr:decompositionView}. Databázový modul by měl obsluhovat komunikaci s triplestore databází. Konfiguračním modulem je míněno nastavení procesů jednotného úložiště včetně nastavení intervalu stahování datasetů.
 
-\subsubsection*{Transformační modul}
+\subsection*{Transformační modul}
 
 V prvním kroku je třeba načíst jednotlivé datasety subjektů. Odkazy na konkrétní datasety budou reprezentované ve formě datového katalogu. Samotný katalog budeme zapisovat v RDF a serializovat do formátu Turtle. Využijeme k tomu ontologii Data Catalog Vocabulary. Příklad datového katalogu lze vidět v kódu \ref{lst:subject_catalog}.
 
@@ -71,17 +71,17 @@ Díky tomu tak můžeme v rámci závěrečného kroku data slít dohromady a ul
 
 \lstinputlisting[label=lst:subject_catalog, caption=Datový katalog pro jednotné úložiště, language=XML]{code/subject_catalog.ttl}
 
-\subsubsection*{Publikační modul}
+\subsection*{Publikační modul}
 
-Úložiště by mělo data poskytovat jak k webovému prohlížení, tak skrze API k využití v aplikacích. Tento požadavek vyřešíme vystavením SPARQL endpointu.
+Úložiště by mělo data poskytovat jak k webovému prohlížení, tak skrze API k využití v aplikacích. Tento požadavek vyřešíme vystavením SPARQL endpointu. Typickou součástí publikace je také registrace datové sady v datovém katalogu.
 
-\subsection{Propojená datová síť}
+\section{Datová síť}
 
-Nad jednotným úložištěm může vznikat celá řada aplikací využívajících data o smlouvách. Díky propojení smluv se souvisejícími daty, tak můžeme kontext smluv rozšířit o další informace, resp. demonstrovat výhody principů Linked Data jako propojené datové sítě.  
+Nad jednotným úložištěm může vznikat celá řada aplikací využívajících data o smlouvách. Díky propojení smluv se souvisejícími daty, tak můžeme kontext smluv rozšířit o další informace, resp. demonstrovat výhody principů Linked Data jako datové sítě.  
 
-V rámci kapitoly 4 jsme definovali odkaz na veřejnou zakázku (pco:Contract) v rámci smlouvy, resp. predikát pco:publicContract ze smlouvy (třída cn:Contract) a odkaz na ekonomický subjekt (gr:BusinessEntity) pomocí predikátů owl:sameAs ze Smluvní strany a Vydavatele (třídy foaf:Organization a gr:BusinessEntity). Nyní si položme otázku, s jakými dalšími relevantními zdroji můžeme data na základě definovaných odkazů dále propojit.
+V rámci kapitoly \ref{sec:kap4} jsme definovali odkaz na veřejnou zakázku (pco:Contract) v rámci smlouvy, resp. predikát pco:publicContract ze smlouvy (třída cn:Contract) a odkaz na ekonomický subjekt (gr:BusinessEntity) pomocí predikátů owl:sameAs ze Smluvní strany a Vydavatele (třídy foaf:Organization a gr:BusinessEntity). Nyní si položme otázku, s jakými dalšími relevantními zdroji můžeme data na základě definovaných odkazů dále propojit.
 
-Navrženou datovou síť propojených objektů můžeme vidět na Obr. 6.3. Z každého datasetu (v oválných blocích) vede hrana k vlastnímu objektu. Z nich pak vychází vybrané predikáty odkazující na entitu dalšího datasetu. 
+Navrženou datovou síť propojených objektů můžeme vidět na Obr. \ref{obr:architectureLinks}. Z každého datasetu (v oválných blocích) vede hrana k vlastnímu objektu. Z nich pak vychází vybrané predikáty odkazující na entitu dalšího datasetu. 
 
 Výchozím bodem je entita ekonomického subjektu (gr:BusinessEntity) uprostřed. Konkrétně se jedná o registrované organizace, jejichž data vychází z údajů na Profilu zadavatele, z ARESu a dalších zdrojů. Z této entity využijeme predikáty (s:address) k propojení s adresou (s:PostalAddress) z ARESu. Z adresy, pak získáme informaci o adresním místu (s:Place) z RUIANu pomocí predikátu ruianlink:adresni-misto.
 
@@ -93,31 +93,31 @@ Vydavatel smluv (foaf:Organization) je často veřejná instituce mající svoji
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/architectureLinks.eps}}
-\caption{Propojená datová síť}
+\caption{Datová síť}
 \label{obr:architectureLinks}
 \end{figure}
 
-\subsection{Webová aplikace}
+\section{Webová aplikace}
 
 Úkolem webové aplikace je nad jednotným úložištěm zpřístupnit údaje o smlouvách k prohlížení koncovým uživatelům. Řešení rozdělíme do čtyř modulů (viz Obr. \ref{obr:decompositionView}).
 
-\subsubsection*{Endpoint modul}
+\subsection*{Endpoint modul}
 
 V rámci tohoto modulu definujeme napojení na požadované zdroje dat v podobě SPARQL endpointů.
 
-\subsubsection*{Procesní modul}
+\subsection*{Procesní modul}
 
 Úkolem tohoto modulu je načíst požadované údaje o smlouvách a přiřadit k nim údaje z rozšířeného kontextu navrženého v minulé kapitole. Cílem je tedy získat a sjednotit informace z několika zdrojů dat. Existuje několik přístupů, jak se nad požadovanými daty dotazovat\footnote{Předpokládejme, že aplikace bude obsahovat serverovou část.} - z klientské části aplikace, nebo ze serverové. Z důvodu dalšího zpracování dat se jeví vhodnější serverové dotazování. Samotné dotazy můžeme pokládat také různými způsoby. Jednou z možností je distribuované dotazování, kdy se v rámci jednoho dotazu můžeme odkazovat na více zdrojů. Další možností je se nad každým zdrojem dotazovat zvlášť, resp. sadou dotazů. V souladu s principy Linked Data zvolíme sadu dotazů nad jednotlivými SPARQL endpointy. Výhodou je, že problém jednoho zdroje by neměl ovlivnit výsledky z ostatních zdrojů. 
 
 Nad SPARQL endpointy můžeme získávat data buď ve formě RDF (příkaz Construct), nebo v tabulkové formě (příkaz Select). Účelem je zobrazení dat uživateli často právě ve formě tabulek. Volba příkazu Select je tedy lepší volbou.
 
-\subsubsection*{Komunikační modul}
+\subsection*{Komunikační modul}
 
 Agendou komunikačního modulu je výměna dat mezi procesním a prezentačním modulem. Modul zpracuje požadavky z prezentačního modulu a volá konkrétní funkce procesního modulu. Výsledná data pak pošle prezentačnímu modulu k zobrazení. Rozhraní pro přenos by mělo být ve standardizovaném datovém formátu\footnote{Typicky v XML, nebo JSON}.
 
-\subsubsection*{Prezentační modul}
+\subsection*{Prezentační modul}
 
-Účelem tohoto modulu je zobrazování dat uživateli. Výchozím bodem je nabídnout seznam smluv. Úvodní obrazovkou bude tedy pohled s úvodními informacemi a souhrnným seznamem smluv. Z každé položky půjde přejít jak do detailu konkrétní smlouvy, tak do detailu jejího vydavatele. Detail smlouvy zobrazí podrobné informace o zvolené smlouvě, včetně jejích verzí, smluvních stran, příloh, dodatků a milníků. Ze subjektů a smluvních stran majících vyplněný IČ půjde přejít na seznam veřejných zakázek, ve kterých subjekt vystupuje. Detail vydavatele nabídne podrobnější informace o zvoleném publikujícím subjektu. Součástí detailu vydavatele bude také seznam jeho smluv. Z tohoto seznamu půjde také přejít na detaily jednotlivých smluv.
+Účelem tohoto modulu je zobrazování dat uživateli. Výchozím bodem je nabídnout přehledné informace o otevřených smlouvách. Úvodní obrazovku bude tvořit pohled vyznačující subjekty otevírající smlouvy (ideálně na mapovém podkladu) a následně souhrnný seznam všech smluv. Z informací o subjektech půjde přejít na detail vybraného subjektu. Dále z každé položky seznamu půjde přejít jak do detailu konkrétní smlouvy, tak do detailu jejího vydavatele (subjektu). Detail smlouvy zobrazí podrobné informace o zvolené smlouvě, včetně jejích verzí, smluvních stran, příloh, dodatků a milníků. Ze subjektů a smluvních stran majících vyplněný IČ půjde přejít na seznam veřejných zakázek, ve kterých subjekt vystupuje. Detail vydavatele nabídne podrobnější informace o zvoleném publikujícím subjektu. Součástí detailu vydavatele bude také seznam jeho smluv. Z tohoto seznamu půjde také přejít na detaily jednotlivých smluv.
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=120mm]{img/linkedDataAdv.eps}}

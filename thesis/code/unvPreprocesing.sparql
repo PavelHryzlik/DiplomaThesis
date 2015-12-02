@@ -1,0 +1,10 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+
+WITH <http://tiny.cc/open-contracting>
+DELETE {?s cn:party ?o .}
+INSERT {?s cn:party ?newo .}
+WHERE {
+  ?s cn:party ?o . 
+  FILTER(isLiteral(?o) && regex(str(?o), "^[0-9]{8}$"))
+  BIND(CONCAT("http://linked.opendata.cz/resource/business-entity/CZ", ?o) AS ?newo)
+}

@@ -1,0 +1,12 @@
+PREFIX cn: <http://tiny.cc/open-contracting#>
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+
+SELECT ?Uri ?Title ?Document
+WHERE 
+{ 
+    ?Uri a cn:Attachment ;
+           dc:title ?Title ;
+           schema:url  ?Document ;
+           cn:contract @contract .
+}

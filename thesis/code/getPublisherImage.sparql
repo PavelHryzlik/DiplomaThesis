@@ -1,0 +1,8 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+                
+SELECT DISTINCT ?city ?img
+WHERE {
+    ?city rdfs:label @publisher@cs;
+          dbpedia-owl:thumbnail ?img .       
+}

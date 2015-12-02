@@ -1,0 +1,45 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Polo\IeC {\v z}ky tabulek datov\IeC {\'e}ho standardu\relax }}{23}{table.caption.29}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Validita\relax }}{24}{table.caption.30}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Akceptovateln\IeC {\'e} soubory\relax }}{24}{table.caption.33}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Vlastnosti dokumentu}}{25}{table.3.4}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Vlastnosti vydavatele}}{25}{table.3.5}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Vlastnosti verze smlouvy}}{26}{table.3.6}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Vlastnosti smlouvy}}{27}{table.3.7}
+\contentsline {table}{\numberline {3.8}{\ignorespaces Vlastnosti p\IeC {\v r}\IeC {\'\i }lohy}}{27}{table.3.8}
+\contentsline {table}{\numberline {3.9}{\ignorespaces Vlastnosti dodatku}}{27}{table.3.9}
+\contentsline {table}{\numberline {3.10}{\ignorespaces Vlastnosti smluvn\IeC {\'\i } strany}}{28}{table.3.10}
+\contentsline {table}{\numberline {3.11}{\ignorespaces Vlastnosti nad\IeC {\v r}azen\IeC {\'e} instituce}}{28}{table.3.11}
+\contentsline {table}{\numberline {3.12}{\ignorespaces Vlastnosti adresy}}{29}{table.3.12}
+\contentsline {table}{\numberline {3.13}{\ignorespaces Vlastnosti objedn\IeC {\'a}vky}}{29}{table.3.13}
+\contentsline {table}{\numberline {3.14}{\ignorespaces Vlastnosti faktury}}{29}{table.3.14}
+\contentsline {table}{\numberline {3.15}{\ignorespaces Vlastnosti implementace}}{30}{table.3.15}
+\contentsline {table}{\numberline {3.16}{\ignorespaces Vlastnosti miln\IeC {\'\i }ku}}{30}{table.3.16}
+\contentsline {table}{\numberline {3.17}{\ignorespaces Vlastnosti transakce}}{30}{table.3.17}
+\contentsline {table}{\numberline {3.18}{\ignorespaces \IeC {\v C}\IeC {\'\i }seln\IeC {\'\i }k typu dokumentu\relax }}{31}{table.caption.49}
+\contentsline {table}{\numberline {3.19}{\ignorespaces \IeC {\v C}\IeC {\'\i }seln\IeC {\'\i }k typu smlouvy}}{31}{table.3.19}
+\contentsline {table}{\numberline {3.20}{\ignorespaces Struktura datov\IeC {\'e}ho souboru}}{33}{table.3.20}
+\contentsline {table}{\numberline {3.21}{\ignorespaces Datov\IeC {\'y} standard serializovan\IeC {\'y} do CSV}}{38}{table.3.21}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Document}}{44}{table.4.1}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Vydavatel}}{45}{table.4.2}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Verze smlouvy}}{45}{table.4.3}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Smlouva}}{46}{table.4.4}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity P\IeC {\v r}\IeC {\'\i }loha}}{46}{table.4.5}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Dodatek}}{47}{table.4.6}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Smluvn\IeC {\'\i } strana}}{47}{table.4.7}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Nad\IeC {\v r}azen\IeC {\'a} instituce}}{47}{table.4.8}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Nad\IeC {\v r}azen\IeC {\'a} instituce}}{48}{table.4.9}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Objedn\IeC {\'a}vka}}{48}{table.4.10}
+\contentsline {table}{\numberline {4.11}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Faktura}}{48}{table.4.11}
+\contentsline {table}{\numberline {4.12}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Implementace}}{49}{table.4.12}
+\contentsline {table}{\numberline {4.13}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Miln\IeC {\'\i }k}}{49}{table.4.13}
+\contentsline {table}{\numberline {4.14}{\ignorespaces Mapov\IeC {\'a}n\IeC {\'\i } entity Transakce}}{49}{table.4.14}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {8.1}{\ignorespaces V\IeC {\'y}sledky testov\IeC {\'a}n\IeC {\'\i } webov\IeC {\'e} aplikace\relax }}{100}{table.caption.127}
+\addvspace {10\p@ }

@@ -1,0 +1,14 @@
+PREFIX dc: <http://purl.org/dc/terms/>
+PREFIX gr: <http://purl.org/goodrelations/v1#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT ?publisher ?aresLink
+WHERE 
+{ 
+    ?publisher dc:identifier @ic .
+
+    OPTIONAL
+    {
+        ?publisher owl:sameAs ?aresLink .
+    }
+}
