@@ -8,7 +8,7 @@ Prvním krokem ve vývoji konverzního modulu je volba a analýza zdrojové plat
 
 Jako zdroj pro implementaci konverzního mechanismu byl zvolen modul Munis ESML. Jedná se o část informačního systému pro města a obce společnosti Triada. spol. s.r.o.
 
-Účelem modulu Munis ESML je evidování odběratelských i dodavatelských smluv. Nabízí přehledné vyhledávání, statistiky, hlídání termínů, nebo možnost přiřadit smlouvy jednotlivým grantům, projektům či veřejným zakázkám (viz. Obr \ref{obr:munisEsml}).
+Účelem modulu Munis ESML je evidování odběratelských i dodavatelských smluv. Nabízí přehledné vyhledávání, statistiky, hlídání termínů, nebo možnost přiřadit smlouvy jednotlivým grantům, projektům či veřejným zakázkám (viz Obr. \ref{obr:munisEsml}).
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/munisEsml.eps}}
@@ -39,7 +39,7 @@ Každá \textit{Verze smlouvy} může obsahovat hierarchickou strukturu příloh
 
 Entity \textit{Změna stavu smlouvy, Rozdělovník, Rozdělovník smluv přístup, Rozdělovník smluv přístup historie} nejsou pro naše účely důležité, proto je dále v textu nebudeme zmiňovat.
 
-K popsání informací o smlouvách budeme ještě využívat tabulku TRI\_UZIVATEL reprezentující uživatele systému a TRI\_ORGADR reprezentující adresu útvaru. 
+K popsání informací o smlouvách budeme ještě využívat entitu \textit{tri\_uzivatel} reprezentující uživatele systému a \textit{tri\_orgadr} reprezentující adresu útvaru. 
 
 \subsubsection{Omezení vůči standardu}
 
@@ -197,7 +197,7 @@ Mapování smluvní strany a adresy vychází z údajů tabulek \\ESMLUV\_SMLUVS
 \subsubsection{Adresa}
 
 \begin{itemize}
-\item \textbf{URI} - \textit{http://[domain]/party/{HAD\_POUZITA}/address}
+\item \textbf{URI} - \textit{http://[domain]/party/\{HAD\_POUZITA\}/address}
 \item \textbf{Typ} - schema:PostalAddress
 \end{itemize}
 
@@ -221,7 +221,7 @@ Mapování smluvní strany a adresy vychází z údajů tabulek \\ESMLUV\_SMLUVS
 
 \subsubsection{Příloha}
 
-Mapování přílohy vychází z údajů tabuly \\ESMLUV\_PRILOHASMLOUVY (viz Obr. \ref{obr:mapAttachment}). V modulu smluv lze přílohy editovat, ale neprovádí se jejich verzování. Proto verze přílohy bude mít vždy hodnotu \uv{1}. Oproti datovému standardu, příloha v datovém modelu Munis ESML popisuje spíše fyzický soubor, nemůžeme tedy namapovat většinu položek entity Dokument, ale jen některé. Nemapované položky proto neuvádíme.
+Mapování přílohy vychází z údajů tabuly ESMLUV\_PRILOHASMLOUVY (viz Obr. \ref{obr:mapAttachment}). V modulu smluv lze přílohy editovat, ale neprovádí se jejich verzování. Proto verze přílohy bude mít vždy hodnotu \uv{1}. Oproti datovému standardu, příloha v datovém modelu Munis ESML popisuje spíše fyzický soubor, nemůžeme tedy namapovat většinu položek entity Dokument, ale jen některé. Nemapované položky proto neuvádíme.
 
 \begin{itemize}
 \item \textbf{URI} entity  - \textit{http://[domain]/attachment/\{ID\}/1}
@@ -268,7 +268,7 @@ Mapování přílohy vychází z údajů tabuly \\ESMLUV\_PRILOHASMLOUVY (viz Ob
 Dodatek v datovém modelu Munis ESML je také smlouvou, takže budeme vycházet z atributů jako u smlouvy (viz Obr. \ref{obr:munisSmlouva}).
 
 \begin{itemize}
-\item \textbf{URI entity} - \textit{http://[domain]/amendment/{ID}/{PoradiVerzeDodatku}}
+\item \textbf{URI entity} - \textit{http://[domain]/amendment/\{ID\}/\{PoradiVerzeDodatku\}}
 \item \textbf{Typ} - cn:Amendment
 \end{itemize}
 
@@ -296,7 +296,7 @@ Dodatek v datovém modelu Munis ESML je také smlouvou, takže budeme vycházet 
 	\end{itemize}
 \item \textbf{cn:version} - Odkaz na informace o verzi dodatku
 	\begin{itemize}
-	\item \textit{http://[domain]/contract/\{ID\}/\{PORADIVERZE\}/version}
+	\item \textit{http://[domain]/amendment/\{ID\}/\{PORADIVERZE\}/version}
 	\end{itemize}
 \item \textbf{schema:url} - Odkaz na fyzický dokument dodatku
 	\begin{itemize}
@@ -477,7 +477,7 @@ Příkazem CONSTRUCT získáme na výstupu RDF graf ve formě trojic. Dotaz mů�
 
 \subsubsection*{Zpracování JSON-LD}
 
-Zvláštní kapitolou je formát JSON-LD. Tento formát není určen pro dotazování, ale spíše na zpracování výsledného grafu. Zavedeme ho tedy jako další možnost zpracování DUMPu dat. Ke zpracování RDF dat potřebujeme načíst definovaný JSON-LD Context, provést mapování nad RDF daty a následně strukturu upravit tak, aby byla validní vůči JSON schématu datového standardu. K mapování využijeme knihovnu JSON-LD.Net. Knihovna však nereflektuje JSON datové typy, resp. všechny hodnotové typy jsou String. Výsledek by tak nebyl validní vůči JSON schématu. Lehce tedy knihovnu upravíme, aby vracela požadované datové typy (viz kód \ref{lst:jsonld_exntension}).
+Zvláštní kapitolou je formát JSON-LD. Tento formát není určen pro dotazování, ale spíše na zpracování výsledného grafu. Zavedeme ho tedy jako další možnost zpracování DUMPu dat. Ke zpracování RDF dat potřebujeme načíst definovaný JSON-LD Context, provést mapování nad RDF daty a následně strukturu upravit tak, aby byla validní vůči JSON schématu datového standardu. K mapování využijeme knihovnu JSON-LD.Net. Knihovna však nereflektuje JSON datové typy, resp. všechny hodnotové typy jsou String. Výsledek by tak nebyl validní vůči JSON schématu. Lehce tedy knihovnu upravíme, aby vracela požadované datové typy (viz Kód \ref{lst:jsonld_exntension}).
 
 \lstinputlisting[label=lst:jsonld_exntension, caption=Rozšíření knihovny JSON-LD.Net
 , language=C++]{code/jsonld_exntension.cs}
@@ -540,7 +540,7 @@ Nyní pomocí DPU - E-FilesDonwload již můžeme stáhnout požadované dataset
 
 \subsubsection*{Uložení a publikace výsledné datové sady}
 
-V první fázi definujeme Metadata o celé datové sadě reprezentující smlouvy. Popíšeme, k čemu datová sada slouží, jaké má URI, licence apod. K tomu slouží DPU - E-DatasetMetadata a DPU - E-DistributionMetadata. Nad datasetem provedeme také statistické výpočty (počty trojic, entit, tříd atd.) pomocí SPARQL příkazu \ref{lst:unStats} v rámci DPU - T-VoidStatistics. 
+V první fázi definujeme metadata o celé datové sadě reprezentující smlouvy. Popíšeme, k čemu datová sada slouží, jaké má URI, licence apod. K tomu slouží DPU - E-DatasetMetadata a DPU - E-DistributionMetadata. Nad datasetem provedeme také statistické výpočty (počty trojic, entit, tříd atd.) pomocí SPARQL příkazu \ref{lst:unStats} v rámci DPU - T-VoidStatistics. 
 
 \lstinputlisting[label=lst:unStats, caption=Statistické výpočty nad Otevřenými smlouvami, language=XML]{code/unStats.sparql}
 
@@ -577,13 +577,13 @@ Webová aplikace je implementována také v technologii ASP.Net se zvoleným arc
 V rámci aplikace využíváme přístup k datovým sadám z těchto SPARQL endpointů:
 
 \begin{itemize}
-\item Otevřené smlouvy - http://student.opendata.cz/sparql
-\item Organizace, ARES, Orgány veřejné moci - http://linked.opendata.cz/sparql
-\item RÚIAN - http://ruian.linked.opendata.cz/sparql
-\item DBpedia - http://dbpedia.org/sparql, nebo česká verze http://cs.dbpedia.org/sparql
+\item Otevřené smlouvy - \textit{http://student.opendata.cz/sparql}
+\item Organizace, ARES, Orgány veřejné moci - \textit{http://linked.opendata.cz/sparql}
+\item RÚIAN - \textit{http://ruian.linked.opendata.cz/sparql}
+\item DBpedia - \textit{http://dbpedia.org/sparql}, nebo česká verze \\\textit{http://cs.dbpedia.org/sparql}
 \end{itemize}
 
-Konkrétní data se získávají pomocí SPARQL dotazů popsaných níže v rámci popisu jednotlivých pohledů\footnote{Položky uvedené znakem "@" jsou proměnné}.
+Konkrétní data se získávají pomocí SPARQL dotazů popsaných níže v rámci popisu jednotlivých pohledů\footnote{Položky uvedené znakem \uv{@} jsou proměnné}.
 
 \subsubsection*{Úvodní obrazovka}
 
@@ -593,7 +593,7 @@ První částí je hlavička obsahující odkazy na web Iniciativy za otevřenou
 
 Druhou částí je zobrazení vydavatelů na mapovém podkladu. Nejdříve získáme informace o subjektech pomocí SPARQL dotazu \ref{lst:getPublishers} (endpoint Otevřené smlouvy). Posléze pro každý subjekt nalezneme jeho link pro přístup k RÚIANU dotazem \ref{lst:getBusinessEntityRuianLink} (endpoint Organizace, ARES, Orgány veřejné moci). Pomocí obdrženého linku získáme informace o adresním místu z RÚIANu dotazem \ref{lst:getBusinessEntityCoordinates} (endpoint RÚIAN). Na závěr zkusíme získat foto subjektu z DBpedie dotazem \ref{lst:getPublisherImage} (endpoint DBpedia). Získané informace zobrazíme uživateli na mapovém podkladu. Každý subjekt je zvýrazněn na svých souřadnicích\footnote{Počet otevřených smluv je v mapě znázorněn červeným kruhem. Ti, co jich mají více, jsou výraznější.}. Po kliku na subjekt se otevře informační okno s podrobnostmi s možností přejití na detail subjektu.
 
-Třetí částí je seznam smluv. Smlouvy získáme pomocí SPARQL dotazu \ref{lst:getContracts} (endpoint Otevřené smlouvy) (Viz Obr. \ref{obr:mainPage}).\\
+Třetí částí je seznam smluv. Smlouvy získáme pomocí SPARQL dotazu \ref{lst:getContracts} (endpoint Otevřené smlouvy) (viz Obr. \ref{obr:mainPage}).\\
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/webMainPage.eps}}
@@ -613,7 +613,7 @@ Třetí částí je seznam smluv. Smlouvy získáme pomocí SPARQL dotazu \ref{l
 
 \subsubsection*{Detail subjektu}
 
-Detail subjektu nabízí podrobné informace o vydavateli a seznam jeho smluv. Informace o subjektu získáme na základě jeho IČ dotazem \ref{lst:getPublisherByIc} (endpoint Otevřené smlouvy). Další informace získáme podobně jako na úvodní obrazovce dotazy \ref{lst:getBusinessEntityRuianLink},\ref{lst:getPublisherImage}. Jako informaci navíc zkusíme zjistit informace o otevíracích dobách vydavatele dotazem \ref{lst:getBusinessEntityOpeningHours} (endpoint Organizace, ARES, Orgány veřejné moci). Posléze nad endpointem Otevřené smlouvy obdržíme seznam smluv subjektu pomocí dotazu \ref{lst:getContractByPublisheIc} (Viz Obr. \ref{obr:webSubjectDetail}).\\
+Detail subjektu nabízí podrobné informace o vydavateli a seznam jeho smluv. Informace o subjektu získáme na základě jeho IČ dotazem \ref{lst:getPublisherByIc} (endpoint Otevřené smlouvy). Další informace získáme podobně jako na úvodní obrazovce dotazy \ref{lst:getBusinessEntityRuianLink},\ref{lst:getPublisherImage}. Jako informaci navíc zkusíme zjistit informace o otevíracích dobách vydavatele dotazem \ref{lst:getBusinessEntityOpeningHours} (endpoint Organizace, ARES, Orgány veřejné moci). Posléze nad endpointem Otevřené smlouvy obdržíme seznam smluv subjektu pomocí dotazu \ref{lst:getContractByPublisheIc} (viz Obr. \ref{obr:webSubjectDetail}).\\
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/webSubjectDetail.eps}}
@@ -627,10 +627,11 @@ Detail subjektu nabízí podrobné informace o vydavateli a seznam jeho smluv. I
 
 \lstinputlisting[label=lst:getContractByPublisheIc, caption=Získej všechny smlouvy daného vydavatele, language=XML]{code/getContractByPublisheIc.sparql}
 
+\newpage
 
 \subsubsection*{Detail smlouvy}
 
-Jak název napovídá, detail smlouvy poskytuje podrobné informace o smlouvě, smluvních stranách, přílohách, dodatcích, milnících, informacích o ceně a verzích smlouvy. Údaje získáme pomocí dotazů \ref{lst:getContract},\ref{lst:getPartiesByContract},\ref{lst:getAttachmentsByContract},\ref{lst:getAmendmentsByContract},\ref{lst:getMilestonesByContract},\ref{lst:getPriceSpecByContract},\ref{lst:getVersionsByContract} nad endpointem Otevřené smlouvy (Viz Obr. \ref{obr:contractDetail}).\\
+Jak název napovídá, detail smlouvy poskytuje podrobné informace o smlouvě, smluvních stranách, přílohách, dodatcích, milnících, informacích o ceně a verzích smlouvy. Údaje získáme pomocí dotazů \ref{lst:getContract},\ref{lst:getPartiesByContract},\ref{lst:getAttachmentsByContract},\ref{lst:getAmendmentsByContract},\ref{lst:getMilestonesByContract},\ref{lst:getPriceSpecByContract},\ref{lst:getVersionsByContract} nad endpointem Otevřené smlouvy (viz Obr. \ref{obr:contractDetail}).\\
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/webContractDetail.eps}}
@@ -655,7 +656,7 @@ Jak název napovídá, detail smlouvy poskytuje podrobné informace o smlouvě, 
 
 \subsubsection*{Veřejné zakázky subjektu}
 
-Seznam veřejných zakázek je dostupný z detailu subjektu na základě jeho IČ. Získáme jej dotazem \ref{lst:getBusinessEntityPublicContracts} (endpoint Organizace, ARES, Orgány veřejné moci) (Viz Obr. \ref{obr:webPublicContracts}).\\
+Seznam veřejných zakázek je dostupný z detailu subjektu na základě jeho IČ. Získáme jej dotazem \ref{lst:getBusinessEntityPublicContracts} (endpoint Organizace, ARES, Orgány veřejné moci) (viz Obr. \ref{obr:webPublicContracts}).\\
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/webPublicContracts.eps}}

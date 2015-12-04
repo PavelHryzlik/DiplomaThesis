@@ -4,7 +4,7 @@ PREFIX pc: <http://purl.org/procurement/public-contracts#>
 PREFIX pccz: <http://purl.org/procurement/public-contracts-czech#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT DISTINCT ?Uri ?ContractId ?EvNumber ?Title ?SupplierUri ?ID ?Amount
+SELECT DISTINCT ?Uri ?ContractId ?EvNumber ?Title ?SupplierUri ?Id ?Amount
 WHERE 
 {
     ?Uri pc:contractingAuthority @businessEntity ;
@@ -21,7 +21,7 @@ WHERE
     BIND(CONCAT(str(?SupplierUri), '/identifier') as ?IcStr)
     BIND(URI(?IcStr) as ?IcUri)
 
-    ?IcUri skos:notation ?ID .
+    ?IcUri skos:notation ?Id .
     ?PriceSpec gr:hasCurrencyValue ?Amount ;
                 gr:valueAddedTaxIncluded	1 .
     }      

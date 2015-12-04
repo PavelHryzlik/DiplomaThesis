@@ -24,7 +24,7 @@ V této kapitole se podrobněji seznámíme se standardem pro zveřejňování s
 Základním objektem, který slouží k reprezentaci dat, je dokument. Jedná se o abstraktní entitu, která nabývá tří rozšíření typu smlouva/příloha/dodatek. Tato rozšíření obsahují všechny položky obsažené v dokumentu a navíc konkrétní položky pro daný typ.
 Smluvní strany jsou separátní objekty navázané buď na smlouvu, objednávku nebo fakturu pomocí jednoznačného identifikátoru.
 Objednávka a faktura jsou separátní objekty, které se mohou vázat na konkrétní smlouvu/přílohu/dodatek pomocí jednoznačného identifikátoru.
-Rozšiřující entity mohou být součástí smlouvy, příp. objednávky. Reprezentují důležité události v životním cyklu dokumentu a jednotlivé transakce (viz. Obr. \ref{obr:standardDatamodel}). 
+Rozšiřující entity mohou být součástí smlouvy, příp. objednávky. Reprezentují důležité události v životním cyklu dokumentu a jednotlivé transakce (viz Obr. \ref{obr:standardDatamodel}). 
 
 \begin{figure}[H]
 \centerline{\includegraphics[width=\textwidth]{img/standardDatamodel.eps}}
@@ -94,7 +94,7 @@ Nepovinné & N & Nepovinná položka \\
 Na entity se vztahují další validační pravidla, která nelze přehledně zachytit v rámci popisu jednotlivých položek. Jejich výčet je zde.
 
 \begin{itemize}
-\item Dokument je buď v strojově čitelném formátu (viz. Akceptovatelné soubory), nebo je k němu poskytnut plain text. Pro smlouvy účinné od 1.6.2015\footnote{Předběžné, bude upřesněno} je přípustná pouze varianta ve strojově čitelném formátu.
+\item Dokument je buď v strojově čitelném formátu (viz Akceptovatelné soubory), nebo je k němu poskytnut plain text. Pro smlouvy účinné od 1.6.2015\footnote{Předběžné, bude upřesněno} je přípustná pouze varianta ve strojově čitelném formátu.
 \item U smlouvy typu darovací nesmí být připojeny faktury, ani jedna smluvní strana nesmí být identifikována jako Payer.
 \item Entita (Vydavatel/Smluvní strana/Nadřazená instituce) má vyplněno buď ID, a nebo NoID = \uv{true}.
 \end{itemize}
@@ -146,9 +146,9 @@ Dokumenty připojené ke smlouvám by měly být strojově čitelné, resp. v t�
 \endlastfoot
 \rowcolor{validateS}URI & String URI & S & Jednoznačný identifikátor formou URL. Typicky rsmluv.cz/[Typ]/[Id]/[Version], kde Version je vzestupné číslování verzí při změnách dokumentu či metadat \\
 \rowcolor{validateS}Document & String URI & S & Adresa URL fyzického umístění dokumentu. Typicky rsmluv.cz/[Typ]/[Id]/[Version]/File, viz akceptovatelné soubory \\
-\rowcolor{validateS}Versions & Object array & S & Údaje o verzi dokumentu. Viz entitia Verze \\
+\rowcolor{validateS}Versions & Object array & S & Údaje o verzi dokumentu. Viz entita Verze \\
 \rowcolor{validateC}Type & String/ String enum & C & Typ dokumentu. Nabývá hodnot - Smlouva/Příloha/Dodatek \\
-\rowcolor{validateC}Publisher & Reference & C & Informace o vydavateli. Viz entitia Vydavatel \\
+\rowcolor{validateC}Publisher & Reference & C & Informace o vydavateli. Viz entita Vydavatel \\
 \rowcolor{validateB}Valid & Boolean & B/S & Indikuje, zda dokument je platný, tj. nebyl zneplatněn nebo nahrazen novou verzí \\
 \rowcolor{validateB}PlainText & String & B/S & Prostý text dokumentu (nestrukturovaný, indexovatelný), alternativa pro scanované dokumenty \\
 \rowcolor{validateB}ResponsiblePersons & String array & B & Výčet odpovědných osob \\
@@ -236,15 +236,15 @@ AwardProfileID & String & N & Číslo zakázky na profilu zadavatele \\
 \rowcolor{validateC}AmountNoVat & Nullable float & C* & Cena bez dph, uvádí se povinně pouze v případě, že Amount je s DPH \\
 \rowcolor{validateC}Title & String & C & Předmět smlouvy \\
 \rowcolor{validateC}ContractType & String & C & Číselník typů smlouvy, viz Číselníky \\
-\rowcolor{validateC}Parties & StringURI/ Int array & C & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entitia Smluvní strana \\
-\rowcolor{validateB}SubjectType & String & B & Číselník typů zboží/služeb, viz. Číselníky \\
+\rowcolor{validateC}Parties & StringURI/ Int array & C & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entita Smluvní strana \\
+\rowcolor{validateB}SubjectType & String & B & Číselník typů zboží/služeb, viz Číselníky \\
 \rowcolor{validateB}PriceAnnual & Boolean & B & Identifikuje, pokud je v Amount roční částka \\
 \rowcolor{validateB}Currency & String & B & Měna, 3-písmenný, ISO 4217 formát \\
 \rowcolor{validateB}DateSigned & Date & B & Datum posledního podpisu \\
 \rowcolor{validateB}ValidFrom & Date & B & Datum účinnosti smlouvy \\
 \rowcolor{validateB}ValidUntil & Date & B & Datum ukončení účinnosti smlouvy (poslední plnění), NULL pro smlouvy na dobu \\
-\rowcolor{validateB}Funding & String & B & Převažující financování – vlastní, případně název dotačního titulu (bude kontrolován proti číselníku, viz. Číselníky) \\
-\rowcolor{validateB}Attachments & String URIarray & B & Seznam URI identifikátorů příloh. Viz entitia Příloha \\
+\rowcolor{validateB}Funding & String & B & Převažující financování – vlastní, případně název dotačního titulu (bude kontrolován proti číselníku, viz Číselníky) \\
+\rowcolor{validateB}Attachments & String URIarray & B & Seznam URI identifikátorů příloh. Viz entita Příloha \\
 \rowcolor{validateB}Amendments & String URIarray & B & Seznam URI identifikátorů dodatků. Viz entitia Dodatek \\
 \rowcolor{validateA}Competency & String/ String enum & A & Indikuje, zda-li se jedná o soukromoprávní nebo veřejnoprávní smlouvu \\
 \rowcolor{validateA}CurrentValidContract & String URI & A & Aktuálně platné znění smlouvy (se zapracovanými dodatky) \\
@@ -413,12 +413,12 @@ ID & String & N & Identifikační číslo osoby, lze vložit i zahraniční id \
 \endlastfoot
 ParrentDocument & String URI & N & Jednoznačný identifikátor dokumentu \\
 SubjectType & String & N & Číselník typů zboží/služeb, viz Číselníky \\
-Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entitia Smluvní strana \\
+Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entita Smluvní strana \\
 \rowcolor{validateC}Title & String & C & Předmět \\
 \rowcolor{validateC}Amount & Float & C & Cena s DPH \\
 \rowcolor{validateB}Currency & String & B & Měna, 3-písmenný, ISO 4217 formát \\
 \rowcolor{validateB}DateSigned & Date & B & Datum posledního podpisu \\
-\rowcolor{validateA}Implementation & Object & A & Objekt reprezentující transakce a milníky, viz entitia Implementation \\
+\rowcolor{validateA}Implementation & Object & A & Objekt reprezentující transakce a milníky, viz entita Implementation \\
 \end{longtable}
 \end{center}
 
@@ -442,7 +442,7 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \caption[Vlastnosti faktury]{Vlastnosti faktury, zdroj:\cite{metodika, standard}}
 \endlastfoot
 ParrentDocument & String URI & N & Jednoznačný identifikátor dokumentu \\
-Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entitia Smluvní strana \\
+Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) smluvních stran. Viz entita Smluvní strana \\
 \rowcolor{validateC}Title & String & C & Předmět \\
 \rowcolor{validateC}Amount & Float & C* & Cena s DPH (u neplátců celková cena). \\
 \rowcolor{validateB}Currency & String & B & Měna, 3-písmenný, ISO 4217 formát \\
@@ -472,8 +472,8 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \endfoot
 \caption[Vlastnosti implementace]{Vlastnosti implementace, zdroj:\cite{metodika, standard}}
 \endlastfoot
-\rowcolor{validateA}Milestones & Object arra & A & Milníky, pro volnou evidenci událostí (obnova smlouvy, předání apod.). Viz entitia Milník \\
-\rowcolor{validateA}Transactions & Object array & A & Seznam transakcí, tedy proběhlých plateb na základě smlouvy. Viz entitia Transakce \\
+\rowcolor{validateA}Milestones & Object arra & A & Milníky, pro volnou evidenci událostí (obnova smlouvy, předání apod.). Viz entita Milník \\
+\rowcolor{validateA}Transactions & Object array & A & Seznam transakcí, tedy proběhlých plateb na základě smlouvy. Viz entita Transakce \\
 \end{longtable}
 \end{center}
 
@@ -522,8 +522,8 @@ Parties & String URI/Int array & N & Seznam identifikátorů (URI nebo LocalID) 
 \endlastfoot
 \rowcolor{validateC}Date & DateTime & C & Datum a čas proběhlé transakce \\
 \rowcolor{validateC}Ammount & Float & C & Zaplacená cena s DPH, vždy stejná měna jako v Currency \\
-\rowcolor{validateC}SenderOrganization & Reference & C & Informace o odesílateli. Viz entitia Party \\
-\rowcolor{validateC}ReceiverOrganization & Reference & C & Informace o příjemci. Viz entitia Party \\
+\rowcolor{validateC}SenderOrganization & Reference & C & Informace o odesílateli. Viz entita Party \\
+\rowcolor{validateC}ReceiverOrganization & Reference & C & Informace o příjemci. Viz entita Party \\
 \rowcolor{validateB}PublisherId & String & B & Libovolný číselný identifikátor transakce, unikátní v rámci smlouvy \\
 \end{longtable}
 \end{center}
@@ -738,7 +738,7 @@ Jedná se o jednoduchou webovou aplikaci na bázi wikipedie. Implementována je 
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/standard_methodics.eps}}
-\caption[Metodika zveřejňování smluv]{Metodika zveřejňování smluv\cite{metodika}}
+\caption[Metodika zveřejňování smluv]{Metodika zveřejňování smluv, zdroj:\cite{metodika}}
 \label{obr:standard_methodics}
 \end{figure}
 

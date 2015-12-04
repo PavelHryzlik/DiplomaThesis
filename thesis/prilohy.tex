@@ -22,6 +22,43 @@
 
 \section*{Uživatelská dokumentace}
 
+Adresa konverzního mechanismu je nastavena na:
+\begin{itemize}
+	\item \textit{http://[domain]/sparql}
+\end{itemize}
+Základní funkcionalita konverzního modulu a webové aplikace je k nalezení v kapitole Implementace platformy. U obou projektů stačí k běžnému nastavení soubor \textit{Web.config}. Projekty byly vyvíjeny ve vývojovém prostředí Visual Studia 2013, později ve verzi 2015. Základní předpoklady pro využití platformy jsou:
+
+\begin{itemize}
+\item Konverzní mechanismus
+	\begin{itemize}
+	\item Prostředí, kde lze publikovat webovou aplikace v prostředí .NET, tedy Windows, Windows Server, IIS, MS Azure apod.
+	\item MSSQL Server 2012 a vyšší pro funkci R2RML procesoru
+	\item Přístup k MSSQL databázi firmy Triada, spol. s r. o. 
+	\item Přístup k datovému úložišti firmy Triada, spol. s r. o.
+	\item Knihovna pro práci s datovým úložištěm 
+	\item R2RML mapovací skript
+	\end{itemize}
+\item Jednotné úložiště
+	\begin{itemize}
+		\item Nástroj UnifiedViews
+		\item Triplestore databáze, např. Openlink Virtuoso Universal Server
+		\item Konfigurační soubor s datovým katalogem požadovaných datasetů
+	\end{itemize}
+\item Webová aplikace
+	\begin{itemize}
+	\item Prostředí, kde lze publikovat webovou aplikace v prostředí .NET, tedy Windows, Windows Server, IIS, MS Azure apod.
+	\item Přístup k SPARQL endpointům:
+		\begin{itemize}
+		\item \textit{http://student.opendata.cz/sparql}
+		\item \textit{http://linked.opendata.cz/sparql}
+		\item \textit{http://ruian.linked.opendata.cz/sparql}
+		\item \textit{http://cs.dbpedia.org/sparql}
+		\end{itemize}	
+	\end{itemize}
+\end{itemize}
+
+
+
 \chapwithtoc{C Příloha}
 
 \section*{Obsah přiloženého datového nosiče}
@@ -31,7 +68,7 @@ Základní struktura přiloženého datového nosiče je rozdělena do těchto s
 \begin{table}[h]
 \begin{tabular}{lp{55mm}}
 \textbf{/ContractStandard/} & Složka datového standardu \\
-\textbf{/ContractStandard/lod/} & Složka s skripty využívající principy LinkedData \\
+\textbf{/ContractStandard/lod/} & Složka se skripty využívající principy LinkedData \\
 \textbf{/ContractStandard/lod/contract\_context.jsonld} & JSON-LD Context - mapující skript \\
 \textbf{/ContractStandard/lod/contract\_ontology.ttl} & Ontologie pro otevřené smlouvy \\
 \textbf{/ContractStandard/lod/subject\_catalog.ttl} & Datový katalog pro UnifiedViews \\
@@ -49,15 +86,16 @@ Základní struktura přiloženého datového nosiče je rozdělena do těchto s
 \end{tabular}
 \end{table}
 
-\section*{Online repozitář}
+\section*{Online zdroje}
 
-Projekty řešené v rámci této práce lze nalézt na Githubu na adresách:
+Projekty řešené v rámci této práce lze nalézt na těchto na adresách:
 
 \begin{itemize}
-\item[] \textit{https://github.com/PavelHryzlik/ContractStandard} - Datový standard
-\item[] \textit{https://github.com/PavelHryzlik/ContractViewer} - Webová aplikace
 \item[] \textit{https://github.com/PavelHryzlik/DiplomaThesis} - Text práce
+\item[] \textit{https://github.com/PavelHryzlik/ContractStandard} - Datový standard
 \item[] \textit{https://github.com/PavelHryzlik/TriadaEndpoint} - Konverzní modul
+\item[] \textit{https://github.com/PavelHryzlik/ContractViewer} - Webová aplikace
+\item[] \textit{http://opencontracts.azurewebsites.net/} - Testovací nasazení web. aplikace
 \end{itemize}
 
 \chapwithtoc{D Příloha}

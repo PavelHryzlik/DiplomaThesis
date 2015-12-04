@@ -3,7 +3,7 @@ PREFIX dc: <http://purl.org/dc/terms/>
 PREFIX gr: <http://purl.org/goodrelations/v1#>
 PREFIX schema: <http://schema.org/>
 
-SELECT ?ID ?Uri ?Name ?Country ?PaysVAT ?StreetAddres ?Locality ?PostalCode 
+SELECT ?Id ?Uri ?Name ?Country ?PaysVat ?StreetAddres ?Locality ?PostalCode 
 WHERE 
 { 
     @contract cn:party ?Uri .
@@ -11,9 +11,9 @@ WHERE
            gr:legalName ?Name ;
            schema:addressCountry ?Country ;
            schema:address ?Address ;
-           gr:valueAddedTaxIncluded ?PaysVAT .
+           gr:valueAddedTaxIncluded ?PaysVat .
 
-    OPTIONAL {?Uri dc:identifier ?ID}
+    OPTIONAL {?Uri dc:identifier ?Id}
 
     ?Address a schema:PostalAddress ;
               schema:streetAddres ?StreetAddres ;

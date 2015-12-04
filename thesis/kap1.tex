@@ -5,7 +5,7 @@ Předmětem této kapitoly je čtenáře stručně seznámit se základními poj
 
 \section[Otevřená data (Open Data)]{Otevřená data (Open Data)\cite{howtoopendata, odgov_s}}
 
-\textit{\uv{Open data can help us address the greatest challenges of our time and generate value for everyone}} - Open Data Institute 2012
+\textit{\uv{Open data can help us address the greatest challenges of our time and generate value for everyone}} - Open Data Institute 2012\footnote{Logo otevřených dat viz Obr. \ref{obr:logo}}
 \newline
 
 Začneme definicí, kterou si postupně vysvětlíme. Jako otevřená data můžeme chápat údaje zveřejněná na internetu, která jsou 
@@ -47,14 +47,14 @@ Je třeba si uvědomit, že nezveřejňujeme data pro data. Zveřejňujeme pro p
 \begin{figure}[h]
 \centerline{\includegraphics[width=100mm]{img/opendata.eps}}
 \caption{Logo otevřených dat}
-\label{modules}
+\label{obr:logo}
 \end{figure}
 
 \newpage
 
 \section{Kvalita otevřených dat}
 
-Tvůrce WWW a ředitel konsorcia W3C Tim Berners-Lee navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obrázek \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.
+Tvůrce WWW a ředitel konsorcia W3C Tim Berners-Lee navrhl pěti hvězdičkový systém, jak kategorizovat otevřená data (viz Obr. \ref{obr:5star_steps}). Každá hvězdička definuje stupeň otevřenosti, kde 5$\bigstar$ znamená nejvyšší kvalitu dat, 1$\bigstar$ naopak nejmenší. Také platí, že každý stupeň je nadmnožinou (rozšířením) stupně předešlého.\cite{5starInfo, linkedData}
 
 \section[Stupně otevřenosti]{Stupně otevřenosti\cite{5starInfo, linkedData}}    
 
@@ -204,7 +204,7 @@ Základním stavebním kamenem RDF je tvrzení, resp. trojice: \textbf{Subjekt -
 \item Každý subjekt je jednoznačně identifikován pomocí URI, nebo je označen jako anonymní\footnote{Subjekty, příp. objekty lze označit jako anonymní, resp. pomocí tzv. Blank node. Na anonymní subjekty, resp. objekty ale nelze přímo přistupovat. Používají se typicky k zapouzdření, či jako kontejnery jiných objektů.} 
 \item Objektem je buď hodnota (literál), odkaz na subjekt (resource), nebo je označen jako anonymní
 \item Pro každý subjekt je specifikován jeho typ (třída) formou URI
-\item Každému predikátu je přiřazen také jeho typ formou URI
+\item Každému predikátu je přiřazen řetězec ve formě URI
 \item Jednotlivé URI z bodů 3, 4 by měly odkazovat na konkrétní slovníky tříd a predikátů, resp. ontologie
 \end{enumerate}
 
@@ -224,7 +224,20 @@ Na obr. \ref{obr:rdf_graph} vidíme příklad jednoduchého grafu ve formátu RD
 \label{obr:rdf_graph}
 \end{figure}
 
-Ze zmíněného příkladu ale není zřejmý význam, resp. sémantika jednotlivých subjektů a predikátů. Je tedy důležité jim přiřadit konkrétní typy. Každý typ by měl být popsaný v konkrétním slovníku tříd a predikátů. Takovéto slovníky nazýváme ontologiemi. Na obr. \ref{obr:rdf_graphWithOntology} vidíme zmíněný příklad rozšířený o přiřazené typy (aplikována pravidla 3, 4, 5)\footnote{Pro zapisování typů se kvůli úspornosti používají prefixy definované typicky na začátku dokumentu.}.
+\newpage
+
+Ze zmíněného příkladu ale není zřejmý význam, resp. sémantika jednotlivých subjektů a predikátů. Je tedy důležité jim přiřadit konkrétní typy. Každý typ by měl být popsaný v konkrétním slovníku tříd a predikátů. Takovéto slovníky nazýváme ontologiemi. Na obr. \ref{obr:rdf_graphWithOntology} vidíme zmíněný příklad rozšířený o přiřazené typy (aplikována pravidla 3, 4, 5)\footnote{Pro zapisování typů se kvůli úspornosti používají prefixy definované typicky na začátku dokumentu.}. Jednotlivé trojice by pak vypadaly takto:
+
+\begin{enumerate}
+\item \textit{http://rsmluv.cz/contract/42/1 - rdf:type - cn:Contract} 
+\item \textit{http://rsmluv.cz/contract/42/1 - dc:title - Softwarová zakázka}   
+\item \textit{http://rsmluv.cz/contract/42/1 - cn:party - rsmluv.cz/party/420}
+\item \textit{http://rsmluv.cz/party/420 - rdf:type - gr:BusinessEntity} 
+\item \textit{http://rsmluv.cz/party/420 - gr:legalName - Magistrát HMP}
+\item \textit{http://rsmluv.cz/party/420 - s:address - rsmluv.cz/party/420/address}
+\item \textit{http://rsmluv.cz/party/420/address - rdf:type - s:PostalAddress}
+\item \textit{http://rsmluv.cz/party/420/address - s:streetAddress - Staroměstké nám. 4}
+\end{enumerate}
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/rdf_graphWithOntology.eps}}
@@ -247,7 +260,7 @@ Mezi základní výrazové prostředky jazyka OWL a RDFS patří:
 \begin{itemize}
 \item \textit{owl:Class} - typ entity třída
 \item \textit{owl:ObjectProperty} - typ entity vlastnost
-\item \textit{owl:FunctionalProperty} - typ jedinečná vlastnost (nemůže se opakovat)
+\item \textit{owl:FunctionalProperty} - typ funkcionální vlastnost (může mít nejvýše jednu hodnotu)
 \item \textit{owl:unionOf} - jeden typ třídy z výčtu musí být vyplněn 
 \item \textit{owl:equivalentClass} - definuje, že se jedná o třídu odpovídající jiné třídě
 \item \textit{owl:equivalentProperty} - definuje, že se jedná o vlastnost odpovídající jiné vlastnosti
@@ -260,7 +273,7 @@ Mezi základní výrazové prostředky jazyka OWL a RDFS patří:
 \item \textit{rdfs:subPropertyOf} - definice, že se jedná o podvlastnost určité vlastnosti  
 \end{itemize}
 
-Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad ontologie třídy Contract. Ontologie nám říká, že se jedná o třídu (typ owl:Class) s názvem Smlouva (rdfs:label), která je podtřídou (rdfs:subClassOf) třídy Document a je definovaná (rdfs:isDefinedBy) v ontologii http://tiny.cc/open-contracting. Kdokoli pak bude zpracovávat entitu označenou tímto typem, tak díky přiřazené ontologii bude schopen určit, že se jedná o smlouvu.
+Na obr. \ref{obr:rdf_ontologyClass} vidíme příklad části ontologie definující třídu Contract. Ontologie nám říká, že se jedná o třídu (typ owl:Class) s názvem Smlouva (rdfs:label), která je podtřídou (rdfs:subClassOf) třídy Document a je definovaná (rdfs:isDefinedBy) v ontologii \textit{http://tiny.cc/open-contracting}. Kdokoli pak bude zpracovávat entitu označenou tímto typem, tak díky přiřazené ontologii bude schopen určit, že se jedná o smlouvu.
 
 \begin{figure}[h]
 \centerline{\includegraphics[width=\textwidth]{img/rdf_ontologyClass.eps}}
@@ -300,7 +313,7 @@ Pro potřeby této práce si vystačíme s formáty N-Triples, Turtle a JSON-LD.
 
 \subsection{Příklad dat serializovaných ve formátu N-Triples}
 
-Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obr \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti uvedeny na samostatných řádcích}.\\
+Serializace RDF dat do N-Triples je velmi jednoduchá. Jedná se o seznam trojic oddělených tečkou. Každá trojice je uvedena na vlastním řádku. Tento formát nepoužívá prefixové zkracování URI. Je vhodný pro proudové zpracování velkého množství dat (viz Obr. \ref{lst:ntriples_example})\footnote{Trojice nejsou z důvodu přehlednosti uvedeny na samostatných řádcích}.\\
 
 \lstinputlisting[label=lst:ntriples_example,caption=Příklad RDF dat - N-Triples, language=XML]{code/ntriples_example.nt}
 

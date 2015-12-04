@@ -8,5 +8,7 @@ WHERE
 
    ?Uri dc:issued ?Issued ;
         cn:uri ?ContractUri ;
-        cn:versionOrder ?VersionOrder.           
+        cn:versionOrder ?VersionOrder.       
+        
+   FILTER regex(?Contract, @contract)     
 }

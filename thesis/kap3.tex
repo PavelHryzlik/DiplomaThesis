@@ -112,7 +112,7 @@ V následujícím seznamu je výčet vybraných ontologií\footnote{V závorce u
 Vybrané ontologie:
 
 \begin{itemize}
-\item \textbf{Commerce (com)} (\textit{https://w3id.org/commerce\#}) - ontologie pro popisování obchodních transakcí
+\item \textbf{Commerce (com)} (\textit{https://w3id.org/commerce\#})\cite{commerce} - ontologie pro popisování obchodních transakcí
 	\begin{itemize}
 	\item Důvod použití - užitečná třída transakce 
 	\item Vybrané třídy 
@@ -125,7 +125,7 @@ Vybrané ontologie:
 		\item destination - cíl transakce
 		\end{itemize}
 	\end{itemize}
-\item \textbf{DublinCore (dc,dcmi)} (\textit{http://purl.org/dc/terms/}) - základní ontologie pro popis metadat 
+\item \textbf{DublinCore (dc,dcmi)} (\textit{http://purl.org/dc/terms/})\cite{dc} - základní ontologie pro popis metadat 
 	\begin{itemize}
 	\item Důvod použití - základní a všeobecně známá ontologie popisující metadata
 	\item Vybrané predikáty
@@ -144,7 +144,7 @@ Vybrané ontologie:
 		\item type - typ dokumentu
 		\end{itemize}
 	\end{itemize}
-\item \textbf{Friend-of-a-Friend (foaf)} (\textit{http://xmlns.com/foaf/0.1}) - ontologie pro popis vazeb mezi lidmi
+\item \textbf{Friend-of-a-Friend (foaf)} (\textit{http://xmlns.com/foaf/0.1})\cite{foaf} - ontologie pro popis vazeb mezi lidmi
 	\begin{itemize}
 	\item Důvod použití - vhodná pro označení třídy vydavatele
 	\item Vybrané třídy 
@@ -158,7 +158,7 @@ Vybrané ontologie:
 		\item mbox - email osoby
 		\end{itemize}
 	\end{itemize}
-\item \textbf{GoodRelations (gr)} (\textit{http://purl.org/goodrelations/v1\#}) - ontologie pro popis produktů, cen a obchodních dat
+\item \textbf{GoodRelations (gr)} (\textit{http://purl.org/goodrelations/v1\#})\cite{gr} - ontologie pro popis produktů, cen a obchodních dat
 	\begin{itemize}
 	\item Důvod použití - známá ontologie, vhodná pro popis smluvních stran a informací o cenách 
 	\item Vybrané třídy 
@@ -174,7 +174,7 @@ Vybrané ontologie:
 		\item valueAddedTaxIncluded - plátce DPH
 		\end{itemize}
 	\end{itemize}
-\item \textbf{Schema} (\textit{http://schema.org/}) - obecná ontologie mající za cíl pokrývat co největší možné množství informací
+\item \textbf{Schema} (\textit{http://schema.org/})\cite{schema} - obecná ontologie mající za cíl pokrývat co největší možné množství informací
 	\begin{itemize}
 	\item Důvod použití - známá ontologie, možnost využití pro popis adresních údajů 
 	\item Vybrané třídy 
@@ -191,7 +191,7 @@ Vybrané ontologie:
 		\item streetAddres - ulice
 		\end{itemize}
 	\end{itemize}
-\item \textbf{Vann} (\textit{http://purl.org/vocab/vann/}) - anotační ontologie pro dokumenty 
+\item \textbf{Vann} (\textit{http://purl.org/vocab/vann/})\cite{vann} - anotační ontologie pro dokumenty 
 	\begin{itemize}
 	\item Důvod použití - nesouvisí s datových standardem, tato ontologie je vhodná pro popis ontologií a bude zmíněna níže v publikaci [\ref{sec:kap3}].
 	\item Vybrané predikáty
@@ -203,6 +203,8 @@ Vybrané ontologie:
 	\end{itemize}
 
 \end{itemize}
+
+\newpage
 
 \subsection{Tvorba ontologie}
 
@@ -358,8 +360,6 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \end{longtable}
 \end{center}
 
-\newpage
-
 \subsubsection*{Dodatek}
 
 \begin{center}
@@ -415,6 +415,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \end{longtable}
 \end{center}
 
+\newpage
+
 \subsubsection*{Nadřazená instituce}
 
 \begin{center}
@@ -440,8 +442,6 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \textbf{country} & schema:addressCountry \\
 \end{longtable}
 \end{center}
-
-\newpage
 
 \subsubsection*{Adresa}
 
@@ -496,6 +496,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \textbf{implementation} & cn:implementation \\
 \end{longtable}
 \end{center}
+
+\newpage
 
 \subsubsection*{Faktura}
 
@@ -573,6 +575,8 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \end{longtable}
 \end{center}
 
+\newpage
+
 \subsubsection*{Transakce}
 
 \begin{center}
@@ -602,7 +606,7 @@ Výsledné mapování můžeme vidět v následujících tabulkách 4.1 - 4.14. 
 \subsection{Publikace}
 \label{sec:kap423}
 
-K serializaci výsledné ontologie využijeme formátu Turtle. Soubor se skládá z hlavičky a definicí nově vytvořených tříd a predikátů. V hlavičce definujeme prefixy použitých ontologií a základní informace o ontologii. Použité třídy a predikáty zmíníme v poznámkách k použití (predikát \textit{vann:usageNote}). Příklad ontologie lze nalézt v Příloze D.
+K serializaci výsledné ontologie využijeme formátu Turtle. Soubor se skládá z hlavičky a definicí nově vytvořených tříd a predikátů. V hlavičce definujeme prefixy použitých ontologií a základní informace o ontologii. Použité třídy a predikáty zmíníme v poznámkách k použití (predikát \textit{vann:usageNote}). Celou ontologie lze nalézt v Příloze D.
 
 \newpage
 
